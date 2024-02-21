@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d849fa6e-adb9-4362-a211-513ba5344fee" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/image/프로젝트 아키텍쳐.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/arch.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,10 +36,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2cfUjLPKiYXH3AcmmV5Egp7Z8w5" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
@@ -53,7 +53,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "dev",
     "last_opened_file_path": "/Users/baekjonghwan/Downloads/Dev/final-project",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -68,6 +68,16 @@
       <recent name="$PROJECT_DIR$/final-project/src/main/resources" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="FinalProjectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="final-project.final-project.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ohgiraffers.finalproject.FinalProjectApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -76,7 +86,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708502263546</updated>
-      <workItem from="1708502264666" duration="599000" />
+      <workItem from="1708502264666" duration="762000" />
     </task>
     <servers />
   </component>
