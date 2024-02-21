@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+.navBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    height: 3.3rem;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    margin: auto;
+    position: relative;
+    margin-top: 2%;
+    border-radius: 30px;
+
+}
+.mainH1 {
+    position: relative;
+    left: 1%;
+    font-weight: bold;
+
+}
+
+.mainPage {
+    font-size : 2rem;
+    font-weight:bold;
+    border:none;
+    cursor:pointer;
+    text-decoration : none;
+    color: #008BDA;
+}
+
+
+.mainUl {
+    display: flex;
+    align-items: center;
+
+}
+
+li {
+    padding : 5px;
+    list-style-type: none;
+}
+li:hover{
+    text-decoration: underline;
+}
+.loginDiv{
+    margin-right: 1%;
+    width: 5%;
+    height: 60%;
+    background-color: #008BDA;
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+
+}
+.login {
+    color: white;
+    text-decoration: none;
+
+}
