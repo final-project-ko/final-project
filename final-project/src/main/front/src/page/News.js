@@ -9,7 +9,7 @@ const News = () => {
 
     return(
         <div className='mainDiv'>
-            <h1>gdgd</h1>
+            <h1>뉴스 본문입니다.</h1>
         </div>
     )
 }
