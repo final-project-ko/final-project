@@ -7,7 +7,11 @@
 >>>>>>> 2bb596404a4238d74eeee3fe630321b30c0201b4
 =======
   <component name="GradleMigrationSettings" migrationVersion="1" />
+<<<<<<< HEAD
 >>>>>>> 5713b71982dc91393db2e9021c6d6f96fc64aed0
+=======
+>>>>>>> 85117906e085600a02fff127b72c9dbc9dcfae55
+>>>>>>> 3fa17b41500bdc5292d95ebe6c79474075a714fe
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
@@ -19,7 +23,11 @@
 >>>>>>> 2bb596404a4238d74eeee3fe630321b30c0201b4
 =======
         <option name="gradleJvm" value="temurin-17" />
+<<<<<<< HEAD
 >>>>>>> 5713b71982dc91393db2e9021c6d6f96fc64aed0
+=======
+>>>>>>> 85117906e085600a02fff127b72c9dbc9dcfae55
+>>>>>>> 3fa17b41500bdc5292d95ebe6c79474075a714fe
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/final-project" />
