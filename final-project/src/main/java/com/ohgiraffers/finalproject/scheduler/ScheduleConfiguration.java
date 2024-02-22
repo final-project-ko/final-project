@@ -23,8 +23,48 @@ import java.util.List;
 @Service
 public class ScheduleConfiguration {
 
+    /*요청 api 목록 정의
 
-    @Scheduled(cron ="0 0/1 * * * ?")
+newsapi  -  미국 7가지 카테고리 뉴스
+
+https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=b2f485cd2f274a5ba62325da31653420
+
+https://newsapi.org/v2/top-headlines?country=us&category=entertainment&apiKey=b2f485cd2f274a5ba62325da31653420
+
+https://newsapi.org/v2/top-headlines?country=us&category=general&apiKey=b2f485cd2f274a5ba62325da31653420
+
+https://newsapi.org/v2/top-headlines?country=us&category=health&apiKey=b2f485cd2f274a5ba62325da31653420
+
+https://newsapi.org/v2/top-headlines?country=us&category=science&apiKey=b2f485cd2f274a5ba62325da31653420
+
+https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=b2f485cd2f274a5ba62325da31653420
+
+https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=b2f485cd2f274a5ba62325da31653420
+
+
+newsapi  - 한국 7가지 카테고리 뉴스
+
+https://newsapi.org/v2/top-headlines?country=kr&category=business&apiKey=b2f485cd2f274a5ba62325da31653420
+
+https://newsapi.org/v2/top-headlines?country=kr&category=entertainment&apiKey=b2f485cd2f274a5ba62325da31653420
+
+https://newsapi.org/v2/top-headlines?country=kr&category=general&apiKey=b2f485cd2f274a5ba62325da31653420
+
+https://newsapi.org/v2/top-headlines?country=kr&category=health&apiKey=b2f485cd2f274a5ba62325da31653420
+
+https://newsapi.org/v2/top-headlines?country=kr&category=science&apiKey=b2f485cd2f274a5ba62325da31653420
+
+https://newsapi.org/v2/top-headlines?country=kr&category=sports&apiKey=b2f485cd2f274a5ba62325da31653420
+
+https://newsapi.org/v2/top-headlines?country=kr&category=technology&apiKey=b2f485cd2f274a5ba62325da31653420
+
+*/
+
+
+   /* 지금 테스트로 1분에 한번씩 실행되게 해놨습니다. 테스트 실행 후 서버 꺼주셔야 api 요청 낭비가 되지 않아요 아니면
+   *    cron 을 늘려주시면 더 천천히 실행 됩니다.
+   * */
+    @Scheduled(cron ="0 0/5 * * * ?")
     public void apiStart(){
 
         HashMap<String,Object> result = new HashMap<String,Object>();
@@ -34,6 +74,7 @@ public class ScheduleConfiguration {
         HttpHeaders header = new HttpHeaders();
         HttpEntity<?> entity = new HttpEntity<>(header);
 
+        // 요청 url - 위 주석에 종류 적어놓음
         UriComponents uri = UriComponentsBuilder.fromHttpUrl("https://newsapi.org/v2/top-headlines?country=kr&apiKey=b2f485cd2f274a5ba62325da31653420").build();
 
         ResponseEntity<String> resultMap = restTemplate.exchange(uri.toString(), HttpMethod.GET, entity, String.class);
