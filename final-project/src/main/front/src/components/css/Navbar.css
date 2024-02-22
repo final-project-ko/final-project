@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-
+    background-color: #F7F9FB;
 }
 
 .navBox {
@@ -47,18 +47,14 @@ li {
 li:hover{
     text-decoration: underline;
 }
-.loginDiv{
+.loginDiv {
     margin-right: 1%;
     width: 5%;
     height: 60%;
-    background-color: #008BDA;
     border-radius: 10px;
     text-align: center;
     align-items: center;
-
-}
-.login {
     color: white;
-    text-decoration: none;
+    background-color: #008BDA;
 
 }
