@@ -31,4 +31,4 @@
 
 ## 프로젝트 아키텍쳐
 
-![프로젝트 아키텍쳐](https://github.com/jmsdew/final-project/assets/60908387/23dc8819-c1cb-4017-af87-9e92c77b35b2)
+<img src="./image/arch.png" alt="">
