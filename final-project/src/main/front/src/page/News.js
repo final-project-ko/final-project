@@ -1,4 +1,5 @@
 import {useParams} from "react-router-dom";
+import "../components/css/News.css";
 
 const News = () => {
 
@@ -7,9 +8,20 @@ const News = () => {
 
     console.log(category);
 
+
+
     return(
         <div className='mainDiv'>
-            <h1>gdgd</h1>
+            <div className="new1" id='news'></div>
+            <div className="new1" id='news'></div>
+            <div className="new1" id='news'></div>
+            <div className="new1" id='news'></div>
+            <div className="new1" id='news'></div>
+            <div className="new1" id='news'></div>
+            <div className="new1" id='news'></div>
+            <div className="new1" id='news'></div>
+            <div className="new1" id='news'></div>
+            <div className="new1" id='news'></div>
         </div>
     )
 }
