@@ -1,5 +1,6 @@
 import {NavLink} from "react-router-dom";
 import "../css/Navbar.css";
+import {useEffect} from "react";
 
 
 const Navbar = () => {
@@ -26,11 +27,11 @@ const Navbar = () => {
             <header className='navBox'>
 
                 <div className='mainH1'>
-                    <NavLink className='mainPage' to={"/"}>오늘은</NavLink>
+                    <NavLink className='mainPage' to={"/main"}>오늘은</NavLink>
                 </div>
 
                 <ul className='mainUl'>
-                    <li><NavLink  to={"/"} className='main' style={({isActive}) => (isActive? choice : nonChoice)}>종합</NavLink></li>
+                    <li><NavLink  to={"/main"} className='main' style={({isActive}) => (isActive? choice : nonChoice)}>종합</NavLink></li>
                     <li><NavLink  to={"/politics"} className='politics' style={({isActive}) => (isActive? choice : nonChoice)}>정치</NavLink></li>
                     <li><NavLink  to={"/business"} className='business' style={({isActive}) => (isActive? choice : nonChoice)}>비즈니스</NavLink></li>
                     <li><NavLink  to={"/technology"} className='technology' style={({isActive}) => (isActive? choice : nonChoice)}>기술</NavLink></li>
@@ -44,7 +45,7 @@ const Navbar = () => {
                 </ul>
 
                 <div className='loginDiv'>
-                    <li><NavLink  to={"/login"} className='login'>Login</NavLink></li>
+                    Login
                 </div>
             </header>
         </>
