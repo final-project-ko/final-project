@@ -1,7 +1,8 @@
 import React from 'react';
 import {BrowserRouter, NavLink, Route, Routes} from "react-router-dom";
 import Layout from "./components/layouts/Layout";
-import News from "./page/News";
+import HeaderNews from "./page/HeaderNews";
+import DetailsNews from "./page/DetailsNews";
 function App() {
 
 
@@ -12,7 +13,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Layout/>}>
-              <Route path=':category' element={<News/>}/>
+              <Route index element={<HeaderNews/>}/>
+              <Route path=':category' element={<HeaderNews/>}/>
+              <Route path='/fashion' element={<DetailsNews/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
