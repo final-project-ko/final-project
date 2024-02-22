@@ -1,34 +1,109 @@
-//
-//
-//
-// export const NYTimes = async () => {
-//
-//     const response = await fetch('https://newsapi.org/v2/top-headlines?country=kr&apiKey=b2f485cd2f274a5ba62325da31653420');
-//     const data = await response.json();
-//
-//     // data 안에 뉴스 api 는 articles 배열로 뉴스가 들어있기 때문에 추출해줌
-//     const articles = data.articles;
-//
-//     const newsData = [];
-//
-//     for (let i = 0; i < 10; i++) {
-//         const article = articles[i];
-//         const articleData = {
-//             title : article.title,
-//             description : article.description,
-//             url : article.url,
-//             urlToImage : article.urlToImage
-//         };
-//         newsData.push(articleData);
-//     }
-//     sendNewsServer(newsData);
-//
-//     return newsData;
-//
-// }
-//
-//
-// // 받아 오는 데이터 백엔드로 보내는 로직
-// const sendNewsServer = (newsData) => {
-//
-// }
+import {useEffect, useState} from "react";
+import {Alert, ImageBackground, StyleSheet, Text, View} from "react-native";
+import axios from "axios";
+import {VideoBackground} from "./VideoBackground";
+
+
+const Weather = () =>{
+    const [isLoading , setIsLoading] = useState(true);
+    const [currentWeather, setCurrentWeather] = useState('');
+    const [temp, setTemp] = useState('');
+    const [error, setError] = useState(false);
+
+    const API_KEY = "5c109176cb7f758390478b3cbdcc8d63";
+    const latitude = 38;
+    const longitude = 127;
+
+    const DetailsWeather =()=>{
+        navigation
+    }
+
+    useEffect(() => {
+
+        let mounted = true;
+        const getWeather = async (latitude, longitude) => {
+            try {
+                const resWeather = await axios.get(
+                    `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`
+                );
+
+                if(mounted) {
+                    let main = resWeather.data.weather[0].main;
+                    let temp = resWeather.data.main.temp;
+
+                    setCurrentWeather(main);
+                    setTemp(temp);
+                    setIsLoading(false);
+                }
+
+            } catch (error) {
+                Alert.alert("날씨 정보를 읽어올 수 없습니다.")
+                setError(true);
+                setIsLoading(false);
+            }
+
+        };
+
+        getWeather(latitude, longitude);
+
+        return()=>{
+            mounted = false
+        }
+
+    }, []);
+
+    return (
+        <>
+            <VideoBackground/>
+            <ImageBackground style={styles.container}  imageStyle={styles.imgWrapper} source={currentWeather === "Snow" ? require('../assets/snow.jpeg') : require('../assets/favicon.png')}>
+                {isLoading || error
+                    ? (<Text> Waiting.. </Text>)
+                    : (
+                        <View style={styles.weather}>
+                            <>
+                                <Text> {currentWeather} </Text>
+                                <Text style={styles.tempNum}> {Math.round(temp)} </Text>
+                                <Text style={styles.temp}>°C |°F</Text>
+                            </>
+                        </View>
+                    )
+                }
+            </ImageBackground>
+        </>
+
+    );
+};
+
+export default Weather;
+
+
+const styles = StyleSheet.create({
+    container: {
+        alignItems:'center',
+        justifyContent: 'center',
+        width: '90%',
+        height: '30%',
+        position: 'absolute',
+        top: '15%',
+        borderRadius: '30%',
+    },
+    tempNum: {
+        fontSize: 50,
+        fontWeight: 'bold'
+    },
+    temp: {
+        fontSize: 20,
+        fontWeight: 'bold'
+    },
+    imgWrapper: {
+        width:'100%',
+        height:'100%',
+        borderRadius: '30%'
+
+    },
+    video:{
+
+    }
+
+})
+

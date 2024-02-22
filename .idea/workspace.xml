@@ -6,12 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="a304709d-269c-4236-a48d-59767fbe08a1" name="Changes" comment="">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
 =======
       <change afterPath="$PROJECT_DIR$/final-project/src/main/react-app/apis/WeatherAPI.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/final-project/src/main/react-app/components/css/Footer.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/final-project/src/main/react-app/apis/VideoBackground.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/final-project/src/main/react-app/assets/139519 (720p) (1).mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/final-project/src/main/react-app/assets/snow.jpeg" afterDir="false" />
+>>>>>>> 4c22aeee23542cc5ed012e82f1fdc8ec2d0103ba
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final-project/src/main/react-app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/final-project/src/main/react-app/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final-project/src/main/react-app/apis/WeatherAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/final-project/src/main/react-app/apis/WeatherAPI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final-project/src/main/react-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/final-project/src/main/react-app/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final-project/src/main/react-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/final-project/src/main/react-app/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/final-project/src/main/react-app/pages/Weather.js" beforeDir="false" afterPath="$PROJECT_DIR$/final-project/src/main/react-app/pages/Weather.js" afterDir="false" />
 >>>>>>> 5713b71982dc91393db2e9021c6d6f96fc64aed0
     </list>
@@ -80,16 +90,23 @@
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
+<<<<<<< HEAD
     "project.structure.side.proportion": "0.0"
 >>>>>>> 5713b71982dc91393db2e9021c6d6f96fc64aed0
+=======
+    "project.structure.side.proportion": "0.0",
+    "ts.external.directory.path": "/Applications/IntelliJ IDEA.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external"
+>>>>>>> 4c22aeee23542cc5ed012e82f1fdc8ec2d0103ba
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/final-project/src/main/react-app/pages" />
+      <recent name="$PROJECT_DIR$/final-project/src/main/react-app/assets" />
       <recent name="$PROJECT_DIR$/final-project/image" />
+      <recent name="$PROJECT_DIR$/final-project/src/main/react-app/pages" />
     </key>
   </component>
+<<<<<<< HEAD
 <<<<<<< HEAD
   <component name="RunManager">
     <configuration default="true" type="DjangoTestsConfigurationType">
@@ -181,13 +198,23 @@
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
       <module name="final-project.final-project.main" />
       <option name="filePath" />
+=======
+  <component name="RunManager">
+    <configuration name="FinalProjectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="final-project.final-project.main~1" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ohgiraffers.finalproject.FinalProjectApplication" />
+>>>>>>> 4c22aeee23542cc5ed012e82f1fdc8ec2d0103ba
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
   </component>
+<<<<<<< HEAD
 =======
 >>>>>>> 5713b71982dc91393db2e9021c6d6f96fc64aed0
+=======
+>>>>>>> 4c22aeee23542cc5ed012e82f1fdc8ec2d0103ba
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
