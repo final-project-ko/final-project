@@ -1,4 +1,4 @@
-package com.ohgiraffers.finalproject.scheduler.article;
+package com.ohgiraffers.finalproject.schedulerApi.article;
 
 public class Article {
 
