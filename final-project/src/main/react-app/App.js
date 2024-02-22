@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Weather from "./weather/Weather";
+import Weather from "./pages/Weather";
 
 export default function App() {
 
