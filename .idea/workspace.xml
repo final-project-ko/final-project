@@ -5,12 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a304709d-269c-4236-a48d-59767fbe08a1" name="Changes" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/final-project/src/main/react-app/apis/WeatherAPI.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/final-project/src/main/react-app/components/css/Footer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final-project/src/main/react-app/pages/Weather.js" beforeDir="false" afterPath="$PROJECT_DIR$/final-project/src/main/react-app/pages/Weather.js" afterDir="false" />
+>>>>>>> 5713b71982dc91393db2e9021c6d6f96fc64aed0
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/final-project">
+      <ProjectState />
+    </projectState>
   </component>
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
@@ -24,6 +37,13 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -31,14 +51,21 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
+<<<<<<< HEAD
   "associatedIndex": 7
 }]]></component>
   <component name="ProjectId" id="2chxFBQ43PXDbUqoAIiIb9oSxYf" />
+=======
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="2chTqIhFaPPJeKLRoYc0INvCkvB" />
+>>>>>>> 5713b71982dc91393db2e9021c6d6f96fc64aed0
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+<<<<<<< HEAD
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -46,13 +73,24 @@
     "last_opened_file_path": "C:/dev/final/final-project",
     "node.js.selected.package.tslint": "(autodetect)",
     "vue.rearranger.settings.migration": "true"
+=======
+    "git-widget-placeholder": "dev",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+>>>>>>> 5713b71982dc91393db2e9021c6d6f96fc64aed0
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/final-project/src/main/react-app/pages" />
       <recent name="$PROJECT_DIR$/final-project/image" />
     </key>
   </component>
+<<<<<<< HEAD
   <component name="RunManager">
     <configuration default="true" type="DjangoTestsConfigurationType">
       <module name="final-project.final-project.main" />
@@ -148,6 +186,8 @@
       </method>
     </configuration>
   </component>
+=======
+>>>>>>> 5713b71982dc91393db2e9021c6d6f96fc64aed0
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

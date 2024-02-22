@@ -19,4 +19,9 @@
     border-radius: 30px;
     width: 18%;
     height: 40%;
+    border: none;
+    cursor: pointer;
+}
+.new1:hover{
+    border: 2px solid #008BDA;
 }
