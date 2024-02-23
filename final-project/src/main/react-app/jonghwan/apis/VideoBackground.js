@@ -1,28 +1,24 @@
-import Video from "react-native-video";
-import {StyleSheet} from "react-native";
+import Video from 'react-native-video';
+// import video from '../';
 
+const MyComponent = () => {
+    const videoPlayer = React.useRef();
 
-export const VideoBackground = () => {
+    const goFullScreen = () => {
+        if (videoPlayer.current) {
+            videoPlayer.current.presentFullscreenPlayer();
+        }
+    };
+
     return (
         <Video
-            source={require("../assets/139519 (720p) (1).mp4")}
-            style={styles.backgroundVideo}
-            muted={true}
-            repeat={true}
-            resizeMode={"cover"}
-            rate={1.0}
-            ignoreSilentSwitch={"obey"}
+            ref={ref => (videoPlayer.current = ref)}
+            source={video}                  // the video file
+            paused={false}                  // make it start
+            style={styles.backgroundVideo}  // any style you want
+            repeat={true}                   // make it a loop
         />
+    )
+}
 
-    );
-};
-
-const styles = StyleSheet.create({
-    background:{
-        position: 'absolute',
-        top:0,
-        left:0,
-        bottom:0,
-        right:0
-    },
-});
+export default MyComponent;

@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {Alert, ImageBackground, StyleSheet, Text, View} from "react-native";
 import axios from "axios";
-import {VideoBackground} from "./VideoBackground";
+import Video from "react-native-video";
 
 
 const Weather = () =>{
@@ -54,8 +54,7 @@ const Weather = () =>{
 
     return (
         <>
-            <VideoBackground/>
-            <ImageBackground style={styles.container}  imageStyle={styles.imgWrapper} source={currentWeather === "Snow" ? require('../assets/snow.jpeg') : require('../assets/favicon.png')}>
+            <ImageBackground style={styles.container}  imageStyle={styles.imgWrapper} source={currentWeather === "Snow" ? require('../assets/snow.jpeg') : require('../assets/snow.jpeg')}>
                 {isLoading || error
                     ? (<Text> Waiting.. </Text>)
                     : (
