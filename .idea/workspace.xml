@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a304709d-269c-4236-a48d-59767fbe08a1" name="Changes" comment="">
 <<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
 =======
@@ -24,6 +27,7 @@
       <change beforePath="$PROJECT_DIR$/final-project/src/main/react-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/final-project/src/main/react-app/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/final-project/src/main/react-app/pages/Weather.js" beforeDir="false" afterPath="$PROJECT_DIR$/final-project/src/main/react-app/pages/Weather.js" afterDir="false" />
 >>>>>>> 5713b71982dc91393db2e9021c6d6f96fc64aed0
+>>>>>>> 4feb2181637f92090905b909e3cb14f1f309cb5a
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +64,11 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+<<<<<<< HEAD
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+=======
   <component name="ProjectColorInfo"><![CDATA[{
 <<<<<<< HEAD
   "associatedIndex": 7
@@ -68,11 +77,28 @@
 =======
   "associatedIndex": 3
 }]]></component>
+>>>>>>> 4feb2181637f92090905b909e3cb14f1f309cb5a
   <component name="ProjectId" id="2chTqIhFaPPJeKLRoYc0INvCkvB" />
 >>>>>>> 5713b71982dc91393db2e9021c6d6f96fc64aed0
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/IntelliJ IDEA.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+=======
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
 <<<<<<< HEAD
@@ -97,8 +123,9 @@
     "project.structure.side.proportion": "0.0",
     "ts.external.directory.path": "/Applications/IntelliJ IDEA.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external"
 >>>>>>> 4c22aeee23542cc5ed012e82f1fdc8ec2d0103ba
+>>>>>>> 4feb2181637f92090905b909e3cb14f1f309cb5a
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/final-project/src/main/react-app/assets" />
@@ -201,8 +228,10 @@
 =======
   <component name="RunManager">
     <configuration name="FinalProjectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="temurin-17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <module name="final-project.final-project.main~1" />
+      <module name="final-project" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.ohgiraffers.finalproject.FinalProjectApplication" />
 >>>>>>> 4c22aeee23542cc5ed012e82f1fdc8ec2d0103ba
       <method v="2">
@@ -219,11 +248,24 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="a304709d-269c-4236-a48d-59767fbe08a1" name="Changes" comment="" />
+<<<<<<< HEAD
+      <created>1708594250291</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1708594250291</updated>
+      <workItem from="1708594257382" duration="207000" />
+      <workItem from="1708601073755" duration="31000" />
+      <workItem from="1708639092220" duration="290000" />
+      <workItem from="1708646985706" duration="257000" />
+      <workItem from="1708647360056" duration="71000" />
+      <workItem from="1708662615590" duration="313000" />
+=======
       <created>1708577505211</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708577505211</updated>
       <workItem from="1708577506243" duration="214000" />
+>>>>>>> 4feb2181637f92090905b909e3cb14f1f309cb5a
     </task>
     <servers />
   </component>

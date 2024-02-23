@@ -21,7 +21,10 @@ jpa:
   properties:
     hibernate:
       format_sql: true
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7773a4920ba02220f120a3e3cc56a42a72916a8d
 
 
 
