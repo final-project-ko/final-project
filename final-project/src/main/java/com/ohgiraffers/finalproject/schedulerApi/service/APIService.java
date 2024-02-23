@@ -57,7 +57,8 @@ public class APIService {
         entity.setDate(LocalDate.now());
 
         // 요약내용이나 이미지가 비어있으면 등록하지 않음
-        if (entity.getDescription().equals("null") || entity.getUrlToImage().equals("null") || entity.getDescription().isEmpty() || entity.getUrlToImage().isEmpty()) {
+        if (entity.getDescription().equals("null") || entity.getUrlToImage().equals("null") ||
+                entity.getDescription().isEmpty() || entity.getUrlToImage().isEmpty() || entity.getDescription().contains("�")) {
             System.out.println(entity.getTitle() + " 기사는 등록되지 않았습니다. (요약내용 또는 이미지가 없음)");
             return 0;
 
