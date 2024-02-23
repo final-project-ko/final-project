@@ -8,6 +8,9 @@ build/
 ### db정보 ###
 application-db.yml
 
+### api 키 정보 ###
+application-api-key.yml
+
 ### STS ###
 .apt_generated
 .classpath

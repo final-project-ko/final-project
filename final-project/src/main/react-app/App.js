@@ -37,4 +37,14 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: '10%'
   },
+
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+    paddingHorizontal: 20,
+  },
+
+
 });
+

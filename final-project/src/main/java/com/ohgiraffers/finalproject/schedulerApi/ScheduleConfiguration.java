@@ -7,6 +7,7 @@ import com.google.gson.JsonObject;
 import com.ohgiraffers.finalproject.schedulerApi.article.Article;
 import com.ohgiraffers.finalproject.schedulerApi.service.APIService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -28,49 +29,42 @@ public class ScheduleConfiguration {
     @Autowired
     private APIService apiService;
 
-    /*요청 api 목록 정의
-
-newsapi  -  미국 7가지 카테고리 뉴스
-
-https://newsapi.org/v2/top-headlines?country=us&apiKey=b2f485cd2f274a5ba62325da31653420  -- 종합 헤드라인 us_total
-
-https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=b2f485cd2f274a5ba62325da31653420  --us_business
-
-https://newsapi.org/v2/top-headlines?country=us&category=entertainment&apiKey=b2f485cd2f274a5ba62325da31653420 --us_entertainment
-
-https://newsapi.org/v2/top-headlines?country=us&category=general&apiKey=b2f485cd2f274a5ba62325da31653420 --us_general
-
-https://newsapi.org/v2/top-headlines?country=us&category=health&apiKey=b2f485cd2f274a5ba62325da31653420 --us_health
-
-https://newsapi.org/v2/top-headlines?country=us&category=science&apiKey=b2f485cd2f274a5ba62325da31653420 --us_science
-
-https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=b2f485cd2f274a5ba62325da31653420 --us_sports
-
-https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=b2f485cd2f274a5ba62325da31653420 --us_technology
-
-
-newsapi  - 한국 7가지 카테고리 뉴스
-
-https://newsapi.org/v2/top-headlines?country=kr&apiKey=b2f485cd2f274a5ba62325da31653420 -- 종합 헤드라인  kr_total
-
-https://newsapi.org/v2/top-headlines?country=kr&category=business&apiKey=b2f485cd2f274a5ba62325da31653420 --kr_business
-
-https://newsapi.org/v2/top-headlines?country=kr&category=entertainment&apiKey=b2f485cd2f274a5ba62325da31653420 --kr_entertainment
-
-https://newsapi.org/v2/top-headlines?country=kr&category=general&apiKey=b2f485cd2f274a5ba62325da31653420 --kr_general
-
-https://newsapi.org/v2/top-headlines?country=kr&category=health&apiKey=b2f485cd2f274a5ba62325da31653420 --kr_health
-
-https://newsapi.org/v2/top-headlines?country=kr&category=science&apiKey=b2f485cd2f274a5ba62325da31653420 --kr_science
-
-https://newsapi.org/v2/top-headlines?country=kr&category=sports&apiKey=b2f485cd2f274a5ba62325da31653420 --kr_sports
-
-https://newsapi.org/v2/top-headlines?country=kr&category=technology&apiKey=b2f485cd2f274a5ba62325da31653420 --kr_technology
-
-*/
+    @Value("${us_total}")
+    private String us_total;
+    @Value("${us_business}")
+    private String us_business;
+    @Value("${us_entertainment}")
+    private String us_entertainment;
+    @Value("${us_general}")
+    private String us_general;
+    @Value("${us_health}")
+    private String us_health;
+    @Value("${us_science}")
+    private String us_science;
+    @Value("${us_sports}")
+    private String us_sports;
+    @Value("${us_technology}")
+    private String us_technology;
+    @Value("${kr_total}")
+    private String kr_total;
+    @Value("${kr_business}")
+    private String kr_business;
+    @Value("${kr_entertainment}")
+    private String kr_entertainment;
+    @Value("${kr_general}")
+    private String kr_general;
+    @Value("${kr_health}")
+    private String kr_health;
+    @Value("${kr_science}")
+    private String kr_science;
+    @Value("${kr_sports}")
+    private String kr_sports;
+    @Value("${kr_technology}")
+    private String kr_technology;
 
 
-   /* 지금 테스트로 1분에 한번씩 실행되게 해놨습니다. 테스트 실행 후 서버 꺼주셔야 api 요청 낭비가 되지 않아요 아니면
+
+    /* 지금 테스트로 1분에 한번씩 실행되게 해놨습니다. 테스트 실행 후 서버 꺼주셔야 api 요청 낭비가 되지 않아요 아니면
    *    cron 을 늘려주시면 더 천천히 실행 됩니다.
    * */
 
@@ -78,18 +72,19 @@ https://newsapi.org/v2/top-headlines?country=kr&category=technology&apiKey=b2f48
     // 국내 헤드 라인 기사 받아 오는 메소드 - 국내 기사 메인 페이지
    @Scheduled(cron ="0 0 5 * * ?")
    public void krHeadLines(){
-       UriComponents uri = UriComponentsBuilder.fromHttpUrl("https://newsapi.org/v2/top-headlines?country=kr&apiKey=b2f485cd2f274a5ba62325da31653420").build();
-       List<Article> krHeadLine = apiStart(uri);
-       Object result = apiService.krHeadLine(krHeadLine);
+       String[] apiName = new String[]{us_total,us_business,us_entertainment,us_general,us_health,us_science,us_sports,us_technology,kr_total,
+       kr_business,kr_entertainment,kr_general,kr_health,kr_science,kr_sports,kr_technology};
+       String[] apiNames = new String[]{"us_total","us_business","us_entertainment","us_general","us_health","us_science","us_sports","us_technology","kr_total",
+               "kr_business","kr_entertainment","kr_general","kr_health","kr_science","kr_sports","kr_technology"};
+
+       for (int i = 0; i < apiName.length; i++) {
+           UriComponents uri = UriComponentsBuilder.fromHttpUrl(apiName[i]).build();
+           List<Article> krHeadLine = apiStart(uri);
+           Object result = apiService.headLine(krHeadLine,apiNames[i]);
+       }
+
    }
 
-   // 해외 헤드 라인 기사 받아 오는 메소드 - 해외 기사 메인 페이지
-/*    @Scheduled(cron ="0 0/5 * * * ?")
-    public void usHeadLines(){
-        UriComponents uri = UriComponentsBuilder.fromHttpUrl("https://newsapi.org/v2/top-headlines?country=us&apiKey=b2f485cd2f274a5ba62325da31653420").build();
-        List<Article> usHeadLine = apiStart(uri);
-        Integer result = apiService.usHeadLines(usHeadLine);
-    }*/
 
 
 
@@ -138,7 +133,7 @@ https://newsapi.org/v2/top-headlines?country=kr&category=technology&apiKey=b2f48
             }
             String url = articleObject.get("url").getAsString();
             String urlToImage = "";
-            if(!descriptionElement.isJsonNull()) {
+            if(!urlToImageElement.isJsonNull()) {
                 urlToImage = articleObject.get("urlToImage").getAsString();
             }else {
                 urlToImage = "null";
