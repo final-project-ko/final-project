@@ -12,7 +12,7 @@ npm install react-native-safe-area-context
 */
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Weather from "./apis/WeatherAPI";
+import Weather from "./jonghwan/apis/WeatherAPI";
 // import { Button } from 'react-native-elements';
 
 // const today = new Date(); 
