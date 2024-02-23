@@ -3,15 +3,17 @@ server:
 
 spring:
   jpa:
-    hibernate:
-      ddl-auto: create
     properties:
       hibernate:
         format_sql: true
         show_sql: true
-
   profiles:
-    include: db
+    include:
+      - db
+      - api-key
+
+
+
 
 jpa:
   show-sql: true
@@ -19,8 +21,7 @@ jpa:
   properties:
     hibernate:
       format_sql: true
-  hibernate:
-    ddl-auto: create
+
 
 
 

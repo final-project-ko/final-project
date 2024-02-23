@@ -18,9 +18,9 @@ public class APIService {
     @Autowired
     APIRepository apiRepository;
 
-    public Object krHeadLine(List<Article> krHeadLine) {
+    public Object headLine(List<Article> krHeadLine, String keyName) {
 
-        if(krHeadLine == null || krHeadLine.isEmpty()){
+        if (krHeadLine == null || krHeadLine.isEmpty()) {
             System.out.println("api 만료");
             return new String("api키가 응답하지 않습니다.");
         }
@@ -30,37 +30,43 @@ public class APIService {
         // 다 잘 넘어오는지 확인하는 int
         int num = 0;
 
-        for (Article article: krHeadLine) {
-            int entity = createEntity(article);
-            num += entity;
+        for (Article article : krHeadLine) {
+            int entity = createEntity(article, keyName);
+            num = entity;
+            if (num > 0) {
+
+            } else {
+                System.out.println("에러 발생");
+            }
 
         }
-
-        if(num > 0) {
-            return new String("성공적으로 등록 되었습니다.");
-        }else {
-            return new String("에러 발생");
-        }
+        return new String("성공적으로 수행 되었습니다.");
 
 
 
     }
 
-    public int createEntity(Article article){
-        // 요약내용이나 이미지가 비어있으면 등록하지 않음
-        if (article.getDescription() == null || article.getUrlToImage() == null || article.getDescription().isEmpty() || article.getUrlToImage().isEmpty()) {
-            System.out.println(article.getTitle() + " 기사는 등록되지 않았습니다. (요약내용 또는 이미지가 없음)");
-            return 0;
-        }
+    public int createEntity(Article article, String keyName) {
+
         ApiEntity entity = new ApiEntity();
-        entity.setCategoryName("us_total");
+        entity.setCategoryName(keyName);
         entity.setTitle(article.getTitle());
         entity.setDescription(article.getDescription());
         entity.setUrl(article.getUrl());
         entity.setUrlToImage(article.getUrlToImage());
         entity.setDate(LocalDate.now());
-        apiRepository.save(entity);
-        return 1;
+
+        // 요약내용이나 이미지가 비어있으면 등록하지 않음
+        if (entity.getDescription().equals("null") || entity.getUrlToImage().equals("null") || entity.getDescription().isEmpty() || entity.getUrlToImage().isEmpty()) {
+            System.out.println(entity.getTitle() + " 기사는 등록되지 않았습니다. (요약내용 또는 이미지가 없음)");
+            return 0;
+
+        } else {
+            apiRepository.save(entity);
+            return 1;
+
+        }
+
 
     }
 

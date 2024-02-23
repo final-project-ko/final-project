@@ -15,15 +15,15 @@ public class ApiEntity {
 
     @Column(name = "category_name")
     private String categoryName;
-    @Column(name = "title")
+    @Column(name = "title" , length = 500)
     private String title;
 
     @Column(name = "description", length = 500)
     private String description;
 
-    @Column(name = "url")
+    @Column(name = "url" , length = 500)
     private String url;
-    @Column(name = "urlToImage")
+    @Column(name = "urlToImage", length = 500)
     private String urlToImage;
 
     @Column(name = "date")
