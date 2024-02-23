@@ -1,32 +1,23 @@
 /*
+ui 디자인용 라이브러리 임포트
 npm install react-native-elements
-npm install @rneui/themed @rneui/base
-npm install @rneui/base@edge @rneui/themed@edge
-
 npm install react-native-vector-icons
-
 npm install react-native-safe-area-context
-
-@react-navigation/stack 
-
+@react-navigation/stack
 */
-import { StatusBar } from 'expo-status-bar';
+
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Weather from "./jonghwan/apis/WeatherAPI";
-// import { Button } from 'react-native-elements';
-
-// const today = new Date(); 
-// const month = today.getMonth() + 1; 
-// const date = today.getDate();
-// const ToDayDate = month + '월' + date + '일';
+// import MainScreen from './chaehyeon/pages/MainScreen';
 
 export default function App() {
-  return (
 
-    <View style={styles.container}>
-      <StatusBar style="auto" />
-      {/*<Weather style={styles.weather}/>*/}
-    </View>
+  return (
+      <View style={styles.container}>
+        <Weather style={styles.weather} />
+        {/*<MainScreen />*/}
+      </View>
   );
 }
 
@@ -44,6 +35,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: '10%'
   },
+<<<<<<< HEAD
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -52,3 +44,6 @@ const styles = StyleSheet.create({
   },
 
 });
+=======
+});
+>>>>>>> 40f8f24114eadad9885b8be207e3d1c5c0ab6201

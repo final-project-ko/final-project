@@ -54,7 +54,7 @@ const Weather = () =>{
 
     return (
         <>
-            <ImageBackground style={styles.container}  imageStyle={styles.imgWrapper} source={currentWeather === "Snow" ? require('../assets/snow.jpeg') : require('../assets/snow.jpeg')}>
+            <ImageBackground style={styles.container}  imageStyle={styles.imgWrapper} source={currentWeather === "Snow" ? require('../../assets/snow.jpeg') : require('../../assets/snow.jpeg')}>
                 {isLoading || error
                     ? (<Text> Waiting.. </Text>)
                     : (
