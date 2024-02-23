@@ -1,4 +1,4 @@
-import {Button, View} from "react-native";
+import {Button, Text, View} from "react-native";
 import Video from "react-native-video";
 import React from "react";
 
@@ -10,23 +10,30 @@ function Home(props) {
 
     return (
         <View>
-            <Video
-                source={video}
-                paused={!isPlaying}
-                controls={true}
-                style={styles.backgroundVideo}
-                muted={isMuted}
-            />
-            <Button
-                onPress={() => setIsPlaying(p => !p)}
-                title={isPlaying ? 'Stop' : 'Play'}
-            />
-            <Button
-                onPress={() => setIsMuted(m => !m)}
-                title={isMuted ? 'Unmute' : 'Mute'}
-            />
+            {/*<Video*/}
+            {/*    source={video}*/}
+            {/*    paused={!isPlaying}*/}
+            {/*    controls={true}*/}
+            {/*    style={styles.backgroundVideo}*/}
+            {/*    muted={isMuted}*/}
+            {/*/>*/}
+            {/*<Button*/}
+            {/*    onPress={() => setIsPlaying(p => !p)}*/}
+            {/*    title={isPlaying ? 'Stop' : 'Play'}*/}
+            {/*/>*/}
+            {/*<Button*/}
+            {/*    onPress={() => setIsMuted(m => !m)}*/}
+            {/*    title={isMuted ? 'Unmute' : 'Mute'}*/}
+            {/*/>*/}
+            <Text>dfd</Text>
         </View>
     );
 }
 
 export default Home;
+
+const styles = {
+    backgroundVideo: {
+
+    }
+}

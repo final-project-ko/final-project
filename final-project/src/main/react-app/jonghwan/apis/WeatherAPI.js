@@ -1,8 +1,11 @@
 import {useEffect, useState} from "react";
-import {Alert, ImageBackground, StyleSheet, Text, View} from "react-native";
+import {Alert, Button, ImageBackground, StyleSheet, Text, View} from "react-native";
 import axios from "axios";
+import { TouchableOpacity } from 'react-native';
 import Video from "react-native-video";
-
+import {Tab} from "react-native-elements";
+import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
+import Home from "./Home";
 
 const Weather = () =>{
     const [isLoading , setIsLoading] = useState(true);
@@ -10,6 +13,7 @@ const Weather = () =>{
     const [temp, setTemp] = useState('');
     const [error, setError] = useState(false);
 
+    const Tab = createBottomTabNavigator();
     const API_KEY = "5c109176cb7f758390478b3cbdcc8d63";
     const latitude = 38;
     const longitude = 127;
@@ -54,20 +58,23 @@ const Weather = () =>{
 
     return (
         <>
-            <ImageBackground style={styles.container}  imageStyle={styles.imgWrapper} source={currentWeather === "Snow" ? require('../../assets/snow.jpeg') : require('../../assets/snow.jpeg')}>
-                {isLoading || error
-                    ? (<Text> Waiting.. </Text>)
-                    : (
-                        <View style={styles.weather}>
-                            <>
-                                <Text> {currentWeather} </Text>
-                                <Text style={styles.tempNum}> {Math.round(temp)} </Text>
-                                <Text style={styles.temp}>°C |°F</Text>
-                            </>
-                        </View>
-                    )
-                }
-            </ImageBackground>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate("Home")}>
+                <ImageBackground style={styles.container}  imageStyle={styles.imgWrapper} source={currentWeather === "Snow" ? require('../../assets/snow.jpeg') : require('../../assets/snow.jpeg')}>
+                    {isLoading || error
+                        ? (<Text> Waiting.. </Text>)
+                        : (
+                            <View style={styles.weather}>
+                                <>
+                                    <Text> {currentWeather} </Text>
+                                    <Text style={styles.tempNum}> {Math.round(temp)} </Text>
+                                    <Text style={styles.temp}>°C |°F</Text>
+                                </>
+                            </View>
+
+                        )
+                    }
+                </ImageBackground>
+            </TouchableOpacity>
         </>
 
     );
@@ -84,7 +91,7 @@ const styles = StyleSheet.create({
         height: '30%',
         position: 'absolute',
         top: '15%',
-        borderRadius: '30%',
+        borderRadius: '30',
     },
     tempNum: {
         fontSize: 50,
@@ -97,10 +104,7 @@ const styles = StyleSheet.create({
     imgWrapper: {
         width:'100%',
         height:'100%',
-        borderRadius: '30%'
-
-    },
-    video:{
+        borderRadius: '30'
 
     }
 

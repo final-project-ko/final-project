@@ -1,5 +1,6 @@
 import Video from 'react-native-video';
-// import video from '../';
+import video from '../../assets/snow.mp4';
+import React from "react";
 
 const MyComponent = () => {
     const videoPlayer = React.useRef();
@@ -22,3 +23,10 @@ const MyComponent = () => {
 }
 
 export default MyComponent;
+
+
+const styles = {
+    backgroundVideo: {
+
+    }
+}

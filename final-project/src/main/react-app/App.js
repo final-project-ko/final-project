@@ -9,12 +9,14 @@ npm install react-native-safe-area-context
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Weather from "./jonghwan/apis/WeatherAPI";
+import VideoBackground from "./jonghwan/apis/VideoBackground";
 // import MainScreen from './chaehyeon/pages/MainScreen';
 
 export default function App() {
 
   return (
       <View style={styles.container}>
+        {/*<VideoBackground/>*/}
         <Weather style={styles.weather} />
         {/*<MainScreen />*/}
       </View>
