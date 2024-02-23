@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: '10%'
   },
-<<<<<<< HEAD
+
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -43,7 +43,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
 
+
 });
-=======
-});
->>>>>>> 40f8f24114eadad9885b8be207e3d1c5c0ab6201
+
