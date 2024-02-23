@@ -22,16 +22,17 @@ import Weather from "./apis/WeatherAPI";
 
 export default function App() {
   return (
-    // <View style={styles.container}
-      // <View style={styles.buttonContainer}>
-      //   <Button title="ToDayDate" type={ ToDayDate } />
-      // </View>
-      // <Text>
-      //   ㅅㄷ
-      // </Text>
-    //   <StatusBar style="auto" />
-    //   <Weather style={styles.weather}/>
-    // </View>
+
+    <View style={styles.container}>
+      <View style={styles.buttonContainer}>
+        <Button title="ToDayDate" type={ ToDayDate } />
+      </View>
+      <Text>
+        ㅅㄷ
+      </Text>
+      <StatusBar style="auto" />
+      <Weather style={styles.weather}/>
+    </View>
   );
 }
 
@@ -55,5 +56,5 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingHorizontal: 20,
   },
->>>>>>> 3fa17b41500bdc5292d95ebe6c79474075a714fe
+// >>>>>>> 3fa17b41500bdc5292d95ebe6c79474075a714fe
 });

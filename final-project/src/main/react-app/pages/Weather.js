@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 // import {Text} from "react-native";
 
 
@@ -18,7 +17,7 @@
 // }
 
 // export default Weather;
->>>>>>> 3fa17b41500bdc5292d95ebe6c79474075a714fe
+
 
 
 
