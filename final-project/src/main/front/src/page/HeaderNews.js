@@ -18,7 +18,7 @@ const HeaderNews = () => {
 
     const onClickHandler = () => {
 
-        navigate("/fashion")
+        navigate("/detailNews")
     }
 
     return(

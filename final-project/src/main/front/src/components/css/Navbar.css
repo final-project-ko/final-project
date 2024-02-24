@@ -61,3 +61,10 @@ li:hover{
     background-color: #008BDA;
 
 }
+
+.toggle {
+    border: none;
+    position: absolute;
+    left: 9.5%;
+    top: 4.5%;
+}

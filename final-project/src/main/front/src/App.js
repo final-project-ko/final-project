@@ -15,7 +15,7 @@ function App() {
           <Route path='/' element={<Layout/>}>
               <Route index element={<HeaderNews/>}/>
               <Route path=':category' element={<HeaderNews/>}/>
-              <Route path='/fashion' element={<DetailsNews/>}/>
+              <Route path='/detailNews' element={<DetailsNews/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
