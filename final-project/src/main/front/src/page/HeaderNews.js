@@ -25,10 +25,13 @@ const HeaderNews = () => {
         <div className='mainDiv'>
             {/* img, title 카테고리별 기사에서 꺼내오는 코드로 바꾸어야 함 */}
             <button className="new1" id='news1' onClick={onClickHandler}>
-                <img className="newsImage" src="https://static01.nyt.com/images/2024/03/03/multimedia/03CHALAMET-VILLENEUVE-03-pmlf/03CHALAMET-VILLENEUVE-03-pmlf-thumbLarge.jpg" width="90%" height="50%"/>
-                <span className="newsText">Denis Villeneuve and Timothée Chalamet: ‘Dune’ Dynasty</span>
+                <img className="newsImage" src="https://dimg.donga.com/a/459/0/95/5/wps/NEWS/IMAGE/2024/02/23/123659785.2.jpg" width="90%" height="55%"/>
+                <div className="newsText">손흥민에 용서 받은 이강인, 홀가분한 마음으로 PSG 훈련</div>
             </button>
-            <button className="new1" id='news2'></button>
+            <button className="new1" id='news2'>
+                <img className="newsImage" src="https://thumb.mt.co.kr/21/2024/02/2024022314130429838_1.jpg" width="90%" height="55%"/>
+                <div className="newsText">"홍명보 감독 건들지 마라" 울산 팬, KFA에 '엄중 경고'... "K리그, 협회 전유물 아니다" 성명 발표</div>
+            </button>
             <button className="new1" id='news3'></button>
             <button className="new1" id='news4'></button>
             <button className="new1" id='news5'></button>

@@ -32,17 +32,19 @@
     position: relative;
     bottom: 10%;
     margin: 10px;
-    border-top-right-radius: 30px;
-    border-top-left-radius: 30px;
+    top: 2%;
 }
 
 .newsText {
     background-color: white;
     position: relative;
-    height: 40%;
-    font-size: 20px;
-    margin: 10px;
+    height: 30%;
+    font-size: 1rem;
     overflow-block: hidden;
+    width: 90%;
+    text-align: center;
+    margin: auto;
+    top: 3%;
 }
 
 .detailsNewsDiv {
