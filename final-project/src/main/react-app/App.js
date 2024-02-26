@@ -1,5 +1,35 @@
 // 라이브러리 임포트 목록 하단에 정리되어 있습니다.
 import React from 'react';
+<<<<<<< HEAD
+import {StatusBar, StyleSheet, Text, View} from 'react-native';
+import {NavigationContainer} from "@react-navigation/native";
+import {createStackNavigator} from "@react-navigation/stack";
+import WeatherAPI from "./jonghwan/components/WeatherAPI";
+import Home from "./jonghwan/apis/Home";
+import Fivedays from "./jonghwan/apis/fivedays";
+// import MainScreen from './chaehyeon/pages/MainScreen';
+
+export default function App() {
+
+  const Stack = createStackNavigator();
+  return (
+      <>
+        <StatusBar barStyle="default"/>
+        <NavigationContainer>
+          <Stack.Navigator  initialRouteName="Weather">
+            <Stack.Screen  options={{headerShown: false}}  name="Weather" component={WeatherAPI}/>
+            <Stack.Screen options={{headerShown: false}}  name="Home" component={Home} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </>
+
+      // <View style={styles.container}>
+      //   {/*<VideoBackground/>*/}
+      //   <Weather style={styles.weather} />
+      //   {/*<DetailWeather/>*/}
+      //   {/*<MainScreen />*/}
+      // </View>
+=======
 import { StyleSheet, Text, View } from 'react-native';
 // import Weather from "./jonghwan/apis/WeatherAPI";
 
@@ -12,6 +42,7 @@ export default function App() {
       {/* <Weather style={styles.weather} /> */}
       <MainNavigator style={styles.container}/>
     </NavigationContainer>
+>>>>>>> 4390e4dc51caf995fc391f3439153e5a3f2f0b20
   );
 }
 
@@ -22,6 +53,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+<<<<<<< HEAD
+
+
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+    paddingHorizontal: 20,
+  },
+
+
+=======
   // weather: {
   //   border: '1px solid black',
   //   width: '80%',
@@ -29,6 +72,7 @@ const styles = StyleSheet.create({
   //   position: "absolute",
   //   top: '10%'
   // }
+>>>>>>> 4390e4dc51caf995fc391f3439153e5a3f2f0b20
 });
 
 
