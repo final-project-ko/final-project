@@ -1,0 +1,55 @@
+
+.userDiv{
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 70%;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    margin-left: 10%;
+    position: absolute;
+    top: 20%;
+    border-radius: 20px;
+    display: flex;
+}
+
+.myPageDiv {
+    background-color: #F7F9FB;
+    width: 55%;
+    position: absolute;
+    height: 65%;
+    align-items: center;
+    left: 35%;
+    top: 25%;
+    justify-content: space-between;
+    align-content: stretch;
+    display: flex;
+    flex-wrap: wrap;
+}
+.news {
+    background-color: white;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
+    border-radius: 30px;
+    width: 23%;
+    height: 40%;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    margin: auto;
+}
+.news:hover{
+    border: 2px solid #008BDA;
+}
+
+.userImg{
+    position: absolute;
+    top: 15%;
+}
+.userName{
+    position: absolute;
+    text-align: center;
+}
+.userUl{
+    position: absolute;
+    top: 70%;
+}

@@ -1,5 +1,5 @@
 import {useNavigate, useParams} from "react-router-dom";
-import "../components/css/HeaderNews.css";
+import "../../components/css/HeaderNews.css";
 import DetailsNews from "./DetailsNews";
 
 const HeaderNews = () => {

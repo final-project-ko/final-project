@@ -1,10 +1,10 @@
 import React from 'react';
 import {BrowserRouter, NavLink, Route, Routes} from "react-router-dom";
 import Layout from "./components/layouts/Layout";
-import HeaderNews from "./page/HeaderNews";
-import DetailsNews from "./page/DetailsNews";
-import CustomerPage from "./page/CustomerPage";
-import Mypage from "./page/Mypage";
+import HeaderNews from "./page/news/HeaderNews";
+import DetailsNews from "./page/news/DetailsNews";
+import CustomerPage from "./page/qna/CustomerPage";
+import Mypage from "./page/mypage/Mypage";
 function App() {
 
 

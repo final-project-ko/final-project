@@ -24,7 +24,7 @@ const Navbar = () => {
         display: 'none'
     }
 
-    const set = toggle? <BiWorld  size="41" color="gray"/> : <FcGlobe  size="40"/>
+    const set = toggle? <BiWorld  size="40" color="gray" color style={{backgroundColor: "white"}}/> : <FcGlobe  size="40" style={{backgroundColor: "white"}}/>
 
     const loginBtn = login? "LogOut" : "LogIn";
     const nonChoice = {
@@ -76,7 +76,7 @@ const Navbar = () => {
             {/* 로그인 시 메뉴바 보이는 버튼  */}
 
             <button className="showNav"  style={login? barOn:barOff}>
-                <HiOutlineMenu size="30" color="#008BDA"/>
+                <HiOutlineMenu size="30" color="#008BDA"  style={{backgroundColor: "white"}}/>
                 <ul className="mypageNav">
                     <li><NavLink to={"/customer"} style={{textDecoration:"none",color:"black"}}>고객센터</NavLink></li>
                     <li><NavLink to={"/mypage"} style={{textDecoration:"none",color:"black"}}>마이페이지</NavLink></li>

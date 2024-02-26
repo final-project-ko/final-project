@@ -68,6 +68,7 @@ li:hover{
     position: absolute;
     left: 9.5%;
     top: 4.5%;
+    background-color: white;
 }
 
 .menuBar{
@@ -78,6 +79,7 @@ li:hover{
     top: 5%;
     border: 1px solid black;
     cursor: pointer;
+    background-color: white;
 }
 
 .showNav{
@@ -88,7 +90,7 @@ li:hover{
     cursor: pointer;
     width: 5%;
     overflow: hidden;
-    height: 4%;
+    height: 3%;
     background-color: white;
 }
 .showNav:hover{
