@@ -6,10 +6,7 @@ import DetailsNews from "./page/news/DetailsNews";
 import CustomerPage from "./page/qna/CustomerPage";
 import Mypage from "./page/mypage/Mypage";
 import AdminMain from "./page/admin/AdminMain";
-import AdminDash from "./page/admin/pages/AdminDash";
-import AdminUser from "./page/admin/pages/AdminUser";
-import AdminContent from "./page/admin/pages/AdminContent";
-import AdminSetting from "./page/admin/pages/AdminSetting";
+
 function App() {
 
 
@@ -27,10 +24,6 @@ function App() {
               <Route path='/mypage' element={<Mypage/>}/>
           </Route>
           <Route path='/admin' element={<AdminMain/>}>
-              <Route path='/admin/dash' element={<AdminDash/>}/>
-              <Route path='/adminUser' element={<AdminUser/>}/>
-              <Route path='/adminContent' element={<AdminContent/>}/>
-              <Route path='/adminSetting' element={<AdminSetting/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

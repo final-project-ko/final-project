@@ -38,11 +38,14 @@
     position: relative;
     text-align: center;
     background-color: white;
+    left: 10%;
+    width: 75%;
 }
 .adminUl li{
     margin-top: 10%;
     font-size: 1.2rem;
     cursor: pointer;
+    width: 100%;
 }
 .adminUl li:hover{
     background-color: #8d8d8d;

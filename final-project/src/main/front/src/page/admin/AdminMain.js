@@ -1,6 +1,43 @@
 import "../../components/css/AdminMain.css";
 import {NavLink} from "react-router-dom";
+import {useState} from "react";
+
+import AdminDash from "./pages/AdminDash";
+import AdminUser from "./pages/AdminUser";
+import AdminContent from "./pages/AdminContent";
+import AdminSetting from "./pages/AdminSetting";
 const AdminMain = () => {
+    
+    const [page, setPage] = useState("AdminDash");
+
+    // 페이지 변경 핸들러 함수
+    const pageChangeHandler1 = () => {
+        setPage("AdminDash");
+    }
+    const pageChangeHandler2 = () => {
+        setPage("AdminUser");
+    }
+    const pageChangeHandler3 = () => {
+        setPage("AdminContent");
+    }
+    const pageChangeHandler4 = () => {
+        setPage("AdminSetting");
+    }
+    const getAdminComponent = () => {
+        switch (page) {
+            case "AdminDash":
+                return <AdminDash />;
+            case "AdminUser":
+                return <AdminUser />;
+            case "AdminContent":
+                return <AdminContent />;
+            case "AdminSetting":
+                return <AdminSetting />;
+            default:
+                return null;
+        }
+    }
+
 
     const nonChoice = {
         background: 'transparent',
@@ -8,11 +45,11 @@ const AdminMain = () => {
         cursor: 'pointer',
         fontSize: '1.1rem',
         textDecoration : 'none',
-        color:'black'
+        color:'#b2b2b2'
     }
     const choice = {
-        color:"white",
-        backgroundColor: "#8d8d8d",
+        color:'black',
+        fontWeight:'bold',
         border: 0,
         cursor: 'pointer',
         fontSize: '1.1rem',
@@ -29,13 +66,39 @@ const AdminMain = () => {
 
             <div className="adminNav">
                 <ul className="adminUl">
-                    <li><NavLink to={"/"} style={({isActive}) => (isActive? choice : nonChoice)}>사이트 바로가기</NavLink></li>
-                    <li><NavLink to={"/admin/dash"} style={({isActive}) => (isActive? choice : nonChoice)}>대시보드</NavLink></li>
-                    <li><NavLink to={"/adminUser"} style={({isActive}) => (isActive? choice : nonChoice)}>회원관리</NavLink></li>
-                    <li><NavLink to={"/adminContent"} style={({isActive}) => (isActive? choice : nonChoice)}>콘텐츠</NavLink></li>
-                    <li><NavLink to={"/adminSetting"} style={({isActive}) => (isActive? choice : nonChoice)}>설정</NavLink></li>
+                    <NavLink to={"/"} style={({isActive}) => (isActive? choice : nonChoice)}><li>사이트 바로가기</li></NavLink>
+                    <li
+                        onClick={(e) => { pageChangeHandler1(e);}}
+                        value="AdminDash"
+                        style={page === "AdminDash" ? choice : nonChoice}
+                    >
+                        대시 보드
+                    </li>
+                    <li
+                        onClick={(e) => { pageChangeHandler2(e);}}
+                        value="AdminUser"
+                        style={page === "AdminUser" ? choice : nonChoice}
+                    >
+                        회원 관리
+                    </li>
+                    <li
+                        onClick={(e) => { pageChangeHandler3(e);}}
+                        value="AdminContent"
+                        style={page === "AdminContent" ? choice : nonChoice}
+                    >
+                        콘텐츠
+                    </li>
+                    <li
+                        onClick={(e) => { pageChangeHandler4(e);}}
+                        value="AdminSetting"
+                        style={page === "AdminSetting" ? choice : nonChoice}
+                    >
+                        설정
+                    </li>
                 </ul>
             </div>
+
+            {getAdminComponent()}
         </>
     )
 }
