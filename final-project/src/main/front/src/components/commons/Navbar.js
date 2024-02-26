@@ -1,4 +1,4 @@
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import "../css/Navbar.css";
 import {useEffect, useState} from "react";
 import { BiWorld } from "react-icons/bi";
@@ -10,9 +10,22 @@ const Navbar = () => {
     const [toggle,setToggle] = useState(true);
     const [login,setLogin] = useState(false);
     const [showItem, setShowItem] = useState(false);
+    const [navLinkPrefix, setNavLinkPrefix] = useState("kr_");
+
+    const navigate = useNavigate();
 
     const onClickHanlder = () => {
         setToggle(!toggle);
+
+        // 토글 버튼을 눌렀을 때 navLinkPrefix 변경
+        setNavLinkPrefix((prevState) => (prevState === "kr_" ? "us_" : "kr_"));
+
+        // 토글 시 페이지 이동
+        if (navLinkPrefix === "kr_") {
+            navigate("us_total");
+        } else {
+            navigate("kr_total")
+        }
     }
     const loginHandler = () => {
         setLogin(!login);
@@ -53,14 +66,14 @@ const Navbar = () => {
                 </div>
 
                 <ul className='mainUl'>
-                    <li><NavLink  to={"/main"} className='main' style={({isActive}) => (isActive? choice : nonChoice)}>종합</NavLink></li>
-                    <li><NavLink  to={"/business"} className='business' style={({isActive}) => (isActive? choice : nonChoice)}>비즈니스</NavLink></li>
-                    <li><NavLink  to={"/entertainment"} className='entertainment' style={({isActive}) => (isActive? choice : nonChoice)}>엔터테인먼트</NavLink></li>
-                    <li><NavLink  to={"/technology"} className='technology' style={({isActive}) => (isActive? choice : nonChoice)}>기술</NavLink></li>
-                    <li><NavLink  to={"/science"} className='science' style={({isActive}) => (isActive? choice : nonChoice)}>과학</NavLink></li>
-                    <li><NavLink  to={"/sports"} className='sports' style={({isActive}) => (isActive? choice : nonChoice)}>스포츠</NavLink></li>
-                    <li><NavLink  to={"/health"} className='health' style={({isActive}) => (isActive? choice : nonChoice)}>건강</NavLink></li>
-                    <li><NavLink  to={"/general "} className='Art' style={({isActive}) => (isActive? choice : nonChoice)}>일반</NavLink></li>
+                    <li><NavLink to={`/${navLinkPrefix}total`} className='main' style={({isActive}) => (isActive? choice : nonChoice)}>종합</NavLink></li>
+                    <li><NavLink to={`${navLinkPrefix}business`} className='business' style={({isActive}) => (isActive? choice : nonChoice)}>비즈니스</NavLink></li>
+                    <li><NavLink to={`${navLinkPrefix}entertainment`} className='entertainment' style={({isActive}) => (isActive? choice : nonChoice)}>엔터테인먼트</NavLink></li>
+                    <li><NavLink to={`${navLinkPrefix}technology`} className='technology' style={({isActive}) => (isActive? choice : nonChoice)}>기술</NavLink></li>
+                    <li><NavLink to={`${navLinkPrefix}science`} className='science' style={({isActive}) => (isActive? choice : nonChoice)}>과학</NavLink></li>
+                    <li><NavLink to={`${navLinkPrefix}sports`} className='sports' style={({isActive}) => (isActive? choice : nonChoice)}>스포츠</NavLink></li>
+                    <li><NavLink to={`${navLinkPrefix}health`} className='health' style={({isActive}) => (isActive? choice : nonChoice)}>건강</NavLink></li>
+                    <li><NavLink to={`${navLinkPrefix}general `} className='Art' style={({isActive}) => (isActive? choice : nonChoice)}>일반</NavLink></li>
                 </ul>
 
                 {/*로그인 만들때 사용할 div*/}
