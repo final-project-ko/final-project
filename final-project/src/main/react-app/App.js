@@ -7,19 +7,34 @@ npm install react-native-safe-area-context
 */
 
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Weather from "./jonghwan/apis/WeatherAPI";
-import VideoBackground from "./jonghwan/apis/VideoBackground";
+import {StatusBar, StyleSheet, Text, View} from 'react-native';
+import {NavigationContainer} from "@react-navigation/native";
+import {createStackNavigator} from "@react-navigation/stack";
+import WeatherAPI from "./jonghwan/components/WeatherAPI";
+import Home from "./jonghwan/apis/Home";
+import Fivedays from "./jonghwan/apis/fivedays";
 // import MainScreen from './chaehyeon/pages/MainScreen';
 
 export default function App() {
 
+  const Stack = createStackNavigator();
   return (
-      <View style={styles.container}>
-        {/*<VideoBackground/>*/}
-        <Weather style={styles.weather} />
-        {/*<MainScreen />*/}
-      </View>
+      <>
+        <StatusBar barStyle="default"/>
+        <NavigationContainer>
+          <Stack.Navigator  initialRouteName="Weather">
+            <Stack.Screen  options={{headerShown: false}}  name="Weather" component={WeatherAPI}/>
+            <Stack.Screen options={{headerShown: false}}  name="Home" component={Home} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </>
+
+      // <View style={styles.container}>
+      //   {/*<VideoBackground/>*/}
+      //   <Weather style={styles.weather} />
+      //   {/*<DetailWeather/>*/}
+      //   {/*<MainScreen />*/}
+      // </View>
   );
 }
 
@@ -30,13 +45,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  weather: {
-    border: '1px solid black',
-    width: '80%',
-    height: '25%',
-    position: "absolute",
-    top: '10%'
-  },
+
 
   buttonContainer: {
     flexDirection: 'row',
