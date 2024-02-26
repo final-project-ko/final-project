@@ -18,9 +18,9 @@ public class APIService {
     @Autowired
     APIRepository apiRepository;
 
-    public Object headLine(List<Article> krHeadLine, String keyName) {
+    public Object headLine(List<Article> headLine, String keyName) {
 
-        if (krHeadLine == null || krHeadLine.isEmpty()) {
+        if (headLine == null || headLine.isEmpty()) {
             System.out.println("api 만료");
             return new String("api키가 응답하지 않습니다.");
         }
@@ -30,7 +30,7 @@ public class APIService {
         // 다 잘 넘어오는지 확인하는 int
         int num = 0;
 
-        for (Article article : krHeadLine) {
+        for (Article article : headLine) {
             int entity = createEntity(article, keyName);
             num = entity;
             if (num > 0) {

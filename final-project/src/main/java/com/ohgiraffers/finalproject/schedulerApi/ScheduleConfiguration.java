@@ -6,6 +6,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.ohgiraffers.finalproject.schedulerApi.article.Article;
 import com.ohgiraffers.finalproject.schedulerApi.service.APIService;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -64,14 +66,10 @@ public class ScheduleConfiguration {
 
 
 
-    /* 지금 테스트로 1분에 한번씩 실행되게 해놨습니다. 테스트 실행 후 서버 꺼주셔야 api 요청 낭비가 되지 않아요 아니면
-   *    cron 을 늘려주시면 더 천천히 실행 됩니다.
-   * */
-
 
     // 국내 헤드 라인 기사 받아 오는 메소드 - 국내 기사 메인 페이지
    @Scheduled(cron ="0 0 5 * * ?")
-   public void krHeadLines(){
+   public void headLines(){
        String[] apiName = new String[]{us_total,us_business,us_entertainment,us_general,us_health,us_science,us_sports,us_technology,kr_total,
        kr_business,kr_entertainment,kr_general,kr_health,kr_science,kr_sports,kr_technology};
        String[] apiNames = new String[]{"us_total","us_business","us_entertainment","us_general","us_health","us_science","us_sports","us_technology","kr_total",
@@ -79,8 +77,8 @@ public class ScheduleConfiguration {
 
        for (int i = 0; i < apiName.length; i++) {
            UriComponents uri = UriComponentsBuilder.fromHttpUrl(apiName[i]).build();
-           List<Article> krHeadLine = apiStart(uri);
-           Object result = apiService.headLine(krHeadLine,apiNames[i]);
+           List<Article> headLine = apiStart(uri);
+           Object result = apiService.headLine(headLine,apiNames[i]);
        }
 
    }

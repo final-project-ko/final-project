@@ -1,12 +1,15 @@
-
+import {useLocation} from "react-router-dom";
 
 const DetailsNews = () => {
+
+    const location = useLocation();
+    const { article } = location.state; // 선택한 기사 article 정보를 가져옴
 
     return (
         <div className='detailsNewsDiv'>
             <div className='selectedNewsDiv'>
-                <img className='detailsNewsImg' src="https://static01.nyt.com/images/2024/03/03/multimedia/03CHALAMET-VILLENEUVE-03-pmlf/03CHALAMET-VILLENEUVE-03-pmlf-thumbLarge.jpg"/>
-                <span className='detailsNewsTitle'>Denis Villeneuve and Timothée Chalamet: ‘Dune’ Dynasty</span>
+                <img className='detailsNewsImg' src={article.image}/>
+                <span className='detailsNewsTitle'>{article.title}</span>
                 <span className='detailsNewsDescription'>With “Part Two” hitting theaters, they discuss another potential sequel, the impossible quest for onscreen perfection and those infamous popcorn buckets.</span>
                 <span className='detailsNewsLinkText'>
                     If you're curious about the back story?&nbsp;&nbsp;

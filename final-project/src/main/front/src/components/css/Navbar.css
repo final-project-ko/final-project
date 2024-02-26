@@ -16,6 +16,7 @@
     position: relative;
     margin-top: 2%;
     border-radius: 30px;
+    font-weight: bold;
 
 }
 .mainH1 {
@@ -54,10 +55,46 @@ li:hover{
     margin-right: 1%;
     width: 5%;
     height: 60%;
-    border-radius: 10px;
+    border-radius: 20px;
     text-align: center;
     align-items: center;
     color: white;
     background-color: #008BDA;
+    cursor: pointer;
+    z-index: 2;
+}
 
+.toggle {
+    border: none;
+    position: absolute;
+    left: 9.5%;
+    top: 4.5%;
+    background-color: white;
+}
+
+.menuBar{
+    position: absolute;
+    left: 80%;
+    width: 5%;
+    height: 3%;
+    top: 5%;
+    border: 1px solid black;
+    cursor: pointer;
+    background-color: white;
+}
+
+.showNav{
+    left: 88%;
+    position: absolute;
+    top: 4.8%;
+    border: none;
+    cursor: pointer;
+    width: 5%;
+    overflow: hidden;
+    height: 3%;
+    background-color: white;
+    z-index: 1;
+}
+.showNav:hover{
+    height: 15%;
 }
