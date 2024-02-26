@@ -46,14 +46,15 @@
 .searchUl {
     display: flex;
     align-items: center;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     width: 100%;
     justify-content: center;
     background-color: white;
+    height: 100%;
 }
 .searchUl li {
     margin: 6%;
-    font-weight: bold;
+    font-weight: bolder;
 }
 .searchUl li:hover{
     color: #008BDA;
@@ -66,11 +67,56 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50%;
-    height: 5rem;
+    width: 70%;
+    height: 10%;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     margin: auto;
-    position: relative;
-    top: 10rem;
+    position: absolute;
+    top: 35%;
+    left: 15%;
 
+}
+
+/*  기본 안내 css  */
+.announcement {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 50%;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    margin: auto;
+    position: absolute;
+    top: 45%;
+    left: 15%;
+}
+
+/*  공지사항 css */
+.notice{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 50%;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    margin: auto;
+    position: absolute;
+    top: 45%;
+    left: 15%;
+}
+/* 1대1 문의 css */
+.inquiry {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 50%;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    margin: auto;
+    position: absolute;
+    top: 45%;
+    left: 15%;
 }
