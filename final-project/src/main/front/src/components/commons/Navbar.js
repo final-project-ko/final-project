@@ -80,6 +80,8 @@ const Navbar = () => {
                 <ul className="mypageNav">
                     <li><NavLink to={"/customer"} style={{textDecoration:"none",color:"black"}}>고객센터</NavLink></li>
                     <li><NavLink to={"/mypage"} style={{textDecoration:"none",color:"black"}}>마이페이지</NavLink></li>
+                    <li><NavLink to={"/mypage"} style={{textDecoration:"none",color:"black"}}>자유게시판</NavLink></li>
+                    <li><NavLink to={"/admin"} style={{textDecoration:"none",color:"black"}}>어드민페이지</NavLink></li>
                 </ul>
 
             </button>

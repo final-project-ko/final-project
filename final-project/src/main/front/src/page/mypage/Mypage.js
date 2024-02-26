@@ -14,11 +14,11 @@ const Mypage = () => {
             <div className="userDiv">
 
                 <div className="userImg">
-                    <FaRegUserCircle size="150" color="#7CF2FF"/>
+                    <FaRegUserCircle size="150" color="#7CF2FF" style={{backgroundColor:"white"}}/>
                 </div>
                 <div className="userName">
-                    <h2>정민식 님</h2>
-                    <h3>jmsdew@naver.com</h3>
+                    <h2 style={{backgroundColor:"white"}}>정민식 님</h2>
+                    <h3 style={{backgroundColor:"white"}}>jmsdew@naver.com</h3>
                 </div>
                 <ul className="userUl">
                     <li>북마크 목록</li>
@@ -27,7 +27,7 @@ const Mypage = () => {
                 </ul>
             </div>
 
-            <h3>북마크 목록</h3>
+            <h3 className="myPageText"> > 북마크 목록</h3>
             <div className='myPageDiv'>
                 {/* img, title 카테고리별 기사에서 꺼내오는 코드로 바꾸어야 함 */}
                 <button className="news" id='news1' onClick={onClickHandler}>

@@ -44,6 +44,7 @@
 .userImg{
     position: absolute;
     top: 15%;
+    background-color: white;
 }
 .userName{
     position: absolute;
@@ -53,3 +54,10 @@
     position: absolute;
     top: 70%;
 }
+
+.myPageText{
+    font-size: 1.5rem;
+    position: absolute;
+    top: 20%;
+    left: 36%;
+ }
