@@ -10,7 +10,7 @@ const HeaderNews = () => {
 
 
     if(category===undefined){
-        category = "main";
+        category = "kr_total";
     }
     console.log(category);
     // 카테고리 안에 기본은 main 나머지는 각 카테고리 이름을 담고 있음.. 그 카테고리 기사를 받아와 각 news에 뿌려주는 로직 작성 필요

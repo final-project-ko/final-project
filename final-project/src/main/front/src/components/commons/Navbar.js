@@ -62,7 +62,7 @@ const Navbar = () => {
             <header className='navBox'>
 
                 <div className='mainH1'>
-                    <NavLink className='mainPage' to={"/main"}>오늘은</NavLink>
+                    <NavLink className='mainPage' to={`/${navLinkPrefix}total`}>오늘은</NavLink>
                 </div>
 
                 <ul className='mainUl'>
