@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
         height: '30%',
         position: 'absolute',
         top: '15%',
-        borderRadius: '30%',
+        borderRadius: 30,
     },
     tempNum: {
         fontSize: 50,
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     imgWrapper: {
         width:'100%',
         height:'100%',
-        borderRadius: '30%'
+        borderRadius: 30
 
     },
     video:{

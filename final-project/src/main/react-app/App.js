@@ -2,6 +2,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 // import Weather from "./jonghwan/apis/WeatherAPI";
+
 import MainNavigator from './chaehyeon/components/MainNavigator';
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -32,6 +33,7 @@ const styles = StyleSheet.create({
 
 
 
+
 /*
 ====================================
 
@@ -41,7 +43,7 @@ const styles = StyleSheet.create({
 하단 탭 네비게이터를 제공하는 패키지입니다.
 
 npm install @react-navigation/material-top-tabs react-native-tab-view
-상단 탭 네비게이션을 제공하는 패키지입니다. 
+상단 탭 네비게이터를 제공하는 패키지입니다. 
 
 @react-navigation/material-top-tabs (v6.6.8): 
 React Navigation에서 제공하는 또 다른 패키지로, 머티리얼 스타일의 상단 탭 네비게이터를 제공합니다. 
