@@ -3,19 +3,30 @@ import "../css/Navbar.css";
 import {useEffect, useState} from "react";
 import { BiWorld } from "react-icons/bi";
 import { FcGlobe } from "react-icons/fc";
+import { HiOutlineMenu } from "react-icons/hi";
 
 const Navbar = () => {
 
-    const [toggle,setToggle] = useState(false);
-
+    const [toggle,setToggle] = useState(true);
+    const [login,setLogin] = useState(false);
+    const [showItem, setShowItem] = useState(false);
 
     const onClickHanlder = () => {
         setToggle(!toggle);
     }
-
+    const loginHandler = () => {
+        setLogin(!login);
+    }
+    const barOn = {
+        display:'block'
+    }
+    const barOff = {
+        display: 'none'
+    }
 
     const set = toggle? <BiWorld  size="41" color="gray"/> : <FcGlobe  size="40"/>
 
+    const loginBtn = login? "LogOut" : "LogIn";
     const nonChoice = {
         background: 'transparent',
         border: 0,
@@ -53,13 +64,25 @@ const Navbar = () => {
                 </ul>
 
                 {/*로그인 만들때 사용할 div*/}
-                <div className='loginDiv'>
-                    Login
+                <div className='loginDiv' onClick={loginHandler}>
+                    {loginBtn}
                 </div>
                 {/*추가로 로그인 완료 시 마이페이지로 보내는 기능도 만들어야 함*/}
             </header>
 
+            {/*   해외뉴스 on off 버튼    */}
             <button className='toggle' onClick={onClickHanlder}>{set}</button>
+
+            {/* 로그인 시 메뉴바 보이는 버튼  */}
+
+            <button className="showNav"  style={login? barOn:barOff}>
+                <HiOutlineMenu size="30" color="#008BDA"/>
+                <ul className="mypageNav">
+                    <li><NavLink to={"/customer"} style={{textDecoration:"none",color:"black"}}>고객센터</NavLink></li>
+                    <li><NavLink to={"/mypage"} style={{textDecoration:"none",color:"black"}}>마이페이지</NavLink></li>
+                </ul>
+
+            </button>
 
 
         </>
@@ -67,3 +90,5 @@ const Navbar = () => {
 }
 
 export default Navbar;
+
+

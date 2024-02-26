@@ -23,7 +23,7 @@ public class ApiEntity {
 
     @Column(name = "url" , length = 500)
     private String url;
-    @Column(name = "urlToImage", length = 500)
+    @Column(name = "url_to_image", length = 500)
     private String urlToImage;
 
     @Column(name = "date")
