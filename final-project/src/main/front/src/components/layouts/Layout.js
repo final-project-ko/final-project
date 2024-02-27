@@ -3,11 +3,11 @@ import Navbar from "../commons/Navbar";
 import Footers from "../commons/Footer";
 
 
-const Layout = () => {
+const Layout = ( {toggle, setToggle} ) => {
 
     return(
         <>
-            <Navbar/>
+            <Navbar toggle={toggle} setToggle={setToggle}/>
             <Outlet/>
             <Footers/>
         </>
