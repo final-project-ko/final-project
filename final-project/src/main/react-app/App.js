@@ -14,16 +14,9 @@ export default function App() {
   return (
     <NavigationContainer>
               {/* <Weather style={styles.weather} /> */}
+
       <Stack.Navigator
          screenOptions={{ headerShown: false }}>
-        <Stack.Screen
-            options={{headerShown: false}}
-            name="Weather" component={Weather
-        }/>
-        <Stack.Screen
-            options={{headerShown: false}}
-            name="Home" component={Home}
-        />
         <Stack.Screen
           name="BottomNavigator"
           component={BottomNavigator}
@@ -32,15 +25,17 @@ export default function App() {
           name="ShortNewsScreen"
           component={ShortNewsScreen}
         />
+        <Stack.Screen
+            options={{headerShown: false}}
+            name="Weather" component={Weather
+        }/>
+        <Stack.Screen
+            options={{headerShown: false}}
+            name="Home" component={Home}
+        />
       </Stack.Navigator>
     </NavigationContainer>
 
-          // <View style ={styles.container}>
-          //   <Stack.Navigator  initialRouteName="Weather">
-          //     <Stack.Screen  options={{headerShown: false}}  name="Weather" component={Weather}/>
-          //     <Stack.Screen options={{headerShown: false}}  name="Home" component={Home} />
-          //   </Stack.Navigator>
-          // </View>
 
   );
 }
