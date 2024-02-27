@@ -78,7 +78,8 @@ const Navbar = () => {
 
                 {/*로그인 만들때 사용할 div*/}
                 <div className='loginDiv' onClick={loginHandler}>
-                    {loginBtn}
+                    <NavLink to={loginBtn==="LogIn"?"/login" : "/"} style={{textDecoration:"none",color:"black"}}>{loginBtn}</NavLink>
+
                 </div>
                 {/*추가로 로그인 완료 시 마이페이지로 보내는 기능도 만들어야 함*/}
             </header>
