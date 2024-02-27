@@ -6,11 +6,13 @@ import SettingScreen3 from './SettingScreen3';
 import TopNavigator from './TopNavigator';
 import SettingScreen2 from './SettingScreen2';
 
+
 const BottomTab = createBottomTabNavigator();
 
 const BottomNavigator = () => {
   return (
     <BottomTab.Navigator initialRouteName='MainScreen'>
+
       <BottomTab.Screen 
         name="MainScreen" 
         component={MainScreen} 

@@ -6,7 +6,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import BottomNavigator from './chaehyeon/components/BottomNavigator';
 import ShortNewsScreen from './chaehyeon/components/ShortNewsScreen';
 import Weather from "./jonghwan/components/WeatherAPI";
-import Home from "./jonghwan/apis/Home";
+import DetailWeather from "./jonghwan/pages/DetailWeather";
+import DetailNews from "./jonghwan/pages/DetailNews";
+import News from "./jonghwan/components/News";
 
 const Stack = createStackNavigator();
 
@@ -27,11 +29,17 @@ export default function App() {
         />
         <Stack.Screen
             options={{headerShown: false}}
-            name="Weather" component={Weather
-        }/>
+            name="Weather"
+            component={Weather}
+        />
         <Stack.Screen
             options={{headerShown: false}}
-            name="Home" component={Home}
+            name="DetailWeather"
+            component={DetailWeather}
+        />
+        <Stack.Screen
+            name="DetailNews"
+            component={DetailNews}
         />
       </Stack.Navigator>
     </NavigationContainer>

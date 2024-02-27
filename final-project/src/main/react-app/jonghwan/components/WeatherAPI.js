@@ -5,7 +5,8 @@ import { TouchableOpacity } from 'react-native';
 // import {Tab} from "react-native-elements";
 // import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {useNavigation} from "@react-navigation/native";
-
+// import {API_KEY} from "react-native-dotenv";
+import Config from "react-native-config";
 
 const Weather = () =>{
     const [isLoading , setIsLoading] = useState(true);
@@ -15,14 +16,12 @@ const Weather = () =>{
     const [min, setMin] = useState('');
     const [error, setError] = useState(false);
 
-
-    // const Tab = createBottomTabNavigator();
-    const API_KEY = "5c109176cb7f758390478b3cbdcc8d63";
+    // const apikey = Config.API_KEY;
+    const API_KEY ="5c109176cb7f758390478b3cbdcc8d63";
     const latitude = 38;
     const longitude = 127;
 
     const navigation = useNavigation();
-
 
 
     useEffect(() => {
@@ -34,7 +33,7 @@ const Weather = () =>{
                 ).then(response => {
                     // console.log("-")
                     // console.log(response.data.daily[0].temp.day)
-                    // console.log("--")
+
                     if(mounted) {
                         let summary = response.data.daily[0].weather[0].description;
                         let main = response.data.daily[0].weather[0].main;
@@ -68,7 +67,7 @@ const Weather = () =>{
     }, []);
 
     return (
-            <TouchableOpacity style={styles.container} onPress={() => navigation.navigate("Home")}>
+            <TouchableOpacity style={styles.container} onPress={() => navigation.navigate("DetailWeather")}>
                 <ImageBackground style={styles.picture}  imageStyle={styles.imgWrapper} source={currentWeather === "Snow" ? require('../../assets/snow.jpeg') : require('../../assets/snow.jpeg')}>
                     {isLoading || error
                         ? (<Text> Waiting.. </Text>)

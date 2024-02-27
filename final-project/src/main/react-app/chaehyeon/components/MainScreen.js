@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Button, Text, StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Weather from './../../jonghwan/components/WeatherAPI';
-import Home from './../../jonghwan/apis/Home';
+import DetailWeather from '../../jonghwan/pages/DetailWeather';
 const Stack = createStackNavigator();
 
 const MainScreen = () => {

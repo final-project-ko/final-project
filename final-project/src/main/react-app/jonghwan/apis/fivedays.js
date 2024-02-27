@@ -74,6 +74,7 @@ const Fivedays = () =>{
                     console.log(response.data.list[7].dt_txt);
                     console.log(response.data.list[5].main.temp_max);
                     console.log(response.data.list[21].dt_txt.split(" ")[0]);
+
                     console.log("--")
                     if(mounted) {
                         // let summary = response.data.list[0].main;
