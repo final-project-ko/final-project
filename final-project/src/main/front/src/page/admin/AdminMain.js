@@ -1,4 +1,4 @@
-import "../../components/css/AdminMain.css";
+import "../../components/css/admin/AdminMain.css";
 import {NavLink} from "react-router-dom";
 import {useState} from "react";
 

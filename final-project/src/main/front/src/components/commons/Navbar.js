@@ -63,7 +63,9 @@ const Navbar = ( {toggle, setToggle} ) => {
             <header className='navBox'>
 
                 <div className='mainH1'>
-                    <NavLink className='mainPage' to={`${navLinkPrefix}total`}>오늘은</NavLink>
+
+                    <NavLink className='mainPage' to={`/${navLinkPrefix}total`}>오늘은</NavLink>
+
                 </div>
 
                 <ul className='mainUl'>

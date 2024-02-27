@@ -1,0 +1,36 @@
+
+
+
+us_total : https://newsapi.org/v2/top-headlines?country=us&apiKey=b2f485cd2f274a5ba62325da31653420
+
+us_business : https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=b2f485cd2f274a5ba62325da31653420
+
+us_entertainment: https://newsapi.org/v2/top-headlines?country=us&category=entertainment&apiKey=b2f485cd2f274a5ba62325da31653420
+
+us_general: https://newsapi.org/v2/top-headlines?country=us&category=general&apiKey=b2f485cd2f274a5ba62325da31653420
+
+us_health: https://newsapi.org/v2/top-headlines?country=us&category=health&apiKey=b2f485cd2f274a5ba62325da31653420
+
+us_science: https://newsapi.org/v2/top-headlines?country=us&category=science&apiKey=b2f485cd2f274a5ba62325da31653420
+
+us_sports: https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=b2f485cd2f274a5ba62325da31653420
+
+us_technology: https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=b2f485cd2f274a5ba62325da31653420
+
+
+
+kr_total: https://newsapi.org/v2/top-headlines?country=kr&apiKey=b2f485cd2f274a5ba62325da31653420
+
+kr_business: https://newsapi.org/v2/top-headlines?country=kr&category=business&apiKey=b2f485cd2f274a5ba62325da31653420
+
+kr_entertainment: https://newsapi.org/v2/top-headlines?country=kr&category=entertainment&apiKey=b2f485cd2f274a5ba62325da31653420
+
+kr_general: https://newsapi.org/v2/top-headlines?country=kr&category=general&apiKey=b2f485cd2f274a5ba62325da31653420
+
+kr_health: https://newsapi.org/v2/top-headlines?country=kr&category=health&apiKey=b2f485cd2f274a5ba62325da31653420
+
+kr_science: https://newsapi.org/v2/top-headlines?country=kr&category=science&apiKey=b2f485cd2f274a5ba62325da31653420
+
+kr_sports: https://newsapi.org/v2/top-headlines?country=kr&category=sports&apiKey=b2f485cd2f274a5ba62325da31653420
+
+kr_technology: https://newsapi.org/v2/top-headlines?country=kr&category=technology&apiKey=b2f485cd2f274a5ba62325da31653420

@@ -1,17 +1,50 @@
 // 라이브러리 임포트 목록 하단에 정리되어 있습니다.
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-// import Weather from "./jonghwan/apis/WeatherAPI";
-
-import MainNavigator from './chaehyeon/components/MainNavigator';
 import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import BottomNavigator from './chaehyeon/components/BottomNavigator';
+import ShortNewsScreen from './chaehyeon/components/ShortNewsScreen';
+import Weather from "./jonghwan/components/WeatherAPI";
+import DetailWeather from "./jonghwan/pages/DetailWeather";
+import DetailNews from "./jonghwan/pages/DetailNews";
+import News from "./jonghwan/components/News";
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer style={styles.container}>
-      {/* <Weather style={styles.weather} /> */}
-      <MainNavigator style={styles.container}/>
+    <NavigationContainer>
+              {/* <Weather style={styles.weather} /> */}
+
+      <Stack.Navigator
+         screenOptions={{ headerShown: false }}>
+        <Stack.Screen
+          name="BottomNavigator"
+          component={BottomNavigator}
+        />
+          <Stack.Screen
+          name="ShortNewsScreen"
+          component={ShortNewsScreen}
+        />
+        <Stack.Screen
+            options={{headerShown: false}}
+            name="Weather"
+            component={Weather}
+        />
+        <Stack.Screen
+            options={{headerShown: false}}
+            name="DetailWeather"
+            component={DetailWeather}
+        />
+        <Stack.Screen
+            name="DetailNews"
+            component={DetailNews}
+        />
+      </Stack.Navigator>
     </NavigationContainer>
+
+
   );
 }
 
@@ -91,4 +124,7 @@ React Native에서 사용할 수 있는 사용자 정의 가능한 벡터 아이
 
 react-native-video (v5.2.1): 
 React Native 비디오 컴포넌트입니다.
+
+react-native-web-swiper (^2.2.4)
+이미지 슬라이더 및 캐러셀을 쉽게 구현할 수 있는 패키지입니다.
 */

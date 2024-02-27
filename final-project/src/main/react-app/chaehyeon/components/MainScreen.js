@@ -1,18 +1,21 @@
-import { StyleSheet, View } from "react-native";
+import React from 'react';
+import { View, Button, Text, StyleSheet } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Weather from './../../jonghwan/components/WeatherAPI';
+import DetailWeather from '../../jonghwan/pages/DetailWeather';
+const Stack = createStackNavigator();
 
-import Weather from '../../jonghwan/apis/WeatherAPI';
+const MainScreen = () => {
+  return(
+  
+  <View style ={styles.container}>
+    <Weather style={styles.weather} />
+  </View>
 
-
-const MainScreen = () =>{
-    return(
-        <View style ={styles.container}>
-          <Weather style={styles.weather} />
-          </View>
-    )
+  )
 }
 
 export default MainScreen;
-
 
 const styles = StyleSheet.create({
   container: {
@@ -22,7 +25,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   weather: {
-    border: '1px solid black',
+    borderWidth: 1,
+    borderColor: 'black',
     width: '80%',
     height: '25%',
     position: "absolute",
