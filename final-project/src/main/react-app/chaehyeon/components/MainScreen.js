@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Button, Text, StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Weather from './../../jonghwan/components/WeatherAPI';
-import Home from './../../jonghwan/apis/Home';
+import DetailWeather from '../../jonghwan/pages/DetailWeather';
 const Stack = createStackNavigator();
 
 const MainScreen = () => {
@@ -10,14 +10,7 @@ const MainScreen = () => {
   
   <View style ={styles.container}>
     <Weather style={styles.weather} />
-    </View>
-
-  //   <View style ={styles.container}>
-  //   <Stack.Navigator  initialRouteName="Weather">
-  //     <Stack.Screen  options={{headerShown: false}}  name="Weather" component={Weather}/>
-  //     <Stack.Screen options={{headerShown: false}}  name="Home" component={Home} />
-  //   </Stack.Navigator>
-  // </View>
+  </View>
 
   )
 }
