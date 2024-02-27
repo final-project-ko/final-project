@@ -1,11 +1,12 @@
 // 라이브러리 임포트 목록 하단에 정리되어 있습니다.
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-// import Weather from "./jonghwan/apis/WeatherAPI";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import BottomNavigator from './chaehyeon/components/BottomNavigator';
 import ShortNewsScreen from './chaehyeon/components/ShortNewsScreen';
+import Weather from "./jonghwan/components/WeatherAPI";
+import Home from "./jonghwan/apis/Home";
 
 const Stack = createStackNavigator();
 
@@ -16,6 +17,14 @@ export default function App() {
       <Stack.Navigator
          screenOptions={{ headerShown: false }}>
         <Stack.Screen
+            options={{headerShown: false}}
+            name="Weather" component={Weather
+        }/>
+        <Stack.Screen
+            options={{headerShown: false}}
+            name="Home" component={Home}
+        />
+        <Stack.Screen
           name="BottomNavigator"
           component={BottomNavigator}
         />
@@ -25,6 +34,14 @@ export default function App() {
         />
       </Stack.Navigator>
     </NavigationContainer>
+
+          // <View style ={styles.container}>
+          //   <Stack.Navigator  initialRouteName="Weather">
+          //     <Stack.Screen  options={{headerShown: false}}  name="Weather" component={Weather}/>
+          //     <Stack.Screen options={{headerShown: false}}  name="Home" component={Home} />
+          //   </Stack.Navigator>
+          // </View>
+
   );
 }
 

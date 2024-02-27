@@ -10,14 +10,7 @@ const MainScreen = () => {
   
   <View style ={styles.container}>
     <Weather style={styles.weather} />
-    </View>
-
-  //   <View style ={styles.container}>
-  //   <Stack.Navigator  initialRouteName="Weather">
-  //     <Stack.Screen  options={{headerShown: false}}  name="Weather" component={Weather}/>
-  //     <Stack.Screen options={{headerShown: false}}  name="Home" component={Home} />
-  //   </Stack.Navigator>
-  // </View>
+  </View>
 
   )
 }
