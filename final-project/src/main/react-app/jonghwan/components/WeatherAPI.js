@@ -97,21 +97,16 @@ export default Weather;
 
 const styles = StyleSheet.create({
     container: {
-        alignItems:'center',
-        justifyContent: 'center',
-        width: '100%',
-        height: 300,
-        position: 'absolute',
-        top: '15%',
-        borderRadius: 30
+        width: 320,
+        height: 200,
+        borderRadius: 15
     },
     picture:{
         alignItems:'center',
         justifyContent: 'center',
-        width: '90%',
-        height: 300,
+        width: 320,
+        height: 200,
         position: 'absolute',
-        borderRadius: 30
     },
     tempNum: {
         fontSize: 50,
@@ -124,9 +119,7 @@ const styles = StyleSheet.create({
     imgWrapper: {
         width:'100%',
         height:'100%',
-        borderRadius: 30
-
+        borderRadius: 20
     }
-
 })
 
