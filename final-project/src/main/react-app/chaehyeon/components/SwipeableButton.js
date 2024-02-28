@@ -12,7 +12,7 @@ export default class SwipeButtons extends React.Component {
 
   render() {
     const { showButton } = this.state;
-    const { message, backgroundSource } = this.props; // Prop으로 message와 backgroundSource를 받아옵니다.
+    const { message, backgroundSource, widthsize } = this.props; // Prop으로 message와 backgroundSource를 받아옵니다.
 
     return (
       <View>
@@ -22,7 +22,7 @@ export default class SwipeButtons extends React.Component {
             style={{
               height: 70, // 배경 바 높이
               borderRadius: 15, // 배경 바 시작점 모서리 둥글게
-              width: 320, // 배경 바 넓이
+              width: widthsize,  // 배경 바 넓이
               justifyContent: 'center',
               alignItems: 'center',
               overflow: 'hidden', // 이미지가 borderRadius를 가질 수 있도록 overflow 속성 추가
@@ -54,16 +54,6 @@ export default class SwipeButtons extends React.Component {
               disabled={false} // 비활성화 상태
               disabledRailBackgroundColor={'#666666'} // 비활성화시 색상
             >
-              <ImageBackground
-                source={backgroundSource} // Use the passed backgroundSource prop
-                style={{
-                  flex: 1,
-                  resizeMode: 'cover',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}
-              >
-              </ImageBackground>
             </SwipeButton>
           </ImageBackground>
         )}
