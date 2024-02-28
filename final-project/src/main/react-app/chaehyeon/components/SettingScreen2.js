@@ -1,14 +1,15 @@
 import { Text, View } from "react-native";
 import TopNavigator from "./TopNavigator";
-import News from "../../jonghwan/components/News";
 import NewsTest from "../../jonghwan/components/NewsTest";
 
 const SettingScreen2 = () =>{
     return (
         <View>
           <TopNavigator />
-            <News/>
-            {/*<NewsTest/>*/}
+
+          {/*<Text>addddddddddds</Text>*/}
+          {/* SettingScreen2의 내용이 여기에 들어갑니다. */}
+          {/*  <NewsTest/>*/}
         </View>
       );
 }

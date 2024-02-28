@@ -49,7 +49,7 @@ public class ContentsController {
             @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
     })
     @GetMapping("/categoryNews/{category}")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = {"http://localhost:3000", "exp://192.168.0.63:8081"})
     public ArticleDTO categoryNews(@PathVariable String category) {
         LocalDate today = LocalDate.now();
 
