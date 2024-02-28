@@ -7,8 +7,7 @@ const SettingScreen2 = () =>{
     return (
         <View>
           <TopNavigator />
-            <News/>
-            {/*<NewsTest/>*/}
+
         </View>
       );
 }
