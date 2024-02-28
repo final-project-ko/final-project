@@ -61,18 +61,6 @@ const News =()=>{
                             <Text></Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => navigation.navigate("DetailNews")}>
-                        <View style={styles.content}>
-                            <Image/>
-                            <Text></Text>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => navigation.navigate("DetailNews")}>
-                        <View style={styles.content}>
-                            <Image/>
-                            <Text></Text>
-                        </View>
-                    </TouchableOpacity>
                     {/*))}*/}
                 </ScrollView>
 
