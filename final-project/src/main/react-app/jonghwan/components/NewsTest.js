@@ -4,25 +4,27 @@
 // import {useParams} from "react-router-dom";
 //
 // const NewsTest = () => {
-//     let { category } = useParams();
-//
-//     if (category === undefined) {
-//         category = "kr_total";
-//     }
-//     console.log(category);
-//
-//     const navigation = useNavigation();
-//
-//     const onClickHandler = (article) => {
-//         navigation.navigate(`/detailNews/${article.code}`, { state: { article } });
-//     }
-//
-//     const [articles, setArticles] = useState([]);
-//
+//     // let { category } = useParams();
+//     //
+//     // let category = "kr_business";
+//     //
+//     // if (category === undefined) {
+//     //     category = "kr_total";
+//     // }
+//     // console.log(category);
+//     //
+//     // const navigation = useNavigation();
+//     //
+//     // const onClickHandler = (article) => {
+//     //     navigation.navigate(`/detailNews/${article.code}`, { state: { article } });
+//     // }
+//     //
+//     // const [articles, setArticles] = useState([]);
+//     //
 //     useEffect(() => {
 //         const fetchCategoryNews = async () => {
 //             try {
-//                 const response = await fetch(`http://localhost:8080/categoryNews/${category}`);
+//                 const response = await fetch(`http://192.168.0.63:8080/api/news/categoryNews/${category}`);
 //                 const data = await response.json();
 //                 setArticles(data.articles);
 //                 console.log("data", data);
