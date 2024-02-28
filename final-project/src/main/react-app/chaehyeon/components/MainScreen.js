@@ -1,35 +1,35 @@
 import React from 'react';
-import { View, Button, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Weather from './../../jonghwan/components/WeatherAPI';
-import DetailWeather from '../../jonghwan/pages/DetailWeather';
+import SwipeButtons from './SwipeableButton';
+
 const Stack = createStackNavigator();
 
 const MainScreen = () => {
-  return(
-  
-  <View style ={styles.container}>
-    <Weather style={styles.weather} />
-  </View>
+  return (
+    <View style={styles.container} >
+      <Weather/>
+      <View style={styles.separator} />
+        <SwipeButtons message="오늘은?" backgroundSource={require('../../assets/SwipeBar_3loop.gif')} />
+        <View style={styles.separator} />
+        <SwipeButtons message="밀어서 더 읽기" backgroundSource={require('../../assets/SwipeBar_4loop.gif')} />
 
-  )
-}
+
+    </View>
+  );
+};
 
 export default MainScreen;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#323236',
   },
-  weather: {
-    borderWidth: 1,
-    borderColor: 'black',
-    width: '80%',
-    height: '25%',
-    position: "absolute",
-    top: '10%'
-  }
+  separator: {
+    marginTop: 30,
+  },
 });
