@@ -59,8 +59,8 @@ const AdminMain = () => {
     return (
         <>
             <div className="adminDiv">
-                <div className="adminMainText">오늘은</div>
-                <button className="adminLogOut">로그아웃</button>
+                <div className="adminMainText" style={{backgroundColor:"white"}}>오늘은</div>
+                <button className="adminLogOut"><NavLink to={"/"} style={{textDecoration:"none",color:"black",backgroundColor:"white"}}>로그아웃</NavLink></button>
 
             </div>
 

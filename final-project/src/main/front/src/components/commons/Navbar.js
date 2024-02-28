@@ -5,9 +5,9 @@ import { BiWorld } from "react-icons/bi";
 import { FcGlobe } from "react-icons/fc";
 import { HiOutlineMenu } from "react-icons/hi";
 
-const Navbar = () => {
+const Navbar = ( {toggle, setToggle} ) => {
 
-    const [toggle,setToggle] = useState(true);
+    // const [toggle,setToggle] = useState(true);
     const [login,setLogin] = useState(false);
     const [showItem, setShowItem] = useState(false);
     const [navLinkPrefix, setNavLinkPrefix] = useState("kr_");
@@ -19,14 +19,15 @@ const Navbar = () => {
 
         // 토글 버튼을 눌렀을 때 navLinkPrefix 변경
         setNavLinkPrefix((prevState) => (prevState === "kr_" ? "us_" : "kr_"));
+        console.log("toggle value", toggle)
 
-        // 토글 시 페이지 이동
-        if (navLinkPrefix === "kr_") {
-            navigate("us_total");
-        } else {
-            navigate("kr_total")
-        }
     }
+
+    // 토글 시 국내,해외 페이지 이동
+    useEffect(() => {
+        navigate(`${navLinkPrefix}total`);
+    }, [navLinkPrefix]);
+
     const loginHandler = () => {
         setLogin(!login);
     }
@@ -62,7 +63,9 @@ const Navbar = () => {
             <header className='navBox'>
 
                 <div className='mainH1'>
+
                     <NavLink className='mainPage' to={`/${navLinkPrefix}total`}>오늘은</NavLink>
+
                 </div>
 
                 <ul className='mainUl'>
@@ -78,7 +81,8 @@ const Navbar = () => {
 
                 {/*로그인 만들때 사용할 div*/}
                 <div className='loginDiv' onClick={loginHandler}>
-                    {loginBtn}
+                    <NavLink to={loginBtn==="LogIn"?"/login" : "/"} style={{textDecoration:"none",color:"black"}}>{loginBtn}</NavLink>
+
                 </div>
                 {/*추가로 로그인 완료 시 마이페이지로 보내는 기능도 만들어야 함*/}
             </header>

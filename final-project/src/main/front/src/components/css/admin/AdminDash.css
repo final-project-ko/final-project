@@ -4,7 +4,7 @@
     position: absolute;
     width: 30%;
     height: 30%;
-    border: 1px solid black;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
     top: 25%;
     left: 25%;
 }
@@ -13,7 +13,7 @@
     position: absolute;
     width: 30%;
     height: 30%;
-    border: 1px solid black;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
     top: 25%;
     left: 60%;
 }
@@ -22,7 +22,7 @@
     position: absolute;
     width: 30%;
     height: 30%;
-    border: 1px solid black;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
     top: 60%;
     left: 25%;
 }
@@ -31,7 +31,7 @@
     position: absolute;
     width: 30%;
     height: 30%;
-    border: 1px solid black;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
     top: 60%;
     left: 60%;
 }

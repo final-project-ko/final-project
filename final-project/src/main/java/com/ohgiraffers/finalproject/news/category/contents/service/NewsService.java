@@ -1,11 +1,13 @@
 package com.ohgiraffers.finalproject.news.category.contents.service;
 
 import com.ohgiraffers.finalproject.news.category.contents.dto.NewsDTO;
+import com.ohgiraffers.finalproject.news.category.contents.entity.News;
 import com.ohgiraffers.finalproject.news.category.contents.repository.NewsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -51,5 +53,32 @@ public class NewsService {
                 })
                 .toList();
 
+    }
+
+    public News modifyNews(HashMap<String, String> news) {
+
+        News modifyNews = new News();
+        modifyNews.setCode(Integer.parseInt(news.get("code")));
+        modifyNews.setTitle(news.get("title"));
+        modifyNews.setDescription(news.get("description"));
+        modifyNews.setUrl(news.get("url"));
+        modifyNews.setImage(news.get("image"));
+        modifyNews.setCategory(news.get("category"));
+        modifyNews.setDate(LocalDate.parse(news.get("date")));
+
+        News modify = newsRepository.save(modifyNews);
+
+        return modify;
+    }
+
+    public News deleteNews(HashMap<String, String> news) {
+
+        News deleteNews = new News();
+        deleteNews.setCode(Integer.parseInt(news.get("code")));
+        deleteNews.setTitle(news.get("title"));
+
+        News delete = newsRepository.save(deleteNews);
+
+        return delete;
     }
 }
