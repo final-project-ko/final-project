@@ -98,14 +98,14 @@ export default Weather;
 const styles = StyleSheet.create({
     container: {
         width: 320,
-        height: 200,
+        height: 170,
         borderRadius: 15
     },
     picture:{
         alignItems:'center',
         justifyContent: 'center',
         width: 320,
-        height: 200,
+        height: 170,
         position: 'absolute',
     },
     tempNum: {
@@ -122,4 +122,3 @@ const styles = StyleSheet.create({
         borderRadius: 20
     }
 })
-

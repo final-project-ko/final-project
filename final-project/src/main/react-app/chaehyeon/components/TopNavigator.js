@@ -12,15 +12,33 @@ import CScreen from './CScreen';
 const Tab = createMaterialTopTabNavigator();
 
 const TopNavigator = () => {
-  return (
-    <Tab.Navigator
-      screenOptions={{
-        tabBarScrollEnabled: true
-      }}
-    >
+  return (    <Tab.Navigator
+    initialRouteName='MainScreen'
+    tabBarOptions={{
+      scrollEnabled: true,
+      style: { 
+        backgroundColor: '#2E2E37', // 헤더 배경색 설정
+        height: 50 // 헤더 높이를 10으로 지정
+      },
+      labelStyle: { 
+        color: '#ffffff', // 탭 텍스트 색상 설정
+        fontSize: 16 // 탭 폰트 크기를 15로 지정
+      },
+      indicatorStyle: {
+        backgroundColor: '#4AB9F8', // 선택된 탭 아래의 인디케이터 색상 설정
+      },
+      showIcon: false, // 아이콘을 숨김
+      showLabel: true, // 라벨을 보여줌
+      pressColor: '#4AB9F8', // 탭을 눌렀을 때 효과 색상
+      pressOpacity: 0.8, // 탭을 눌렀을 때 투명도 설정
+    }}
+  >
       <Tab.Screen 
         name="AScreen" 
         component={AScreen} 
+        options={{
+          tabBarLabel: "전체"
+        }}
       />
             <Tab.Screen 
         name="CScreen" 

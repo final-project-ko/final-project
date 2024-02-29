@@ -18,7 +18,7 @@ public class ApiEntity {
     @Column(name = "title" , length = 500)
     private String title;
 
-    @Column(name = "description", length = 500)
+    @Column(name = "description", length = 1000)
     private String description;
 
     @Column(name = "url" , length = 500)

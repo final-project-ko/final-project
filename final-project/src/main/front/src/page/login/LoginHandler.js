@@ -4,26 +4,32 @@ import axios from "axios";
 
 const LoginHandler = (props) => {
 
-    // redirect한 요청 중 회원 코드 뽑아오기
     const navigate = useNavigate();
     const code = new URL(window.location.href).searchParams.get("code");
+    console.log(code);
+
+
 
     useEffect(() => {
         const kakaoLogin = async () => {
-            await axios({
-                method: "GET",
-                url: `${process.env.REACT_APP_REDIRECT_URL}/?code=${code}`,
-                headers : {
-                    "Content-type" : "application/json;charset=utf-8"
-                },
-            }).then((res) => {
-                localStorage.setItem("name", res.data.account.kakaoName);
-                localStorage.setItem("email", res.data.account.kakaoEmail);
-                navigate("/");
-            });
+            await fetch(`/login/oauth/?code=${code}`,{
+                method: "POST",
+            }).then(res => res.json())
+              .then(data => {
+                  console.log(data)
+              })
+                .catch(error =>{
+                    console.log(error);
+                });
+                //계속 쓸 정보들( ex: 이름) 등은 localStorage에 저장해두자
+/*                localStorage.setItem("name", res.data.account.name);*/
+                //로그인이 성공하면 이동할 페이지
+                /*navigate("/");*/
+
         };
-        kakaoLogin();
+            kakaoLogin();
     }, [props.history]);
+
 
     return (
         <div className="LoginHandeler">
@@ -35,5 +41,4 @@ const LoginHandler = (props) => {
         </div>
     );
 }
-
 export default LoginHandler;

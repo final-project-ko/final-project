@@ -1,13 +1,14 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import { ScrollView } from 'react-native-gesture-handler'; 
 import {useNavigation} from "@react-navigation/native";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 
-
-const News =()=> {
+const News =()=>{
 
     const navigation = useNavigation();
+    const [newsUrl, setNewsUrl] = useState([]);
 
+<<<<<<< HEAD
     const [businessArticles, setBusinessArticles] = useState([]);
     const [entertainmentArticles, setEntertainmentArticles] = useState([]);
     const [techArticles, setTechArticles] = useState([]);
@@ -62,13 +63,54 @@ const News =()=> {
 
 
     return (
+=======
+    return(
+>>>>>>> 30a94975f1bb8a2433eace2ce7d5db7d8e605164
         <View style={styles.container}>
-            <View style={styles.separator}/>
+                <View style={styles.separator} />
+{/* 
+            <View style={styles.categoryContainer1}>
+                <ScrollView horizontal = {true}  contentContainerStyle={styles.categoryContainer}  showsHorizontalScrollIndicator={false}>
+
+                    <TouchableOpacity onPress={() => navigation.navigate("SettingScreen2")}>
+                        <View style={styles.categoryList}>
+                            <Text style={{color:'white' }}>전체</Text>
+                        </View>
+                    </TouchableOpacity>
+
+                    
+                    <View style={styles.categoryList}>
+                        <Text style={{color:'white' }}>비즈니스</Text>
+                    </View>
+
+                    <View style={styles.categoryList}>
+                        <Text style={{color:'white' }}>엔터테인</Text>
+                    </View>
+
+                    <View style={styles.categoryList}>
+                        <Text style={{color:'white' }}>기술</Text>
+                    </View>
+
+                    <View style={styles.categoryList}>
+                        <Text style={{color:'white' }}>과학</Text>
+                    </View>
+
+                    <View style={styles.categoryList}>
+                        <Text style={{color:'white' }}>스포츠</Text>
+                    </View>
+
+                    <View style={{ width: 100, alignItems:"center", justifyContent:"center"}}>
+                        <Text style={{color:'white' }}>건강</Text>
+                    </View>
+
+                </ScrollView>
+            </View> */}
 
 
             <ScrollView style={styles.totalScrollView} showsVerticalScrollIndicator={false}>
 
                 <Text style={styles.categoryText}>비즈니스</Text>
+<<<<<<< HEAD
                 <ScrollView style={styles.scrollView} horizontal={true} contentContainerStyle={styles.contentContainer}
                             showsHorizontalScrollIndicator={false}>
 
@@ -84,96 +126,81 @@ const News =()=> {
                         </TouchableOpacity>
                     ))}
 
+=======
+                <ScrollView style={styles.scrollView} horizontal = {true}  contentContainerStyle={styles.contentContainer } showsHorizontalScrollIndicator={false} >
+                    {/*{newsUrl.map((newsUrl, index) => (*/}
+                    <TouchableOpacity onPress={() => navigation.navigate("DetailNews")}>
+                        <View style={styles.content}>
+                            <Image/>
+                            <Text></Text>
+                        </View>
+                    </TouchableOpacity>
+                    {/*))}*/}
+>>>>>>> 30a94975f1bb8a2433eace2ce7d5db7d8e605164
                 </ScrollView>
 
 
                 <Text style={styles.categoryText}>엔터테인먼트</Text>
-                <ScrollView style={styles.scrollView} horizontal={true} contentContainerStyle={styles.contentContainer}
-                            showsHorizontalScrollIndicator={false}>
+                <ScrollView style={styles.scrollView} horizontal = {true}  contentContainerStyle={styles.contentContainer}  showsHorizontalScrollIndicator={false}>
 
-                    {entertainmentArticles.map((article, index) => (
-                        <TouchableOpacity onPress={() => navigation.navigate("DetailNews")}>
-                            <View style={styles.content}>
-                                <Image source={{uri: article.image}} style={styles.image}/>
-                                <Text style={styles.articleText}>
-                                    {article.title.length > 24 ? article.title.substring(0, 24) + '...' : article.title}
-                                </Text>
-                            </View>
-                        </TouchableOpacity>
-                    ))}
+                    <TouchableOpacity onPress={() => navigation.navigate("DetailNews")}>
+                        <View style={styles.content}>
+                            <Image/>
+                            <Text></Text>
+                        </View>
+                    </TouchableOpacity>
 
                 </ScrollView>
 
 
                 <Text style={styles.categoryText}>기술</Text>
-                <ScrollView style={styles.scrollView} horizontal={true} contentContainerStyle={styles.contentContainer}
-                            showsHorizontalScrollIndicator={false}>
+                <ScrollView style={styles.scrollView} horizontal = {true}  contentContainerStyle={styles.contentContainer} showsHorizontalScrollIndicator={false}>
 
-                    {techArticles.map((article, index) => (
-                        <TouchableOpacity onPress={() => navigation.navigate("DetailNews")}>
-                            <View style={styles.content}>
-                                <Image source={{uri: article.image}} style={styles.image}/>
-                                <Text style={styles.articleText}>
-                                    {article.title.length > 24 ? article.title.substring(0, 24) + '...' : article.title}
-                                </Text>
-                            </View>
-                        </TouchableOpacity>
-                    ))}
+                    <TouchableOpacity onPress={() => navigation.navigate("DetailNews")}>
+                        <View style={styles.content}>
+                            <Image/>
+                            <Text></Text>
+                        </View>
+                    </TouchableOpacity>
 
                 </ScrollView>
 
 
                 <Text style={styles.categoryText}>과학</Text>
-                <ScrollView style={styles.scrollView} horizontal={true} contentContainerStyle={styles.contentContainer}
-                            showsHorizontalScrollIndicator={false}>
+                <ScrollView style={styles.scrollView} horizontal = {true}  contentContainerStyle={styles.contentContainer} showsHorizontalScrollIndicator={false}>
 
-                    {scienceArticles.map((article, index) => (
-                        <TouchableOpacity onPress={() => navigation.navigate("DetailNews")}>
-                            <View style={styles.content}>
-                                <Image source={{uri: article.image}} style={styles.image}/>
-                                <Text style={styles.articleText}>
-                                    {article.title.length > 24 ? article.title.substring(0, 24) + '...' : article.title}
-                                </Text>
-                            </View>
-                        </TouchableOpacity>
-                    ))}
+                    <TouchableOpacity onPress={() => navigation.navigate("DetailNews")}>
+                        <View style={styles.content}>
+                            <Image/>
+                            <Text></Text>
+                        </View>
+                    </TouchableOpacity>
 
                 </ScrollView>
 
 
                 <Text style={styles.categoryText}>스포츠</Text>
-                <ScrollView style={styles.scrollView} horizontal={true} contentContainerStyle={styles.contentContainer}
-                            showsHorizontalScrollIndicator={false}>
+                <ScrollView style={styles.scrollView} horizontal = {true}  contentContainerStyle={styles.contentContainer} showsHorizontalScrollIndicator={false}>
 
-                    {sportsArticles.map((article, index) => (
-                        <TouchableOpacity onPress={() => navigation.navigate("DetailNews")}>
-                            <View style={styles.content}>
-                                <Image source={{uri: article.image}} style={styles.image}/>
-                                <Text style={styles.articleText}>
-                                    {article.title.length > 24 ? article.title.substring(0, 24) + '...' : article.title}
-                                </Text>
-                            </View>
-                        </TouchableOpacity>
-                    ))}
+                    <TouchableOpacity onPress={() => navigation.navigate("DetailNews")}>
+                        <View style={styles.content}>
+                            <Image/>
+                            <Text></Text>
+                        </View>
+                    </TouchableOpacity>
 
                 </ScrollView>
 
 
                 <Text style={styles.categoryText}>건강</Text>
-                <ScrollView style={styles.scrollView} horizontal={true} contentContainerStyle={styles.contentContainer}
-                            showsHorizontalScrollIndicator={false}>
+                <ScrollView style={styles.scrollView} horizontal = {true}  contentContainerStyle={styles.contentContainer} showsHorizontalScrollIndicator={false}>
 
-                    {healthArticles.map((article, index) => (
-                        <TouchableOpacity onPress={() => navigation.navigate("DetailNews")}>
-                            <View style={styles.content}>
-                                <Image source={{uri: article.image}} style={styles.image}/>
-                                <Text style={styles.articleText}>
-                                    {article.title.length > 24 ? article.title.substring(0, 24) + '...' : article.title}
-                                </Text>
-                            </View>
-                        </TouchableOpacity>
-                    ))}
-
+                    <TouchableOpacity onPress={() => navigation.navigate("DetailNews")}>
+                        <View style={styles.content}>
+                            <Image/>
+                            <Text></Text>
+                        </View>
+                    </TouchableOpacity>
 
                 </ScrollView>
             </ScrollView>
@@ -191,7 +218,6 @@ const styles= StyleSheet.create({
         height:'100%',
         padding:'5%'
     },
-
     categoryList:{
         borderRightWidth: 1,
         borderRightColor: 'grey',
@@ -201,6 +227,12 @@ const styles= StyleSheet.create({
     },
     categoryContainer:{
         width:630,
+        // height:50,
+        // backgroundColor:'rgba(50,50,54, 1)',
+        // borderRadius: 15,
+        // marginBottom: 20,
+        // alignItems:"center",
+        // justifyContent:"space-between"
     },
     categoryContainer1:{
         width:'100%',
@@ -225,22 +257,8 @@ const styles= StyleSheet.create({
         height:180,
         width:170,
         backgroundColor:'rgba(50,50,54, 1)',
-        borderRadius: 20,
-        marginRight: 10,
-        alignItems:'center',
-    },
-    image:{
-        marginTop:'5%',
-        width:'90%',
-        height:'65%',
-        borderRadius:20
-    },
-    articleText:{
-        fontSize:10,
-        color:'white',
-        width:"90%" ,
-        marginTop:'5%',
-        textAlign:"center"
+        borderRadius: 30,
+        marginRight: 10
     },
     scrollView:{
         borderTopWidth: 2,
@@ -261,5 +279,5 @@ const styles= StyleSheet.create({
     },
     separator: {
       marginTop: 15,
-    }
+    },
 })
