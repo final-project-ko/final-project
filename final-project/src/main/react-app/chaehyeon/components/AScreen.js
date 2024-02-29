@@ -15,6 +15,7 @@ const News =()=> {
     const [sportsArticles, setSportsArticles] = useState([]);
     const [healthArticles, setHealthArticles] = useState([]);
 
+
     let business = "kr_business";
     let entertainment = "kr_entertainment";
     let technology = "kr_technology";
@@ -71,8 +72,9 @@ const News =()=> {
                 <ScrollView style={styles.scrollView} horizontal={true} contentContainerStyle={styles.contentContainer}
                             showsHorizontalScrollIndicator={false}>
 
+
                     {businessArticles.map((article, index) => (
-                        <TouchableOpacity onPress={() => navigation.navigate("DetailNews")}>
+                        <TouchableOpacity onPress={() => navigation.navigate("DetailNews", { article, businessArticles})} key={index}>
                             <View style={styles.content}>
                                 <Image source={{uri: article.image}} style={styles.image}/>
                                 <Text style={styles.articleText}>
