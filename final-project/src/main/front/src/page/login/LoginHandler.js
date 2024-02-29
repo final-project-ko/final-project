@@ -17,6 +17,7 @@ const LoginHandler = (props) => {
             }).then(res => res.json())
               .then(data => {
                   console.log(data)
+
               })
                 .catch(error =>{
                     console.log(error);
@@ -24,11 +25,11 @@ const LoginHandler = (props) => {
                 //계속 쓸 정보들( ex: 이름) 등은 localStorage에 저장해두자
 /*                localStorage.setItem("name", res.data.account.name);*/
                 //로그인이 성공하면 이동할 페이지
-                /*navigate("/");*/
+                navigate("/");
 
         };
             kakaoLogin();
-    }, [props.history]);
+    });
 
 
     return (

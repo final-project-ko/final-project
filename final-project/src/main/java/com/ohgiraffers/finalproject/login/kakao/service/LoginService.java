@@ -20,6 +20,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.*;
@@ -47,7 +48,7 @@ public class LoginService {
     private String KAKAO_USER_INFO;
 
 
-    public KakaoProfileDTO getAccessToken(String code) throws JsonProcessingException {
+    public UserEntity getAccessToken(String code) throws JsonProcessingException {
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
@@ -123,18 +124,23 @@ public class LoginService {
 
 
 
-        Optional<UserEntity> userOptional = kakaoRepository.findById(kakaoProfileDTO.getId());
+        UserEntity userOptional = kakaoRepository.findByUserId(kakaoProfileDTO.getId());
 
 
-        if(userOptional.isEmpty()){
-            UserEntity userEntity = new UserEntity(kakaoProfileDTO.getId(), kakaoProfileDTO.getName(), kakaoProfileDTO.getEmail(),"user");
+        if(ObjectUtils.isEmpty(userOptional)){
+            UserEntity userEntity = new UserEntity();
+            userEntity.setUserId( kakaoProfileDTO.getId());
+            userEntity.setUserName(kakaoProfileDTO.getName());
+            userEntity.setUserEmail(kakaoProfileDTO.getEmail());
+            userEntity.setUserAuth("user");
             kakaoRepository.save(userEntity);
 
         }
 
+        UserEntity userEntity = kakaoRepository.findByUserId(kakaoProfileDTO.getId());
+        System.out.println(userEntity);
 
-
-        return kakaoProfileDTO;
+        return userEntity;
 
     }
 
