@@ -1,5 +1,5 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import { ScrollView } from 'react-native-gesture-handler'; 
+import { ScrollView } from 'react-native-gesture-handler';
 import {useNavigation} from "@react-navigation/native";
 import {useEffect, useState} from "react";
 
@@ -14,6 +14,7 @@ const News =()=> {
     const [scienceArticles, setScienceArticles] = useState([]);
     const [sportsArticles, setSportsArticles] = useState([]);
     const [healthArticles, setHealthArticles] = useState([]);
+
 
     let business = "kr_business";
     let entertainment = "kr_entertainment";
@@ -71,8 +72,9 @@ const News =()=> {
                 <ScrollView style={styles.scrollView} horizontal={true} contentContainerStyle={styles.contentContainer}
                             showsHorizontalScrollIndicator={false}>
 
+
                     {businessArticles.map((article, index) => (
-                        <TouchableOpacity onPress={() => navigation.navigate("DetailNews")}>
+                        <TouchableOpacity onPress={() => navigation.navigate("DetailNews", { article, businessArticles})} key={index}>
                             <View style={styles.content}>
                                 <Image source={{uri: article.image}} style={styles.image}/>
                                 <Text style={styles.articleText}>
@@ -258,6 +260,6 @@ const styles= StyleSheet.create({
         backgroundColor: 'rgba(34,35,38, 1)',
     },
     separator: {
-      marginTop: 15,
+        marginTop: 15,
     }
 })
