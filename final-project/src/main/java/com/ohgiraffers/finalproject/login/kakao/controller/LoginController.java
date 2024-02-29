@@ -32,7 +32,10 @@ public class LoginController {
         String code = request.getParameter("code");
         UserEntity profile = loginService.getAccessToken(code);
 
+        /*테스트 코드 작성해야 함*/
+        
         return profile;
+        
     }
 
 }
