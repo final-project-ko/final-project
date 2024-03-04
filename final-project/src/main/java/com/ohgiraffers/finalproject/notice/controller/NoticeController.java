@@ -22,7 +22,14 @@ public class NoticeController {
     public  List<NoticeDTO> allNotice(){
 
         List<NoticeDTO> result = noticeService.findAllNotice();
-        System.out.println(result.toString());
+
+        return result;
+    }
+
+    @GetMapping("/searchNotice/{inputText}")
+    public List<NoticeDTO> searchNotice(@PathVariable String inputText){
+
+        List<NoticeDTO> result = noticeService.findInputNotice(inputText);
 
         return result;
     }

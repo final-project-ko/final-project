@@ -28,6 +28,21 @@ public class NoticeService {
         return insert;
     }
 
+    public List<NoticeDTO> findInputNotice(String inputText) {
+
+            return noticeRepository.findAll()
+                    .stream()
+                    .filter(notice -> notice.getTitle().contains(inputText) || notice.getContent().contains(inputText))
+                    .map(notice -> {
+                        NoticeDTO noticeDTO = new NoticeDTO();
+                        noticeDTO.setNotice_num(notice.getNum());
+                        noticeDTO.setNotice_title(notice.getTitle());
+                        noticeDTO.setNotice_content(notice.getContent());
+                        noticeDTO.setNotice_date(notice.getDate());
+                        return noticeDTO;
+                    }).toList();
+    }
+
     public List<NoticeDTO> findAllNotice() {
 
         return noticeRepository.findAll()
@@ -68,4 +83,6 @@ public class NoticeService {
         Notice delete = noticeRepository.save(deleteNotice);
         return delete;
     }
+
+
 }
