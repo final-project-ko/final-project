@@ -1,16 +1,15 @@
 package com.ohgiraffers.finalproject.QNA.controller;
 
 
+import com.ohgiraffers.finalproject.QNA.dto.QnADTO;
 import com.ohgiraffers.finalproject.QNA.entity.Inquiry;
 import com.ohgiraffers.finalproject.QNA.service.QnaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Objects;
 
 @RestController
@@ -38,5 +37,17 @@ public class QNAController {
 
         return ResponseEntity.ok(insertInquiry);
 
+    }
+
+    @GetMapping("/findInquiry/{userCode}")
+    public List<QnADTO> selectInquiry(@PathVariable int userCode){
+
+        List<QnADTO> userInquiry = qnaService.findUserInquiry(userCode);
+
+        if(Objects.isNull(userInquiry)){
+            return null;
+        }
+
+        return userInquiry;
     }
 }

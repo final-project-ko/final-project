@@ -1,43 +1,23 @@
-package com.ohgiraffers.finalproject.QNA.entity;
+package com.ohgiraffers.finalproject.QNA.dto;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+
 
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "tbl_inquiry")
-public class Inquiry {
+public class QnADTO {
 
-    @Id
-    @Column(name = "inquiry_code")
     private int inquiryCode;
-
-    @Column(name = "inquiry_title")
     private String inquiryTitle;
-
-    @Column(name = "inquiry_content")
     private String inquiryContent;
-
-    @Column(name = "inquiry_date")
     private LocalDate inquiryDate;
-
-    @Column(name = "user_code")
     private int userCode;
-
-    @Column(name = "inquiry_reply")
     private String inquiryReply;
-
-    @Column(name = "reply_text")
     private String replyText;
 
-
-    public Inquiry() {
+    public QnADTO() {
     }
 
-    public Inquiry(int inquiryCode, String inquiryTitle, String inquiryContent, LocalDate inquiryDate, int userCode, String inquiryReply, String replyText) {
+    public QnADTO(int inquiryCode, String inquiryTitle, String inquiryContent, LocalDate inquiryDate, int userCode, String inquiryReply, String replyText) {
         this.inquiryCode = inquiryCode;
         this.inquiryTitle = inquiryTitle;
         this.inquiryContent = inquiryContent;
@@ -105,7 +85,7 @@ public class Inquiry {
 
     @Override
     public String toString() {
-        return "Inquiry{" +
+        return "QnADTO{" +
                 "inquiryCode=" + inquiryCode +
                 ", inquiryTitle='" + inquiryTitle + '\'' +
                 ", inquiryContent='" + inquiryContent + '\'' +
