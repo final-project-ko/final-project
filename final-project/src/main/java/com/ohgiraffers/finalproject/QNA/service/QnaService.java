@@ -85,7 +85,7 @@ public class QnaService {
         insertReply.setInquiryContent(insert.get("content"));
         insertReply.setInquiryReply("답변 완료");
         insertReply.setInquiryDate(LocalDate.now());
-        insertReply.setUserId(Integer.parseInt(insert.get("userId")));
+        insertReply.setUserId(Integer.parseInt(insert.get("userCode")));
         insertReply.setReplyText(insert.get("reply"));
 
         Inquiry inquirys = inquiryRepository.save(insertReply);
