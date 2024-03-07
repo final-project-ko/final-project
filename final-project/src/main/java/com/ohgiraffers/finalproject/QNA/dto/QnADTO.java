@@ -10,19 +10,19 @@ public class QnADTO {
     private String inquiryTitle;
     private String inquiryContent;
     private LocalDate inquiryDate;
-    private int userCode;
+    private long userId;
     private String inquiryReply;
     private String replyText;
 
     public QnADTO() {
     }
 
-    public QnADTO(int inquiryCode, String inquiryTitle, String inquiryContent, LocalDate inquiryDate, int userCode, String inquiryReply, String replyText) {
+    public QnADTO(int inquiryCode, String inquiryTitle, String inquiryContent, LocalDate inquiryDate, long userCode, String inquiryReply, String replyText) {
         this.inquiryCode = inquiryCode;
         this.inquiryTitle = inquiryTitle;
         this.inquiryContent = inquiryContent;
         this.inquiryDate = inquiryDate;
-        this.userCode = userCode;
+        this.userId = userCode;
         this.inquiryReply = inquiryReply;
         this.replyText = replyText;
     }
@@ -59,12 +59,12 @@ public class QnADTO {
         this.inquiryDate = inquiryDate;
     }
 
-    public int getUserCode() {
-        return userCode;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setUserCode(int userCode) {
-        this.userCode = userCode;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
     public String getInquiryReply() {
@@ -90,7 +90,7 @@ public class QnADTO {
                 ", inquiryTitle='" + inquiryTitle + '\'' +
                 ", inquiryContent='" + inquiryContent + '\'' +
                 ", inquiryDate=" + inquiryDate +
-                ", userCode=" + userCode +
+                ", userCode=" + userId +
                 ", inquiryReply='" + inquiryReply + '\'' +
                 ", replyText='" + replyText + '\'' +
                 '}';
