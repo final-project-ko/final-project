@@ -6,14 +6,11 @@ import jakarta.persistence.*;
 @Table(name = "tbl_user")
 public class UserEntity {
 
-    @Id
-    @Column(name = "user_code")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int userCode;
 
+
+    @Id
     @Column(name = "user_id")
     private long userId;
-
 
     @Column(name = "user_name")
     private String userName;
@@ -24,21 +21,22 @@ public class UserEntity {
     @Column(name = "user_auth")
     private String userAuth;
 
+    @Column(name = "access_token")
+    private String accessToken;
     public UserEntity() {
     }
 
-    public UserEntity(long userId, String userName, String userEmail, String userAuth) {
-        this.userCode = userCode;
+    public UserEntity( long userId, String userName, String userEmail, String userAuth, String accessToken) {
         this.userId = userId;
         this.userName = userName;
         this.userEmail = userEmail;
         this.userAuth = userAuth;
+        this.accessToken = accessToken;
     }
 
     @Override
     public String toString() {
         return "UserEntity{" +
-                "userCode=" + userCode +
                 ", userId=" + userId +
                 ", userName='" + userName + '\'' +
                 ", userEmail='" + userEmail + '\'' +
@@ -46,13 +44,15 @@ public class UserEntity {
                 '}';
     }
 
-    public int getUserCode() {
-        return userCode;
+    public String getAccessToken() {
+        return accessToken;
     }
 
-    public void setUserCode(int userCode) {
-        this.userCode = userCode;
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
     }
+
+
 
     public long getUserId() {
         return userId;

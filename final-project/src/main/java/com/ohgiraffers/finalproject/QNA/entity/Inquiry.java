@@ -24,8 +24,8 @@ public class Inquiry {
     @Column(name = "inquiry_date")
     private LocalDate inquiryDate;
 
-    @Column(name = "user_code")
-    private int userCode;
+    @Column(name = "user_id")
+    private long userId;
 
     @Column(name = "inquiry_reply")
     private String inquiryReply;
@@ -37,12 +37,12 @@ public class Inquiry {
     public Inquiry() {
     }
 
-    public Inquiry(int inquiryCode, String inquiryTitle, String inquiryContent, LocalDate inquiryDate, int userCode, String inquiryReply, String replyText) {
+    public Inquiry(int inquiryCode, String inquiryTitle, String inquiryContent, LocalDate inquiryDate, long userId, String inquiryReply, String replyText) {
         this.inquiryCode = inquiryCode;
         this.inquiryTitle = inquiryTitle;
         this.inquiryContent = inquiryContent;
         this.inquiryDate = inquiryDate;
-        this.userCode = userCode;
+        this.userId = userId;
         this.inquiryReply = inquiryReply;
         this.replyText = replyText;
     }
@@ -79,12 +79,12 @@ public class Inquiry {
         this.inquiryDate = inquiryDate;
     }
 
-    public int getUserCode() {
-        return userCode;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setUserCode(int userCode) {
-        this.userCode = userCode;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
     public String getInquiryReply() {
@@ -110,7 +110,7 @@ public class Inquiry {
                 ", inquiryTitle='" + inquiryTitle + '\'' +
                 ", inquiryContent='" + inquiryContent + '\'' +
                 ", inquiryDate=" + inquiryDate +
-                ", userCode=" + userCode +
+                ", userCode=" + userId +
                 ", inquiryReply='" + inquiryReply + '\'' +
                 ", replyText='" + replyText + '\'' +
                 '}';

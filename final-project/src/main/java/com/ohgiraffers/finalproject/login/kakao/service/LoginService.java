@@ -110,41 +110,45 @@ public class LoginService {
             int id = jsonNode.path("id").asInt();
             String name = jsonNode.path("kakao_account").path("name").asText();
             String email = jsonNode.path("kakao_account").path("email").asText();
-/*        System.out.println("id:::::::::" + id);
-        System.out.println(name);
-        System.out.println(email);*/
-        KakaoProfileDTO kakaoProfileDTO = new KakaoProfileDTO(id,name,email);
 
 
 
 
 
-
-     // 아이디 확인   System.out.println("kakaoProfileDTO.getId():::::::::::::::::::::"+kakaoProfileDTO.getId());
-
-
-
-        UserEntity userOptional = kakaoRepository.findByUserId(kakaoProfileDTO.getId());
-
-
-        if(ObjectUtils.isEmpty(userOptional)){
             UserEntity userEntity = new UserEntity();
-            userEntity.setUserId( kakaoProfileDTO.getId());
-            userEntity.setUserName(kakaoProfileDTO.getName());
-            userEntity.setUserEmail(kakaoProfileDTO.getEmail());
-            userEntity.setUserAuth("user");
+            userEntity.setUserId(id);
+            userEntity.setUserName(name);
+            userEntity.setUserEmail(email);
+            userEntity.setAccessToken(kakaoTokenDTO.getAccess_token());
+             if(id==-928834404){
+                 userEntity.setUserAuth("admin");
+             }else {
+                 userEntity.setUserAuth("user");
+             }
             kakaoRepository.save(userEntity);
 
-        }
 
-        UserEntity userEntity = kakaoRepository.findByUserId(kakaoProfileDTO.getId());
-        System.out.println(userEntity);
 
-        return userEntity;
+        UserEntity userEntitys = kakaoRepository.findByUserId(id);
+
+        return userEntitys;
 
     }
 
-    public ResponseEntity kakaoLogin(String accessToken) {
-        return null;
+    public KakaoProfileDTO kakaoLogin(String accessToken) {
+
+        if(accessToken.isEmpty()){
+            return null;
+        }
+        UserEntity profile = kakaoRepository.findByAccessToken(accessToken);
+
+        KakaoProfileDTO kakaoProfileDTO = new KakaoProfileDTO();
+        kakaoProfileDTO.setId(profile.getUserId());
+        kakaoProfileDTO.setName(profile.getUserName());
+        kakaoProfileDTO.setEmail(profile.getUserEmail());
+        kakaoProfileDTO.setUserAuth(profile.getUserAuth());
+
+
+        return kakaoProfileDTO;
     }
 }
