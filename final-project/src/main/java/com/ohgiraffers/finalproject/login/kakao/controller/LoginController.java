@@ -13,6 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Objects;
+
 @RestController
 @RequestMapping("/login/*")
 public class LoginController {
@@ -36,6 +39,18 @@ public class LoginController {
         
         return profile;
         
+    }
+
+    @PostMapping("/kakao")
+    public KakaoProfileDTO checkKakao(@RequestBody HashMap<String,String> token){
+
+        if (Objects.isNull(token)){
+            return null;
+        }
+        String accessToken = token.get("accessToken");
+
+        KakaoProfileDTO profile = loginService.kakaoLogin(accessToken);
+        return profile;
     }
 
 }
