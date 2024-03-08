@@ -1,17 +1,14 @@
 package com.ohgiraffers.finalproject.login.kakao.repository;
 
-import com.ohgiraffers.finalproject.login.kakao.dto.KakaoProfileDTO;
 import com.ohgiraffers.finalproject.login.kakao.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
 @Repository
-public interface KakaoRepository  extends JpaRepository<UserEntity, Integer> {
+public interface LoginRepository extends JpaRepository<UserEntity, Integer> {
 
 
-    UserEntity findByUserId(int id);
+    UserEntity findByUserId(String id);
 
     UserEntity findByAccessToken(String accessToken);
 }

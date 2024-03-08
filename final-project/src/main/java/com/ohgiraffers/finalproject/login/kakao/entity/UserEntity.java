@@ -10,7 +10,7 @@ public class UserEntity {
 
     @Id
     @Column(name = "user_id")
-    private long userId;
+    private String userId;
 
     @Column(name = "user_name")
     private String userName;
@@ -26,7 +26,7 @@ public class UserEntity {
     public UserEntity() {
     }
 
-    public UserEntity( long userId, String userName, String userEmail, String userAuth, String accessToken) {
+    public UserEntity( String userId, String userName, String userEmail, String userAuth, String accessToken) {
         this.userId = userId;
         this.userName = userName;
         this.userEmail = userEmail;
@@ -54,11 +54,11 @@ public class UserEntity {
 
 
 
-    public long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

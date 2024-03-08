@@ -5,12 +5,10 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
 import com.ohgiraffers.finalproject.login.kakao.dto.KakaoProfileDTO;
 import com.ohgiraffers.finalproject.login.kakao.dto.KakaoTokenDTO;
 import com.ohgiraffers.finalproject.login.kakao.entity.UserEntity;
-import com.ohgiraffers.finalproject.login.kakao.repository.KakaoRepository;
+import com.ohgiraffers.finalproject.login.kakao.repository.LoginRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -20,21 +18,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.util.ObjectUtils;
 import org.springframework.web.client.RestTemplate;
-
-import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.Optional;
 
 @Service
 public class LoginService {
 
     @Autowired
-    KakaoRepository kakaoRepository;
+    LoginRepository kakaoRepository;
 
     @Value("${client-id}")
     private String KAKAO_CLIENT_ID;
@@ -72,7 +62,7 @@ public class LoginService {
                 kakaoTokenRequest,
                 String.class
         );
-        System.out.println("accessTokenResponse :::::::::::::::" + accessTokenResponse);  //잘받아옴 확인
+       //  System.out.println("accessTokenResponse :::::::::::::::" + accessTokenResponse);  //잘받아옴 확인
         // JSON Parsing (-> KakaoTokenDto)
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());
@@ -116,7 +106,7 @@ public class LoginService {
 
 
             UserEntity userEntity = new UserEntity();
-            userEntity.setUserId(id);
+            userEntity.setUserId(String.valueOf(id));
             userEntity.setUserName(name);
             userEntity.setUserEmail(email);
             userEntity.setAccessToken(kakaoTokenDTO.getAccess_token());
@@ -129,7 +119,7 @@ public class LoginService {
 
 
 
-        UserEntity userEntitys = kakaoRepository.findByUserId(id);
+        UserEntity userEntitys = kakaoRepository.findByUserId(String.valueOf(id));
 
         return userEntitys;
 

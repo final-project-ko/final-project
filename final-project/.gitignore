@@ -6,6 +6,7 @@ build/
 !**/src/test/**/build/
 
 application-kakao.yml
+application-naver.yml
 
 ### db정보 ###
 application-db.yml

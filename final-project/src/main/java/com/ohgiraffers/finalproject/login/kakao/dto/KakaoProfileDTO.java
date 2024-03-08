@@ -2,7 +2,7 @@ package com.ohgiraffers.finalproject.login.kakao.dto;
 
 public class KakaoProfileDTO {
 
-    private long id;
+    private String id;
     private String name;
     private String email;
 
@@ -13,7 +13,7 @@ public class KakaoProfileDTO {
     public KakaoProfileDTO() {
     }
 
-    public KakaoProfileDTO(long id, String name, String email, String userAuth, String accessToken) {
+    public KakaoProfileDTO(String id, String name, String email, String userAuth, String accessToken) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -21,11 +21,11 @@ public class KakaoProfileDTO {
         this.accessToken = accessToken;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
