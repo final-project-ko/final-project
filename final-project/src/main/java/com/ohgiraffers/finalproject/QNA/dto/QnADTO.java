@@ -10,14 +10,14 @@ public class QnADTO {
     private String inquiryTitle;
     private String inquiryContent;
     private LocalDate inquiryDate;
-    private long userId;
+    private String userId;
     private String inquiryReply;
     private String replyText;
 
     public QnADTO() {
     }
 
-    public QnADTO(int inquiryCode, String inquiryTitle, String inquiryContent, LocalDate inquiryDate, long userCode, String inquiryReply, String replyText) {
+    public QnADTO(int inquiryCode, String inquiryTitle, String inquiryContent, LocalDate inquiryDate, String userCode, String inquiryReply, String replyText) {
         this.inquiryCode = inquiryCode;
         this.inquiryTitle = inquiryTitle;
         this.inquiryContent = inquiryContent;
@@ -59,11 +59,11 @@ public class QnADTO {
         this.inquiryDate = inquiryDate;
     }
 
-    public long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

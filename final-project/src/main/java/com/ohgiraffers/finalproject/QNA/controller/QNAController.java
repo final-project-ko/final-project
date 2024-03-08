@@ -36,7 +36,7 @@ public class QNAController {
     }
 
     @GetMapping("/findInquiry/{userId}")
-    public List<QnADTO> selectInquiry(@PathVariable Long userId){
+    public List<QnADTO> selectInquiry(@PathVariable String userId){
         List<QnADTO> userInquiry = qnaService.findUserInquiry(userId);
 
         if(Objects.isNull(userInquiry)){

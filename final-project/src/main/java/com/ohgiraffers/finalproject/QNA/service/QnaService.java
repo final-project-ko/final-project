@@ -16,7 +16,7 @@ public class QnaService {
 
     @Autowired
     private InquiryRepository inquiryRepository;
-    public List<QnADTO> findUserInquiry(long id) {
+    public List<QnADTO> findUserInquiry(String id) {
 
         return  inquiryRepository.findByUserId(id)
                 .stream()
@@ -56,7 +56,7 @@ public class QnaService {
         Inquiry insertInquiry = new Inquiry();
         insertInquiry.setInquiryTitle(insert.get("title"));
         insertInquiry.setInquiryContent(insert.get("text"));
-        insertInquiry.setUserId(Long.parseLong(insert.get("id")));
+        insertInquiry.setUserId(insert.get("id"));
         insertInquiry.setInquiryDate(LocalDate.now());
         insertInquiry.setInquiryReply("답변 미작성");
 
@@ -85,7 +85,7 @@ public class QnaService {
         insertReply.setInquiryContent(insert.get("content"));
         insertReply.setInquiryReply("답변 완료");
         insertReply.setInquiryDate(LocalDate.now());
-        insertReply.setUserId(Integer.parseInt(insert.get("userCode")));
+        insertReply.setUserId(insert.get("userCode"));
         insertReply.setReplyText(insert.get("reply"));
 
         Inquiry inquirys = inquiryRepository.save(insertReply);

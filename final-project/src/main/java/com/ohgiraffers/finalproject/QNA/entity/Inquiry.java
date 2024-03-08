@@ -25,7 +25,7 @@ public class Inquiry {
     private LocalDate inquiryDate;
 
     @Column(name = "user_id")
-    private long userId;
+    private String userId;
 
     @Column(name = "inquiry_reply")
     private String inquiryReply;
@@ -37,7 +37,7 @@ public class Inquiry {
     public Inquiry() {
     }
 
-    public Inquiry(int inquiryCode, String inquiryTitle, String inquiryContent, LocalDate inquiryDate, long userId, String inquiryReply, String replyText) {
+    public Inquiry(int inquiryCode, String inquiryTitle, String inquiryContent, LocalDate inquiryDate, String userId, String inquiryReply, String replyText) {
         this.inquiryCode = inquiryCode;
         this.inquiryTitle = inquiryTitle;
         this.inquiryContent = inquiryContent;
@@ -79,11 +79,11 @@ public class Inquiry {
         this.inquiryDate = inquiryDate;
     }
 
-    public long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

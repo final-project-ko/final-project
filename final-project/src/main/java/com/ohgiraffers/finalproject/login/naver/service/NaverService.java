@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.ohgiraffers.finalproject.login.kakao.dto.KakaoProfileDTO;
 import com.ohgiraffers.finalproject.login.kakao.dto.KakaoTokenDTO;
 import com.ohgiraffers.finalproject.login.kakao.entity.UserEntity;
 import com.ohgiraffers.finalproject.login.kakao.repository.LoginRepository;
@@ -123,5 +124,22 @@ public class NaverService {
         UserEntity userEntitys = loginRepository.findByUserId(id);
 
         return userEntitys;
+    }
+
+    public KakaoProfileDTO naverLogin(String accessToken) {
+
+        if(accessToken.isEmpty()){
+            return null;
+        }
+        UserEntity profile = loginRepository.findByAccessToken(accessToken);
+
+        KakaoProfileDTO kakaoProfileDTO = new KakaoProfileDTO();
+        kakaoProfileDTO.setId(profile.getUserId());
+        kakaoProfileDTO.setName(profile.getUserName());
+        kakaoProfileDTO.setEmail(profile.getUserEmail());
+        kakaoProfileDTO.setUserAuth(profile.getUserAuth());
+
+
+        return kakaoProfileDTO;
     }
 }
