@@ -17,6 +17,7 @@ public class CommentsService {
     private CommentsRepository commentsRepository;
 
     public Comments registComment(CommentRequest comment) {
+        System.out.println("email은????????????"+comment.getEmail());
 
         Comments registComment = new Comments();
         registComment.setNewsCode(Integer.parseInt(comment.getNewsCode()));

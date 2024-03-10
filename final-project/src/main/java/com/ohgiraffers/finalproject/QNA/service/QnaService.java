@@ -53,6 +53,9 @@ public class QnaService {
 
     public Inquiry insertInquiry(HashMap<String, String> insert) {
 
+        if(insert.get("id").isEmpty() || insert.get("id") ==null){
+            return null;
+        }
         Inquiry insertInquiry = new Inquiry();
         insertInquiry.setInquiryTitle(insert.get("title"));
         insertInquiry.setInquiryContent(insert.get("text"));
@@ -91,5 +94,15 @@ public class QnaService {
         Inquiry inquirys = inquiryRepository.save(insertReply);
         return inquirys;
 
+    }
+    public int deleteReply(HashMap<String,String> delete) {
+        try {
+            int code = Integer.parseInt(delete.get("code"));
+            inquiryRepository.deleteById(code);
+            return 1; // 삭제가 성공했을 때 반환할 객체 또는 메시지
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
     }
 }

@@ -103,5 +103,23 @@ public class QNAController {
 
 
     }
+    @PostMapping("/deleteReply")
+    public ResponseEntity deleteReply(@RequestBody HashMap<String,String> delete){
+
+
+        if (Objects.isNull(delete)){
+            return ResponseEntity.status(404).body("내용이 없습니다.");
+        }
+
+        int deleteInq = qnaService.deleteReply(delete);
+
+        if(deleteInq == 0){
+            return ResponseEntity.status(500).body("서버에서 오류 발생");
+        }
+
+        return ResponseEntity.ok(deleteInq);
+
+
+    }
 
 }
