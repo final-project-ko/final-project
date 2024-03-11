@@ -46,4 +46,18 @@ public class CommentsService {
                 .toList();
     }
 
+    public List<CommentsDTO> findAllComments(LocalDate today) {
+
+        return commentsRepository.findByDate(LocalDate.now())
+                .stream()
+                .map(comments -> {
+                    CommentsDTO commentsDTO = new CommentsDTO();
+                    commentsDTO.setCommentCode(comments.getCommentCode());
+                    commentsDTO.setNewsCode(comments.getNewsCode());
+                    commentsDTO.setEmail(comments.getEmail());
+                    commentsDTO.setContent(comments.getContent());
+                    commentsDTO.setDate(comments.getDate());
+                    return commentsDTO;
+                }).toList();
+    }
 }

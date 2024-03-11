@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 @Tag(name = "유저 정보", description = "DB에 담긴 유저 정보 api 입니다.")
 @RestController
@@ -32,6 +33,15 @@ public class UserController {
         List<UserEntity> userInfo = userService.adminUserInfo();
 
         return userInfo;
+    }
+
+
+    @GetMapping("/allUsers")
+    public Map<String,Integer> kakaoAndNaver(){
+
+        Map<String,Integer> allUsers = userService.findAllUsers();
+
+        return allUsers;
     }
 
 }
