@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -16,14 +17,16 @@ public class ReplyService {
     @Autowired
     private ReplyRepository replyRepository;
 
-    public Reply registReply(ReplyRequest reply) {
+    public Reply registReply(HashMap<String,String> reply) {
 
         Reply registReply = new Reply();
-        registReply.setCommentCode(Integer.parseInt(reply.getCommentCode()));
-        registReply.setUserId(Integer.parseInt(reply.getUserId()));
-        registReply.setEmail(reply.getEmail());
-        registReply.setContent(reply.getContent());
+        registReply.setCommentCode(Integer.parseInt(reply.get("commentCode")));
+        registReply.setUserId(Integer.parseInt(reply.get("userId")));
+        registReply.setEmail(reply.get("email"));
+        registReply.setContent(reply.get("content"));
         registReply.setDate(LocalDate.now());
+        registReply.setStatus("Y");
+        registReply.setNotify(0);
 
         Reply resultRegistReply = replyRepository.save(registReply);
 

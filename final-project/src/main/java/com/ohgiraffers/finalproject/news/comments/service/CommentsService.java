@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -16,14 +17,14 @@ public class CommentsService {
     @Autowired
     private CommentsRepository commentsRepository;
 
-    public Comments registComment(CommentRequest comment) {
-        System.out.println("email은????????????"+comment.getEmail());
+    public Comments registComment(HashMap<String, String> comment) {
+        System.out.println("email은????????????"+comment.get("email"));
 
         Comments registComment = new Comments();
-        registComment.setNewsCode(Integer.parseInt(comment.getNewsCode()));
-        registComment.setUserId(comment.getUserId());
-        registComment.setEmail(comment.getEmail());
-        registComment.setContent(comment.getContent());
+        registComment.setNewsCode(Integer.parseInt(comment.get("newsCode")));
+        registComment.setUserId(comment.get("userId"));
+        registComment.setEmail(comment.get("email"));
+        registComment.setContent(comment.get("content"));
         registComment.setDate(LocalDate.now());
         registComment.setStatus("Y");
         registComment.setNotify(0);
