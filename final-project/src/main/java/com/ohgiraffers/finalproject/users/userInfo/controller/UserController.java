@@ -35,7 +35,11 @@ public class UserController {
         return userInfo;
     }
 
-
+    @Operation(summary = "sns별 유저 조회 메소드", description = "sns별 가입 인원 조회 메소드 입니다.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "불러 오기 성공"),
+            @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
+    })
     @GetMapping("/allUsers")
     public Map<String,Integer> kakaoAndNaver(){
 
