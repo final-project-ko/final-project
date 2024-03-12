@@ -34,13 +34,13 @@ public class ReplyController {
     public ResponseEntity registReply(@RequestBody ReplyRequest reply) {
         System.out.println(reply);
         if (Objects.isNull(reply.getCommentCode())) {
-            return ResponseEntity.status(401).body("댓글 코드가 없습니다.");
-        } else if (Objects.isNull(reply.getUserId())) {
-            return ResponseEntity.status(402).body("유저 코드가 없습니다.");
+            return ResponseEntity.status(404).body("댓글 코드가 없습니다.");
+        } else if (Objects.isNull(reply.getUserId()) || reply.getUserId().isEmpty()) {
+            return ResponseEntity.status(401).body("유저 코드가 없습니다.");
         } else if (Objects.isNull(reply.getEmail())) {
             return ResponseEntity.status(403).body("email 정보가 없습니다.");
         } else if (Objects.isNull(reply.getContent()) || reply.getContent().equals("")) {
-            return ResponseEntity.status(404).body("내용이 없습니다.");
+            return ResponseEntity.status(402).body("내용이 없습니다.");
         }
 
         Reply registReply = replyService.registReply(reply);
@@ -59,21 +59,21 @@ public class ReplyController {
             @ApiResponse(responseCode = "400", description = "잘못된 요청")
     })
     @GetMapping("/find/{commentCode}")
-    public ReplyListDTO findReply(@PathVariable int commentCode) {
+    public ResponseEntity findReply(@PathVariable int commentCode) {
 
         if (Objects.isNull(commentCode)) {
-            return null;
+            return ResponseEntity.status(500).body("서버오류. commnetCode 정보가 없습니다.");
         }
 
         List<ReplyDTO> replyList = replyService.findReply(commentCode);
 
         if (Objects.isNull(replyList)) {
-            return null;
+            return ResponseEntity.status(500).body("서버오류. 답글 조회 오류");
         }
 
         ReplyListDTO replys = new ReplyListDTO();
         replys.setReplys(replyList);
 
-        return replys;
+        return ResponseEntity.ok(replys);
     }
 }
