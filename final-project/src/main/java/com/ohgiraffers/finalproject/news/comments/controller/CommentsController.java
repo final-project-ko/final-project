@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -66,14 +67,53 @@ public class CommentsController {
         return commentList;
     }
 
-    @GetMapping("/allComments")
-    public List<CommentsDTO> allComments(){
+    @GetMapping("/userComments")
+    public List<CommentsDTO> userComments(){
         LocalDate today = LocalDate.now();
 
-        List<CommentsDTO> commentsList = commentsService.findAllComments(today);
+        List<CommentsDTO> commentsList = commentsService.findTodayComments(today);
         if(Objects.isNull(commentsList)){
             return null;
         }
         return commentsList;
     }
+
+    @GetMapping("/allComments")
+    public List<CommentsDTO> allComments() {
+
+
+        List<CommentsDTO> commentsList = commentsService.findAllComments();
+        if (Objects.isNull(commentsList)) {
+            return null;
+        }
+        return commentsList;
+    }
+
+
+    @GetMapping("/findUser/{id}")
+    @CrossOrigin(origins = {"http://localhost:3000", "exp://192.168.0.63:8081", "exp://172.30.1.26:8081"})
+    public List<CommentsDTO> findComments(@PathVariable String id){
+        if (Objects.isNull(id)) {
+            return null;
+        }
+        System.out.println(id);
+
+        List<CommentsDTO> commentsList = commentsService.findAllComments();
+
+        List<CommentsDTO> userComments = new ArrayList<>();
+
+        for (CommentsDTO comment:commentsList) {
+            if(comment.getEmail().contains(id)){
+                userComments.add(comment);
+            }
+        }
+        return userComments;
+    }
+
+    @PostMapping("/deleteComments")
+    public void deleteComments(@RequestBody Comments comments){
+
+
+    }
+
 }
