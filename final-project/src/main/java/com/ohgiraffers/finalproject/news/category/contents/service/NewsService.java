@@ -28,6 +28,7 @@ public class NewsService {
                     newsDTO.setDescription(news.getDescription());
                     newsDTO.setUrl(news.getUrl());
                     newsDTO.setImage(news.getImage());
+                    newsDTO.setAi_description(newsDTO.getAi_description()); // 2024-03-12 ai컬럼 추가
                     newsDTO.setDate(news.getDate());
 
                     return newsDTO; // newsDTO 반환
@@ -47,6 +48,7 @@ public class NewsService {
                     newsDTO.setDescription(news.getDescription());
                     newsDTO.setUrl(news.getUrl());
                     newsDTO.setImage(news.getImage());
+                    newsDTO.setAi_description(newsDTO.getAi_description()); // 2024-03-12 ai컬럼 추가
                     newsDTO.setDate(news.getDate());
 
                     return newsDTO;
@@ -65,6 +67,7 @@ public class NewsService {
         modifyNews.setImage(news.get("image"));
         modifyNews.setCategory(news.get("category"));
         modifyNews.setDate(LocalDate.parse(news.get("date")));
+        modifyNews.setAi_description(news.get("ai_description")); // 2024-03-12 ai컬럼 추가
 
         News modify = newsRepository.save(modifyNews);
 

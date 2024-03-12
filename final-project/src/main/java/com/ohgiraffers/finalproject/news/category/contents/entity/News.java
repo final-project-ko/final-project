@@ -31,10 +31,13 @@ public class News {
     @Column(name = "date")
     private LocalDate date;
 
+    @Column(name = "ai_description")
+    private String ai_description; // 2024-03-12 ai컬럼 추가
+
     public News() {
     }
 
-    public News(int code, String title, String category, String description, String url, String image, LocalDate date) {
+    public News(Integer code, String title, String category, String description, String url, String image, LocalDate date, String ai_description) {
         this.code = code;
         this.title = title;
         this.category = category;
@@ -42,13 +45,14 @@ public class News {
         this.url = url;
         this.image = image;
         this.date = date;
+        this.ai_description = ai_description;
     }
 
-    public int getCode() {
+    public Integer getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(Integer code) {
         this.code = code;
     }
 
@@ -100,6 +104,14 @@ public class News {
         this.date = date;
     }
 
+    public String getAi_description() {
+        return ai_description;
+    }
+
+    public void setAi_description(String ai_description) {
+        this.ai_description = ai_description;
+    }
+
     @Override
     public String toString() {
         return "News{" +
@@ -110,6 +122,7 @@ public class News {
                 ", url='" + url + '\'' +
                 ", image='" + image + '\'' +
                 ", date=" + date +
+                ", ai_description='" + ai_description + '\'' +
                 '}';
     }
 }
