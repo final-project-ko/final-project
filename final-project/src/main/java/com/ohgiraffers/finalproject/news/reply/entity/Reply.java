@@ -28,16 +28,24 @@ public class Reply {
     @Column(name = "reply_date")
     private LocalDate date;
 
+    @Column(name = "reply_status")
+    private String status;
+
+    @Column(name = "reply_notify")
+    private Integer notify;
+
     public Reply() {
     }
 
-    public Reply(Integer replyCode, Integer commentCode, Integer userId, String email, String content, LocalDate date) {
+    public Reply(Integer replyCode, Integer commentCode, Integer userId, String email, String content, LocalDate date, String status, Integer notify) {
         this.replyCode = replyCode;
         this.commentCode = commentCode;
         this.userId = userId;
         this.email = email;
         this.content = content;
         this.date = date;
+        this.status = status;
+        this.notify = notify;
     }
 
     public Integer getReplyCode() {
@@ -88,6 +96,22 @@ public class Reply {
         this.date = date;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Integer getNotify() {
+        return notify;
+    }
+
+    public void setNotify(Integer notify) {
+        this.notify = notify;
+    }
+
     @Override
     public String toString() {
         return "Reply{" +
@@ -97,6 +121,8 @@ public class Reply {
                 ", email='" + email + '\'' +
                 ", content='" + content + '\'' +
                 ", date=" + date +
+                ", status='" + status + '\'' +
+                ", notify=" + notify +
                 '}';
     }
 }
