@@ -71,6 +71,11 @@ public class CommentsController {
         return commentList;
     }
 
+    @Operation(summary = "오늘 댓글 조회", description = "오늘 달린 뉴스 댓글 조회 메소드")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "조회 성공"),
+            @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
+    })
     @GetMapping("/userComments")
     public List<CommentsDTO> userComments(){
         LocalDate today = LocalDate.now();
@@ -82,6 +87,11 @@ public class CommentsController {
         return commentsList;
     }
 
+    @Operation(summary = "전체 댓글 조회", description = "전체 뉴스 댓글 조회 메소드")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "조회 성공"),
+            @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
+    })
     @GetMapping("/allComments")
     public List<CommentsDTO> allComments() {
 
@@ -93,7 +103,11 @@ public class CommentsController {
         return commentsList;
     }
 
-
+    @Operation(summary = "유저별 댓글 조회", description = "유저별 댓글 조회 메소드")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "조회 성공"),
+            @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
+    })
     @GetMapping("/findUser/{id}")
     @CrossOrigin(origins = {"http://localhost:3000", "exp://192.168.0.63:8081", "exp://172.30.1.26:8081"})
     public List<CommentsDTO> findComments(@PathVariable String id){
@@ -114,6 +128,11 @@ public class CommentsController {
         return userComments;
     }
 
+    @Operation(summary = "신고 댓글 삭제", description = "신고 댓글 삭제 메소드")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "조회 성공"),
+            @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
+    })
     @PostMapping("/deleteComments")
     public void deleteComments(@RequestBody Comments comments){
 
