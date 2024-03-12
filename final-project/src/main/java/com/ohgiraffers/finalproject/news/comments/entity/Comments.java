@@ -16,6 +16,9 @@ public class Comments {
     @Column(name = "news_code")
     private Integer newsCode;
 
+    @Column(name = "user_id")
+    private String userId;
+
     @Column(name = "user_email")
     private String email;
 
@@ -25,15 +28,24 @@ public class Comments {
     @Column(name = "comment_date")
     private LocalDate date;
 
+    @Column(name = "comment_status")
+    private String status;
+
+    @Column(name = "comment_notify")
+    private Integer notify;
+
     public Comments() {
     }
 
-    public Comments(Integer commentCode, Integer newsCode, String email, String content, LocalDate date) {
+    public Comments(Integer commentCode, Integer newsCode, String userId, String email, String content, LocalDate date, String status, Integer notify) {
         this.commentCode = commentCode;
         this.newsCode = newsCode;
+        this.userId = userId;
         this.email = email;
         this.content = content;
         this.date = date;
+        this.status = status;
+        this.notify = notify;
     }
 
     public Integer getCommentCode() {
@@ -50,6 +62,14 @@ public class Comments {
 
     public void setNewsCode(Integer newsCode) {
         this.newsCode = newsCode;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getEmail() {
@@ -76,14 +96,33 @@ public class Comments {
         this.date = date;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Integer getNotify() {
+        return notify;
+    }
+
+    public void setNotify(Integer notify) {
+        this.notify = notify;
+    }
+
     @Override
     public String toString() {
         return "Comments{" +
                 "commentCode=" + commentCode +
                 ", newsCode=" + newsCode +
+                ", userId='" + userId + '\'' +
                 ", email='" + email + '\'' +
                 ", content='" + content + '\'' +
                 ", date=" + date +
+                ", status='" + status + '\'' +
+                ", notify=" + notify +
                 '}';
     }
 }

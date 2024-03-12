@@ -20,7 +20,6 @@ public class BookmarkController {
 
     @Autowired
     private BookmarkService bookmarkService;
-
     @Operation(summary = "뉴스 북마크 등록", description = "뉴스 북마크 등록 메소드")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "등록 성공"),

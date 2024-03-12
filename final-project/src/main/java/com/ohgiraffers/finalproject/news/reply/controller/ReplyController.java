@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
@@ -31,15 +32,15 @@ public class ReplyController {
             @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
     })
     @PostMapping("/regist")
-    public ResponseEntity registReply(@RequestBody ReplyRequest reply) {
+    public ResponseEntity registReply(@RequestBody HashMap<String,String> reply) {
         System.out.println(reply);
-        if (Objects.isNull(reply.getCommentCode())) {
+        if (Objects.isNull(reply.get("commentCode"))) {
             return ResponseEntity.status(404).body("댓글 코드가 없습니다.");
-        } else if (Objects.isNull(reply.getUserId()) || reply.getUserId().isEmpty()) {
+        } else if (Objects.isNull(reply.get("userId")) || reply.get("userId").isEmpty()) {
             return ResponseEntity.status(401).body("유저 코드가 없습니다.");
-        } else if (Objects.isNull(reply.getEmail())) {
+        } else if (Objects.isNull(reply.get("email"))) {
             return ResponseEntity.status(403).body("email 정보가 없습니다.");
-        } else if (Objects.isNull(reply.getContent()) || reply.getContent().equals("")) {
+        } else if (Objects.isNull(reply.get("content")) || reply.get("content").equals("")) {
             return ResponseEntity.status(402).body("내용이 없습니다.");
         }
 
