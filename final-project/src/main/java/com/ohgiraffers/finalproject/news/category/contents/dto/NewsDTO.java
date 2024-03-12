@@ -11,11 +11,12 @@ public class NewsDTO {
     private String url;
     private String image;
     private LocalDate date;
+    private String ai_description; // 2024-03-12 ai컬럼 추가
 
     public NewsDTO() {
     }
 
-    public NewsDTO(int code, String title, String category, String description, String url, String image, LocalDate date) {
+    public NewsDTO(int code, String title, String category, String description, String url, String image, LocalDate date, String ai_description) {
         this.code = code;
         this.title = title;
         this.category = category;
@@ -23,6 +24,7 @@ public class NewsDTO {
         this.url = url;
         this.image = image;
         this.date = date;
+        this.ai_description = ai_description;
     }
 
     public int getCode() {
@@ -81,6 +83,14 @@ public class NewsDTO {
         this.date = date;
     }
 
+    public String getAi_description() {
+        return ai_description;
+    }
+
+    public void setAi_description(String ai_description) {
+        this.ai_description = ai_description;
+    }
+
     @Override
     public String toString() {
         return "NewsDTO{" +
@@ -91,6 +101,7 @@ public class NewsDTO {
                 ", url='" + url + '\'' +
                 ", image='" + image + '\'' +
                 ", date=" + date +
+                ", ai_description='" + ai_description + '\'' +
                 '}';
     }
 }

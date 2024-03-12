@@ -35,8 +35,12 @@ public class CommentsController {
 //    @CrossOrigin(origins = {"http://localhost:3000", "exp://192.168.0.63:8081", "exp://172.30.1.26:8081"})
     public ResponseEntity registComment(@RequestBody CommentRequest comment) {
         System.out.println(comment);
-        if (Objects.isNull(comment)) {
-            return ResponseEntity.status(404).body("내용이 없습니다.");
+        if (Objects.isNull(comment.getNewsCode()) || comment.getNewsCode().isEmpty()) {
+            return ResponseEntity.status(405).body("newsCode 정보가 없습니다.");
+        } else if (Objects.isNull(comment.getEmail()) || comment.getEmail().isEmpty()) {
+            return ResponseEntity.status(401).body("email 정보가 없습니다.");
+        } else if (Objects.isNull(comment.getContent()) || comment.getContent().isEmpty()) {
+            return ResponseEntity.status(402).body("내용이 없습니다.");
         }
 
         Comments registComment = commentsService.registComment(comment);
