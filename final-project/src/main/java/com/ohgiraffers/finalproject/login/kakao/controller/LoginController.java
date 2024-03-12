@@ -8,6 +8,7 @@ import com.ohgiraffers.finalproject.login.kakao.service.LoginService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +17,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.Objects;
 
+@Tag(name = "유저 정보", description = "유저 관련 api 입니다.")
 @RestController
-@RequestMapping("/login/*")
+@RequestMapping("/api/login/*")
 public class LoginController {
 
     @Autowired
@@ -25,13 +27,14 @@ public class LoginController {
 
 
 
-    @Operation(summary = "카카오 로그인 메소드", description = "sns 카카오 로그인 메소드 입니다.")
+    @Operation(summary = "카카오 회원 가입 메소드", description = "sns 카카오 회원 가입 메소드 입니다.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = " 로그인 성공"),
             @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
     })
-    @RequestMapping("/oauth/*")
+    @GetMapping("/oauth/*")
     public UserEntity kakaoLogin(HttpServletRequest request) throws JsonProcessingException {
+        System.out.println(request);
         String code = request.getParameter("code");
         UserEntity profile = loginService.getAccessToken(code);
 
@@ -40,7 +43,11 @@ public class LoginController {
         return profile;
         
     }
-
+    @Operation(summary = "카카오 토큰 로그인 메소드", description = "sns 카카오 토큰 로그인 메소드 입니다.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = " 로그인 성공"),
+            @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
+    })
     @PostMapping("/kakao")
     public KakaoProfileDTO checkKakao(@RequestBody HashMap<String,String> token){
 
