@@ -7,29 +7,28 @@ import com.ohgiraffers.finalproject.login.naver.service.NaverService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Objects;
 
+@Tag(name = "유저 정보", description = "유저 관련 api 입니다.")
 @RestController
-@RequestMapping("/naver/*")
+@RequestMapping("/api/naver/*")
 public class NaverController {
 
     @Autowired
     private NaverService naverService;
 
-    @Operation(summary = "네이버 로그인 메소드", description = "sns 네이버 로그인 메소드 입니다.")
+    @Operation(summary = "네이버 회원 가입 메소드", description = "sns 네이버 회원 가입 메소드 입니다.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = " 로그인 성공"),
             @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
     })
-    @RequestMapping("/oauth/*")
+    @GetMapping("/oauth/*")
     public UserEntity naverLogin(HttpServletRequest request) throws JsonProcessingException {
         String code = request.getParameter("code");
       //   System.out.println(code);
@@ -41,6 +40,11 @@ public class NaverController {
 
     }
 
+    @Operation(summary = "네이버 토큰 로그인 메소드", description = "sns 네이버 토큰 로그인 메소드 입니다.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = " 로그인 성공"),
+            @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
+    })
     @PostMapping("/login")
     public KakaoProfileDTO checkNaver(@RequestBody HashMap<String,String> token){
 
