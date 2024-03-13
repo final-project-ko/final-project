@@ -4,15 +4,24 @@ public class BookmarkDTO {
 
     private Integer bookmarkCode;
     private Integer newsCode;
-    private String email;
+
+    private String title;
+    private String description;
+    private String url;
+    private String image;
+    private String userId;
 
     public BookmarkDTO() {
     }
 
-    public BookmarkDTO(Integer bookmarkCode, Integer newsCode, String email) {
+    public BookmarkDTO(Integer bookmarkCode, Integer newsCode, String title,  String description, String url, String image, String userId) {
         this.bookmarkCode = bookmarkCode;
         this.newsCode = newsCode;
-        this.email = email;
+        this.title = title;
+        this.description = description;
+        this.url = url;
+        this.image = image;
+        this.userId = userId;
     }
 
     public Integer getBookmarkCode() {
@@ -31,12 +40,45 @@ public class BookmarkDTO {
         this.newsCode = newsCode;
     }
 
-    public String getEmail() {
-        return email;
+    public String getTitle() {
+        return title;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     @Override
@@ -44,7 +86,11 @@ public class BookmarkDTO {
         return "BookmarkDTO{" +
                 "bookmarkCode=" + bookmarkCode +
                 ", newsCode=" + newsCode +
-                ", email='" + email + '\'' +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", url='" + url + '\'' +
+                ", image='" + image + '\'' +
+                ", userId='" + userId + '\'' +
                 '}';
     }
 }
