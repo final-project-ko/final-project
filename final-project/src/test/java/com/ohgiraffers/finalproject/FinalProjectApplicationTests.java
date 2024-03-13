@@ -19,8 +19,7 @@ class FinalProjectApplicationTests {
 		assertThat(context).isNotNull();
 
 		// 예를 들어, 특정 빈이 존재하는지 확인
-		// assertThat(context.getBean(ExampleBean.class)).isNotNull();
-		// 되냐?
+		// assertThat(context.getBean(ExampleBean.class)).isNotNull()
 	}
 
 }
