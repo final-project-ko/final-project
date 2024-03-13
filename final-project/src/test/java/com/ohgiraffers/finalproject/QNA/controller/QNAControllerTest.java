@@ -53,7 +53,7 @@ public class QNAControllerTest {
     }
 
     @Test
-    // 특정 사용자의 Q&A 조회 테스트
+// 특정 사용자의 Q&A 조회 테스트
     public void selectInquiry_ReturnsQnADTOList() throws Exception {
         // Mock QnADTO 목록 생성
         List<QnADTO> qnaList = new ArrayList<>();
@@ -68,9 +68,12 @@ public class QNAControllerTest {
 
         mockMvc.perform(get("/api/qna/findInquiry/{userId}", userId))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].fieldName").value("expectedValue"));
+                .andExpect(jsonPath("$[0].actualFieldName").value("expectedValue"))
+                .andDo(result -> {
+                    String content = result.getResponse().getContentAsString();
+                    System.out.println("Response Content: " + content);
+                });
     }
-
     @Test
     // Q&A 등록 테스트
     public void insertInquiry_WithValidData_ReturnsInquiry() throws Exception {
