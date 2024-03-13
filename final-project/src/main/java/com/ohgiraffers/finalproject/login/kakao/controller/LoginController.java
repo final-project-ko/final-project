@@ -25,7 +25,7 @@ public class LoginController {
     @Autowired
     private LoginService loginService;
 
-
+// 젠킨스 잘 가져가는지 테스트@@@@@
 
     @Operation(summary = "카카오 회원 가입 메소드", description = "sns 카카오 회원 가입 메소드 입니다.")
     @ApiResponses(value = {
