@@ -1,75 +1,94 @@
 package com.ohgiraffers.finalproject.news.category.contents.controller;
 
-import static org.junit.jupiter.api.Assertions.*;
-import com.ohgiraffers.finalproject.news.category.contents.dto.ArticleDTO;
-import com.ohgiraffers.finalproject.news.category.contents.dto.NewsDTO;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ohgiraffers.finalproject.news.category.contents.entity.News;
 import com.ohgiraffers.finalproject.news.category.contents.service.NewsService;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.ArrayList;
-import java.util.List;
-import static org.mockito.Mockito.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-
+@ExtendWith(SpringExtension.class)
 @WebMvcTest(ContentsController.class)
 class ContentsControllerTest {
 
+    // path 응답.. 익셉션 처리.. 정상적 매개변수 원하는 형식으로 리턴하는지?  .. null값 반환시 원하는 방향으로 리턴하는지..
     @Autowired
     private MockMvc mockMvc;
+
+    @Autowired
+    private ObjectMapper objectMapper;
 
     @MockBean
     private NewsService newsService;
 
     @Test
-    void testSelectNews() throws Exception {
-        List<NewsDTO> mockNewsDTOList = new ArrayList<>();
-        // 모의 데이터를 채워넣어주세요.
+    void selectNews_ReturnsListOfNewsDTO() throws Exception {
+        // 뉴스 서비스가 빈 리스트를 반환하도록 설정
+        when(newsService.findAllNews()).thenReturn(new ArrayList<>());
 
-        when(newsService.findAllNews()).thenReturn(mockNewsDTOList);
-
+        // GET 요청 수행 및 응답 확인
         mockMvc.perform(get("/api/news/allNews"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON));
-        // 기대하는 반환값을 검증할 수 있는 코드를 작성해주세요.
     }
 
     @Test
-    void testCategoryNews() throws Exception {
-        String category = "someCategory";
-        LocalDate today = LocalDate.now();
+    void categoryNews_ReturnsArticleDTO() throws Exception {
+        // 뉴스 서비스가 빈 리스트를 반환하도록 설정
+        when(newsService.categoryNews(any(String.class), any(LocalDate.class))).thenReturn(new ArrayList<>());
 
-        ArticleDTO mockArticleDTO = new ArticleDTO();
-        List<NewsDTO> mockNewsDTOList = new ArrayList<>();
-        // 모의 데이터를 채워넣어주세요.
-
-        mockArticleDTO.setArticles(mockNewsDTOList);
-
-        when(newsService.categoryNews(category,today)).thenReturn(mockArticleDTO.getArticles());
-
-        mockMvc.perform(get("/api/news/categoryNews/{category}", category))
+        // GET 요청 수행 및 응답 확인
+        mockMvc.perform(get("/api/news/categoryNews/{category}", "exampleCategory"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON));
-        // 기대하는 반환값을 검증할 수 있는 코드를 작성해주세요.
     }
 
     @Test
-    void testModifyNews() throws Exception {
-        // 수정 테스트를 위한 모의 데이터와 결과를 만들어주세요.
+    void modifynews_ReturnsModifiedNews() throws Exception {
+        // 모킹된 데이터 생성
+        HashMap<String, String> news = new HashMap<>();
+        news.put("title", "Example Title");
+
+        // 뉴스 서비스가 뉴스 객체를 반환하도록 설정
+        when(newsService.modifyNews(any(HashMap.class))).thenReturn(new News());
+
+        // POST 요청 수행 및 응답 확인
+        mockMvc.perform(post("/api/news/modifyNews")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(news)))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
     }
 
     @Test
-    void testDeleteNews() throws Exception {
-        // 삭제 테스트를 위한 모의 데이터와 결과를 만들어주세요.
+    void deleteNews_ReturnsDeletedNews() throws Exception {
+        // 모킹된 데이터 생성
+        HashMap<String, String> news = new HashMap<>();
+        news.put("title", "Example Title");
+
+        // 뉴스 서비스가 뉴스 객체를 반환하도록 설정
+        when(newsService.deleteNews(any(HashMap.class))).thenReturn(new News());
+
+        // POST 요청 수행 및 응답 확인
+        mockMvc.perform(post("/api/news/deleteNews")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(news)))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
     }
+
 }
