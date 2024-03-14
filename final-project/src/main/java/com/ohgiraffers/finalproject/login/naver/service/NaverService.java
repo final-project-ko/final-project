@@ -26,11 +26,12 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class NaverService {
 
+
     @Value("${naver_client-id}")
     private String NAVER_CLIENT_ID;
     @Value("${naver_client-secret}")
     private String NAVER_CLIENT_PWD;
-    @Value("${naver_redirect-uri}")
+    @Value("${redirect-uri}")
     private String NAVER_REDIRECT_URI;
     @Value("${naver_token_uri}")
     private String NAVER_TOKEN_URI;
@@ -39,10 +40,14 @@ public class NaverService {
     @Value("${naver_uthorization-uri}")
     private String NAVER_AUTH_URI;
 
+    @Value("${naver-redirect-uri-app}")
+    private String NAVER_REDIRECT_URI_APP;
+
+
     @Autowired
     private LoginRepository loginRepository;
 
-    public UserEntity getAccessToken(String code) throws JsonProcessingException {
+    public UserEntity getAccessToken(String code, String webApp) throws JsonProcessingException {
         String accessToken = "";
 
         HttpHeaders headers = new HttpHeaders();
@@ -52,7 +57,12 @@ public class NaverService {
         MultiValueMap<String,String> params = new LinkedMultiValueMap<>();
         params.add("grant_type", "authorization_code");
         params.add("client_id", NAVER_CLIENT_ID);
-        params.add("redirect_uri", NAVER_REDIRECT_URI);
+        if(webApp == null||webApp.isEmpty()){
+            params.add("redirect_uri", NAVER_REDIRECT_URI_APP);
+        }else {
+            params.add("redirect_uri", NAVER_REDIRECT_URI);
+        }
+
         params.add("code",code);
         params.add("client_secret",NAVER_CLIENT_PWD);
 

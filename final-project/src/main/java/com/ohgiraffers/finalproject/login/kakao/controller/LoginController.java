@@ -33,8 +33,7 @@ public class LoginController {
             @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
     })
     @GetMapping("/oauth/*")
-    public UserEntity kakaoLogin(@RequestParam("code") String code, @RequestParam("name") String name) throws JsonProcessingException  {
-
+    public UserEntity kakaoLogin(@RequestParam("code") String code, @RequestParam(value = "name", required = false) String name) throws JsonProcessingException  {
         if (code.isEmpty()){
             return null;
         }
@@ -44,10 +43,10 @@ public class LoginController {
         if (profile==null){
             return null;
         }
-        
+
         return profile;
-        
     }
+
     @Operation(summary = "카카오 토큰 로그인 메소드", description = "sns 카카오 토큰 로그인 메소드 입니다.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = " 로그인 성공"),

@@ -31,8 +31,9 @@ public class NaverController {
     @GetMapping("/oauth/*")
     public UserEntity naverLogin(HttpServletRequest request) throws JsonProcessingException {
         String code = request.getParameter("code");
-      //   System.out.println(code);
-        UserEntity profile = naverService.getAccessToken(code);
+        String name = request.getParameter("name");
+         System.out.println(name);
+        UserEntity profile = naverService.getAccessToken(code,name);
 
         /*테스트 코드 작성해야 함*/
 
