@@ -93,6 +93,35 @@ public class CommentsService {
     }
 
 
+    public Comments modifyCommentStatus(int commentCode) {
+//        CommentsDTO modifyComment = new CommentsDTO();
 
+        Comments selectedComment = commentsRepository.findByCommentCode(commentCode);
 
+        // 쿼리 결과가 null인지 확인하여 처리
+        if (selectedComment != null) {
+            selectedComment.setStatus("N");
+        } else {
+            // 쿼리 결과가 null인 경우 처리 방법에 대한 로직 추가
+        }
+        Comments updateComment = commentsRepository.save(selectedComment);
+
+        return updateComment;
+    }
+
+    public Comments modifyCommentNotify(int commentCode) {
+
+        Comments selectedComment = commentsRepository.findByCommentCode(commentCode);
+
+        // 쿼리 결과가 null인지 확인하여 처리
+        if (selectedComment != null) {
+            selectedComment.setNotify(selectedComment.getNotify() + 1);
+        } else {
+            // 쿼리 결과가 null인 경우 처리 방법에 대한 로직 추가
+        }
+
+        Comments updateComment = commentsRepository.save(selectedComment);
+
+        return updateComment;
+    }
 }

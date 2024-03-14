@@ -14,4 +14,5 @@ public interface CommentsRepository extends JpaRepository<Comments, Integer> {
 
     List<Comments> findByDate(LocalDate now);
 
+    Comments findByCommentCode(int commentCode);
 }
