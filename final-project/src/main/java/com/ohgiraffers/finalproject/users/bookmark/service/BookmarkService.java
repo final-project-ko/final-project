@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -64,10 +65,20 @@ public class BookmarkService {
                     bookmarkDTO.setUrl(bookmark.getUrl());
 
 
-
-
                     return bookmarkDTO; // newsDTO 반환
                 })
                 .toList(); // bookmarkRepository를 통해 모든 book 찾아서 반환
     }
+
+    public void deleteBookmark(String userId, Integer bookmarkCode) {
+
+        Bookmark bookmark = bookmarkRepository.findByUserIdAndBookmarkCode(userId, bookmarkCode);
+
+        if (bookmark != null) {
+            bookmarkRepository.delete(bookmark);
+        } else {
+            throw new NoSuchElementException("사용자의 북마크를 찾을 수 없음: " + userId + ", " + bookmarkCode);
+        }
+    }
+
 }
