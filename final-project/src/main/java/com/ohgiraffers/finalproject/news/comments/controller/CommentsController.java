@@ -140,16 +140,35 @@ public class CommentsController {
 
     }
 
-//    @Operation(summary = "댓글 삭제", description = "댓글 작성자의 댓글 삭제 메소드")
-//    @ApiResponses(value = {
-//            @ApiResponse(responseCode = "200", description = "삭제 성공"),
-//            @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
-//    })
-//    @PostMapping("/modifyComment/{commentCode}")
-//    public ResponseEntity modifyCommentStatus(@RequestBody int commentCode) {
-//
-//        Comments updateComment = commentsService.modifyCommentStatus(commentCode);
-//
-//        return ResponseEntity.ok(updateComment);
-//    }
+    @Operation(summary = "댓글 삭제", description = "댓글 작성자의 댓글 삭제 메소드")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "삭제 성공"),
+            @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
+    })
+    @PostMapping("/modifyComment/{commentCode}")
+    public ResponseEntity modifyCommentStatus(@PathVariable Integer commentCode) {
+
+        // 요청 값 확인
+//        System.out.println("commentCode : " + commentCode);
+
+        Comments updateComment = commentsService.modifyCommentStatus(commentCode);
+
+        // 수정된 댓글 확인
+//        System.out.println(updateComment);
+
+        return ResponseEntity.ok(updateComment);
+    }
+
+    @Operation(summary = "댓글 신고", description = "댓글 신고 메소드")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "조회 성공"),
+            @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
+    })
+    @PostMapping("/notifyComment/{commentCode}")
+    public ResponseEntity modifyCommentNotify(@PathVariable int commentCode) {
+
+        Comments updateComment = commentsService.modifyCommentNotify(commentCode);
+
+        return ResponseEntity.ok(updateComment);
+    }
 }
