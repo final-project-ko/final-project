@@ -7,10 +7,10 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -46,6 +46,29 @@ public class UserController {
         Map<String,Integer> allUsers = userService.findAllUsers();
 
         return allUsers;
+    }
+
+    @Operation(summary = "어드민 유저 탈퇴 메소드", description = "어드민 권한 유저 탈퇴 메소드 입니다.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "정보 제거 성공"),
+            @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
+    })
+    @PostMapping("/deleteUser")
+    public ResponseEntity deleteUser(@RequestBody HashMap<String,String> userId){
+
+        System.out.println(userId);
+        if (userId.isEmpty() || userId.get("userId").isEmpty()){
+            return ResponseEntity.status(404).body("그런 유저는 없습니다.");
+        }
+        String user = userId.get("userId");
+
+        int result = userService.deleteUserInfo(user);
+        if (result < 1){
+            return ResponseEntity.status(404).body("실패했습니다.");
+        }
+
+        return ResponseEntity.ok(result);
+
     }
 
 }
