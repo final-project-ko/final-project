@@ -88,6 +88,7 @@ public class CommentsService {
                     commentsDTO.setEmail(comments.getEmail());
                     commentsDTO.setContent(comments.getContent());
                     commentsDTO.setDate(comments.getDate());
+                    commentsDTO.setNotify(comments.getNotify());
                     return commentsDTO;
                 }).toList();
     }
