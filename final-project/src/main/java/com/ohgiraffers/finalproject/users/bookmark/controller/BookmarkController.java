@@ -10,10 +10,12 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Tag(name = "북마크", description = "해당 뉴스의 북마크 api")
 @RestController
@@ -52,6 +54,17 @@ public class BookmarkController {
         return result;
     }
 
-
+    @DeleteMapping("/delete/{userId}/{bookmarkCode}")
+    public ResponseEntity<String> deleteBookmark(@PathVariable String userId, @PathVariable Integer bookmarkCode) {
+        try {
+            bookmarkService.deleteBookmark(userId,bookmarkCode);
+            return ResponseEntity.ok().body("북마크가 성공적으로 삭제되었습니다.");
+        } catch (NoSuchElementException e) {
+            return ResponseEntity.notFound().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("북마크를 삭제하는 중에 오류가 발생했습니다.");
+        }
+    }
 
 }

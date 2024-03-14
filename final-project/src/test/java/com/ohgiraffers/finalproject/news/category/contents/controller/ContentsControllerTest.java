@@ -27,7 +27,7 @@ class ContentsControllerTest {
 
     // path 응답.. 익셉션 처리.. 정상적 매개변수 원하는 형식으로 리턴하는지?  .. null값 반환시 원하는 방향으로 리턴하는지..
     @Autowired
-    private MockMvc mockMvc;
+    private MockMvc mockMvc; //실제 서버에 배포하지 않고도 테스트를 위한 요청을 제공하는 수단 - get,post 등 요청을 만들어 보낼 수 있음
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -42,8 +42,8 @@ class ContentsControllerTest {
 
         // GET 요청 수행 및 응답 확인
         mockMvc.perform(get("/api/news/allNews"))
-                .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+                .andExpect(status().isOk())  // 200번 응답으로 제대로 나오는지 확인
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON));  // json 형식으로 응답하는지 확인
     }
 
     @Test

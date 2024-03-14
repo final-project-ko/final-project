@@ -50,4 +50,18 @@ public class UserService {
 
         return userCounts;
     }
+
+    public int deleteUserInfo(String user) {
+
+        if (user.isEmpty()){
+            System.out.println("유저 정보가 없습니다.");
+            return 0;
+        }
+        try{
+            userRepository.deleteById(Integer.parseInt(user));
+            return 1;
+        }catch (Exception e){
+            return 0;
+        }
+    }
 }
