@@ -140,23 +140,6 @@ public class CommentsController {
 
     }
 
-<<<<<<< HEAD
-
-
-
-//    @Operation(summary = "댓글 삭제", description = "댓글 작성자의 댓글 삭제 메소드")
-//    @ApiResponses(value = {
-//            @ApiResponse(responseCode = "200", description = "삭제 성공"),
-//            @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
-//    })
-//    @PostMapping("/modifyComment/{commentCode}")
-//    public ResponseEntity modifyCommentStatus(@RequestBody int commentCode) {
-//
-//        Comments updateComment = commentsService.modifyCommentStatus(commentCode);
-//
-//        return ResponseEntity.ok(updateComment);
-//    }
-=======
     @Operation(summary = "댓글 삭제", description = "댓글 작성자의 댓글 삭제 메소드")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "삭제 성공"),
@@ -188,5 +171,5 @@ public class CommentsController {
 
         return ResponseEntity.ok(updateComment);
     }
->>>>>>> 24c270edf531405e6a36c0c9955d97cf458d9b5d
+
 }
