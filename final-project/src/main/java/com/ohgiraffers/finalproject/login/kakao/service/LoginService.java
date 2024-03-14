@@ -37,8 +37,11 @@ public class LoginService {
     @Value("${user-info-uri}")
     private String KAKAO_USER_INFO;
 
+    @Value("${redirect-uri-app}")
+    private String KAKAO_REDIRECT_URI_APP;
 
-    public UserEntity getAccessToken(String code) throws JsonProcessingException {
+
+    public UserEntity getAccessToken(String code, String webApp) throws JsonProcessingException {
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
@@ -47,7 +50,11 @@ public class LoginService {
         MultiValueMap<String,String> params = new LinkedMultiValueMap<>();
         params.add("grant_type", "authorization_code");
         params.add("client_id", KAKAO_CLIENT_ID);
-        params.add("redirect_uri", KAKAO_REDIRECT_URI);
+        if (webApp.isEmpty()){
+            params.add("redirect_uri", KAKAO_REDIRECT_URI_APP);
+        }else{
+            params.add("redirect_uri", KAKAO_REDIRECT_URI);
+        }
         params.add("code",code);
         params.add("client_secret",KAKAO_CLIENT_PWD);
 
@@ -120,6 +127,10 @@ public class LoginService {
 
 
         UserEntity userEntitys = kakaoRepository.findByUserId(String.valueOf(id));
+
+        if (userEntitys==null){
+            return null;
+        }
 
         return userEntitys;
 

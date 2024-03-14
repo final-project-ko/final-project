@@ -33,12 +33,17 @@ public class LoginController {
             @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
     })
     @GetMapping("/oauth/*")
-    public UserEntity kakaoLogin(HttpServletRequest request) throws JsonProcessingException {
-        System.out.println(request);
-        String code = request.getParameter("code");
-        UserEntity profile = loginService.getAccessToken(code);
+    public UserEntity kakaoLogin(@RequestParam("code") String code, @RequestParam("name") String name) throws JsonProcessingException  {
+
+        if (code.isEmpty()){
+            return null;
+        }
+        UserEntity profile = loginService.getAccessToken(code,name);
 
         /*테스트 코드 작성해야 함*/
+        if (profile==null){
+            return null;
+        }
         
         return profile;
         

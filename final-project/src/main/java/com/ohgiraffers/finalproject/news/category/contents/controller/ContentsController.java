@@ -37,7 +37,10 @@ public class ContentsController {
     public List<NewsDTO> selectNews() {
 
         List<NewsDTO> result = newsService.findAllNews();
-        System.out.println(result.toString());
+        if(Objects.isNull(result)){
+
+            return null;
+        }
 
         return result;
 
@@ -55,6 +58,10 @@ public class ContentsController {
         LocalDate today = LocalDate.now();
 
         List<NewsDTO> result = newsService.categoryNews(category, today);
+        if(Objects.isNull(result)){
+
+            return null;
+        }
 
         List<NewsDTO> newsList = new ArrayList<>();
         int count = 0;
