@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.HashMap;
 import java.util.List;
 
@@ -37,12 +38,11 @@ public class NewsService {
     }
 
     public List<NewsDTO> categoryNews(String category, LocalDate date) {
-
         return newsRepository.findByCategoryAndDate(category, date)
                 .stream()
                 .map(news -> {
                     NewsDTO newsDTO = new NewsDTO();
-                    newsDTO.setCode(news.getCode());
+                    newsDTO.setCode(news.getCode() != null ? news.getCode() : 0); // getCode()가 null이면 0으로 설정
                     newsDTO.setTitle(news.getTitle());
                     newsDTO.setCategory(news.getCategory());
                     newsDTO.setDescription(news.getDescription());
@@ -54,11 +54,9 @@ public class NewsService {
                     return newsDTO;
                 })
                 .toList();
-
     }
 
     public News modifyNews(HashMap<String, String> news) {
-
         News modifyNews = new News();
         modifyNews.setCode(Integer.parseInt(news.get("code")));
         modifyNews.setTitle(news.get("title"));
@@ -66,13 +64,28 @@ public class NewsService {
         modifyNews.setUrl(news.get("url"));
         modifyNews.setImage(news.get("image"));
         modifyNews.setCategory(news.get("category"));
-        modifyNews.setDate(LocalDate.parse(news.get("date")));
+
+        // "date" 필드가 있는지 확인하고, 없으면 현재 날짜로 설정
+        if (news.containsKey("date")) {
+            try {
+                modifyNews.setDate(LocalDate.parse(news.get("date")));
+            } catch (DateTimeParseException e) {
+                // 날짜 포맷이 잘못되었을 경우 예외 처리
+                System.err.println("날짜 포맷이 잘못되었습니다. 기본값으로 현재 날짜를 설정합니다.");
+                modifyNews.setDate(LocalDate.now());
+            }
+        } else {
+            // "date" 필드가 없을 경우 현재 날짜로 설정
+            modifyNews.setDate(LocalDate.now());
+        }
+
         modifyNews.setAi_description(news.get("ai_description")); // 2024-03-12 ai컬럼 추가
 
         News modify = newsRepository.save(modifyNews);
 
         return modify;
     }
+
 
     public News deleteNews(HashMap<String, String> news) {
 

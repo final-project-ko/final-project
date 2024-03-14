@@ -50,7 +50,7 @@ public class LoginService {
         MultiValueMap<String,String> params = new LinkedMultiValueMap<>();
         params.add("grant_type", "authorization_code");
         params.add("client_id", KAKAO_CLIENT_ID);
-        if (webApp.isEmpty()){
+        if (webApp == null||webApp.isEmpty()){
             params.add("redirect_uri", KAKAO_REDIRECT_URI_APP);
         }else{
             params.add("redirect_uri", KAKAO_REDIRECT_URI);
