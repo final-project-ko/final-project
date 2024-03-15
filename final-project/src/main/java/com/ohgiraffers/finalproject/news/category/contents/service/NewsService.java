@@ -29,7 +29,8 @@ public class NewsService {
                     newsDTO.setDescription(news.getDescription());
                     newsDTO.setUrl(news.getUrl());
                     newsDTO.setImage(news.getImage());
-                    newsDTO.setAi_description(newsDTO.getAi_description()); // 2024-03-12 ai컬럼 추가
+                    newsDTO.setAidescription(newsDTO.getAidescription()); // 03.12 ai컬럼 추가
+                    newsDTO.setTransdescription(newsDTO.getTransdescription()); // 03.15 ai한글번역 컬럼 추가
                     newsDTO.setDate(news.getDate());
 
                     return newsDTO; // newsDTO 반환
@@ -48,7 +49,8 @@ public class NewsService {
                     newsDTO.setDescription(news.getDescription());
                     newsDTO.setUrl(news.getUrl());
                     newsDTO.setImage(news.getImage());
-                    newsDTO.setAi_description(newsDTO.getAi_description()); // 2024-03-12 ai컬럼 추가
+                    newsDTO.setAidescription(newsDTO.getAidescription()); // 03.12 ai컬럼 추가
+                    newsDTO.setTransdescription(newsDTO.getTransdescription()); // 03.15 ai한글번역 컬럼 추가
                     newsDTO.setDate(news.getDate());
 
                     return newsDTO;
@@ -79,7 +81,8 @@ public class NewsService {
             modifyNews.setDate(LocalDate.now());
         }
 
-        modifyNews.setAi_description(news.get("ai_description")); // 2024-03-12 ai컬럼 추가
+        modifyNews.setAidescription(news.get("aidescription")); // 03.12 ai컬럼 추가
+        modifyNews.setTransdescription(news.get("transdescription")); // 03.15 ai한글번역 컬럼 추가
 
         News modify = newsRepository.save(modifyNews);
 
