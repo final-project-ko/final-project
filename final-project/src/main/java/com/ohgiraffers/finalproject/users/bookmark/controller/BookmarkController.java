@@ -14,6 +14,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.awt.print.Book;
+import java.util.HashMap;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -67,4 +69,29 @@ public class BookmarkController {
         }
     }
 
+    @Operation(summary = "웹 기사별 북마크 조회", description = "웹 기사별 북마크 조회 메소드")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "조회 성공"),
+            @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
+    })
+    @PostMapping("/article")
+    public ResponseEntity findByArticle(@RequestBody HashMap<String,String> request) {
+
+        if (request.get("userId").isEmpty()) {
+            return ResponseEntity.status(401).body("로그인 정보 없음");
+        } else if (request.get("articleCode").isEmpty()) {
+            return ResponseEntity.status(402).body("뉴스 정보 없음");
+        }
+
+        String userId = request.get("userId");
+        int newsCode = Integer.parseInt(request.get("articleCode"));
+
+        BookmarkDTO response = bookmarkService.findByUserAndArticle(userId, newsCode);
+
+        if (response == null) {
+            return ResponseEntity.status(404).body("등록된 북마크 없음");
+        }
+
+        return ResponseEntity.ok(response);
+    }
 }
