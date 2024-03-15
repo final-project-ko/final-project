@@ -81,6 +81,7 @@ public class CommentsService {
 
         return commentsRepository.findAll()
                 .stream()
+                .filter(comments -> comments.getStatus().equals("Y"))
                 .map(comments -> {
                     CommentsDTO commentsDTO = new CommentsDTO();
                     commentsDTO.setCommentCode(comments.getCommentCode());
@@ -124,5 +125,37 @@ public class CommentsService {
         Comments updateComment = commentsRepository.save(selectedComment);
 
         return updateComment;
+    }
+
+    public List<CommentsDTO> findAdminFind() {
+
+        return commentsRepository.findAll()
+                .stream()
+                .filter(comments -> comments.getNotify()>4)
+                .map(comments -> {
+                    CommentsDTO commentsDTO = new CommentsDTO();
+                    commentsDTO.setCommentCode(comments.getCommentCode());
+                    commentsDTO.setNewsCode(comments.getNewsCode());
+                    commentsDTO.setEmail(comments.getEmail());
+                    commentsDTO.setContent(comments.getContent());
+                    commentsDTO.setDate(comments.getDate());
+                    commentsDTO.setNotify(comments.getNotify());
+                    commentsDTO.setStatus(comments.getStatus());
+                    return commentsDTO;
+                }).toList();
+    }
+
+    public Comments deleteComments(String code) {
+        System.out.println(code);
+        Comments delete = commentsRepository.findByCommentCode(Integer.parseInt(code));
+
+        if (delete == null) {
+            return null;
+        }
+        delete.setStatus("B");
+
+        Comments result = commentsRepository.save(delete);
+
+        return result;
     }
 }
