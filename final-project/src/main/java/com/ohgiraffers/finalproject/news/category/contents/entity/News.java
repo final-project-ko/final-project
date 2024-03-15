@@ -32,12 +32,14 @@ public class News {
     private LocalDate date;
 
     @Column(name = "ai_description")
-    private String ai_description; // 2024-03-12 ai컬럼 추가
+    private String aidescription; // 2024-03-12 ai컬럼 추가
+    @Column(name = "trans_description")
+    private String transdescription; // 2024-03-15 ai 한국어 번역 컬럼 추가
 
     public News() {
     }
 
-    public News(Integer code, String title, String category, String description, String url, String image, LocalDate date, String ai_description) {
+    public News(Integer code, String title, String category, String description, String url, String image, LocalDate date, String aidescription, String transdescription) {
         this.code = code;
         this.title = title;
         this.category = category;
@@ -45,7 +47,8 @@ public class News {
         this.url = url;
         this.image = image;
         this.date = date;
-        this.ai_description = ai_description;
+        this.aidescription = aidescription;
+        this.transdescription = transdescription;
     }
 
     public Integer getCode() {
@@ -104,12 +107,20 @@ public class News {
         this.date = date;
     }
 
-    public String getAi_description() {
-        return ai_description;
+    public String getAidescription() {
+        return aidescription;
     }
 
-    public void setAi_description(String ai_description) {
-        this.ai_description = ai_description;
+    public void setAidescription(String aidescription) {
+        this.aidescription = aidescription;
+    }
+
+    public String getTransdescription() {
+        return transdescription;
+    }
+
+    public void setTransdescription(String transdescription) {
+        this.transdescription = transdescription;
     }
 
     @Override
@@ -122,7 +133,8 @@ public class News {
                 ", url='" + url + '\'' +
                 ", image='" + image + '\'' +
                 ", date=" + date +
-                ", ai_description='" + ai_description + '\'' +
+                ", aidescription='" + aidescription + '\'' +
+                ", transdescription='" + transdescription + '\'' +
                 '}';
     }
 }

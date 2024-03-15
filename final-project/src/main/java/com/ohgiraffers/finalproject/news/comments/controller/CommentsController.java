@@ -183,6 +183,7 @@ public class CommentsController {
         return ResponseEntity.ok(updateComment);
     }
 
+
     @Operation(summary = "어드민 댓글 신고 처리", description = "어드민 댓글 신고 처리 메소드")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "조회 성공"),
@@ -199,5 +200,6 @@ public class CommentsController {
         return result;
 
     }
+
 
 }

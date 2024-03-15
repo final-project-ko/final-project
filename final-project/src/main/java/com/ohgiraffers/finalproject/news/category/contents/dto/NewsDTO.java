@@ -1,37 +1,44 @@
 package com.ohgiraffers.finalproject.news.category.contents.dto;
 
+import com.ohgiraffers.finalproject.news.category.contents.entity.News;
+import jakarta.persistence.Column;
+
 import java.time.LocalDate;
 
 public class NewsDTO {
 
-    private int code;
+    private Integer code;  // 2024-03-15 entity와 데이터 유형 맞춤
     private String title;
     private String category;
     private String description;
     private String url;
     private String image;
     private LocalDate date;
-    private String ai_description; // 2024-03-12 ai컬럼 추가
+    private String aidescription; // 2024-03-12 ai컬럼 추가
+    private String transdescription; // 2024-03-15 ai 한국어 번역 컬럼 추가
+
 
     public NewsDTO() {
     }
 
-    public NewsDTO(int code, String title, String category, String description, String url, String image, LocalDate date, String ai_description) {
-        this.code = code;
-        this.title = title;
-        this.category = category;
-        this.description = description;
-        this.url = url;
-        this.image = image;
-        this.date = date;
-        this.ai_description = ai_description;
+    // 2024-03-15 - 받는 매개변수를 News엔터티에 기반하도록 수정
+    public NewsDTO(News news) {
+        this.code = news.getCode();
+        this.title = news.getTitle();
+        this.category = news.getCategory();
+        this.description = news.getDescription();
+        this.url = news.getUrl();
+        this.image = news.getImage();
+        this.date = news.getDate();
+        this.aidescription = news.getAidescription();
+        this.transdescription = news.getTransdescription();
     }
 
-    public int getCode() {
+    public Integer getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(Integer code) {
         this.code = code;
     }
 
@@ -83,12 +90,20 @@ public class NewsDTO {
         this.date = date;
     }
 
-    public String getAi_description() {
-        return ai_description;
+    public String getAidescription() {
+        return aidescription;
     }
 
-    public void setAi_description(String ai_description) {
-        this.ai_description = ai_description;
+    public void setAidescription(String aidescription) {
+        this.aidescription = aidescription;
+    }
+
+    public String getTransdescription() {
+        return transdescription;
+    }
+
+    public void setTransdescription(String transdescription) {
+        this.transdescription = transdescription;
     }
 
     @Override
@@ -101,7 +116,8 @@ public class NewsDTO {
                 ", url='" + url + '\'' +
                 ", image='" + image + '\'' +
                 ", date=" + date +
-                ", ai_description='" + ai_description + '\'' +
+                ", aidescription='" + aidescription + '\'' +
+                ", transdescription='" + transdescription + '\'' +
                 '}';
     }
 }
