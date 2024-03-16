@@ -81,4 +81,23 @@ public class BookmarkService {
         }
     }
 
+    public BookmarkDTO findByUserAndArticle(String userId, int newsCode) {
+
+        Bookmark response = bookmarkRepository.findByUserIdAndNewsCode(userId, newsCode);
+
+        if (response != null) {
+            BookmarkDTO result = new BookmarkDTO();
+            result.setBookmarkCode(response.getBookmarkCode());
+            result.setNewsCode(response.getNewsCode());
+            result.setTitle(response.getTitle());
+            result.setDescription(response.getDescription());
+            result.setUrl(response.getUrl());
+            result.setImage(response.getImage());
+            result.setUserId(response.getUserId());
+
+            return result;
+        } else {
+            return null;
+        }
+    }
 }
