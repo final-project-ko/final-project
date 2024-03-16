@@ -109,7 +109,22 @@ class CommentsControllerTest {
     }
 
     @Test
-    public void testAllComments(){
+    public void testAllComments() throws Exception {
+
+        List<CommentsDTO> mockList = new ArrayList<>();
+        CommentsDTO mock = new CommentsDTO();
+        mock.setStatus("Y");
+        mockList.add(mock);
+        when(commentsService.findAllComments()).thenReturn(mockList);
+        List<CommentsDTO> result = commentsService.findAllComments();
+        Assertions.assertEquals(mockList,result);
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/comments/allComments")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(asJsonString(mockList)))
+                .andExpect(status().isOk());
+     //   verify(commentsService, times(1)).findAllComments();  중복호출
+
 
     }
 

@@ -118,16 +118,14 @@ public class CommentsController {
         }
         System.out.println(id);
 
-        List<CommentsDTO> commentsList = commentsService.findAllComments();
+        List<CommentsDTO> commentsList = commentsService.findByUserId(id);
 
-        List<CommentsDTO> userComments = new ArrayList<>();
-
-        for (CommentsDTO comment:commentsList) {
-            if(comment.getEmail().contains(id)){
-                userComments.add(comment);
-            }
+        if (commentsList.isEmpty()){
+            return null;
         }
-        return userComments;
+
+
+        return commentsList;
     }
 
     @Operation(summary = "신고 댓글 삭제", description = "신고 댓글 삭제 메소드")

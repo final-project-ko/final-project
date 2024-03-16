@@ -94,6 +94,23 @@ public class CommentsService {
                 }).toList();
     }
 
+    public List<CommentsDTO> findByUserId(String id) {
+
+        return commentsRepository.findAll()
+                .stream()
+                .filter(comments -> comments.getStatus().equals("Y") && comments.getEmail().contains(id))
+                .map(comments -> {
+                    CommentsDTO commentsDTO = new CommentsDTO();
+                    commentsDTO.setCommentCode(comments.getCommentCode());
+                    commentsDTO.setNewsCode(comments.getNewsCode());
+                    commentsDTO.setEmail(comments.getEmail());
+                    commentsDTO.setContent(comments.getContent());
+                    commentsDTO.setDate(comments.getDate());
+                    commentsDTO.setNotify(comments.getNotify());
+                    return commentsDTO;
+                }).toList();
+    }
+
 
     public Comments modifyCommentStatus(int commentCode) {
 //        CommentsDTO modifyComment = new CommentsDTO();
@@ -129,7 +146,7 @@ public class CommentsService {
 
     public List<CommentsDTO> findAdminFind() {
 
-        return commentsRepository.findAll()
+        return commentsRepository.findAllByNotifyGreaterThan(4)
                 .stream()
                 .filter(comments -> comments.getNotify()>4)
                 .map(comments -> {
@@ -158,4 +175,6 @@ public class CommentsService {
 
         return result;
     }
+
+
 }
