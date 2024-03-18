@@ -103,7 +103,7 @@ public class BookmarkController {
     })
     @PostMapping("/registBookmark")
     public ResponseEntity registWebBookmark(@RequestBody HashMap<String,String> request) {
-        
+
         if (Objects.isNull(request.get("userId"))) {
             return ResponseEntity.status(401).body("유저 정보가 없습니다.");
         } else if (Objects.isNull(request.get("newsCode"))) {
@@ -125,5 +125,27 @@ public class BookmarkController {
         }
 
         return ResponseEntity.ok(response);
+    }
+
+    @Operation(summary = "북마크 삭제", description = "북마크 삭제 메소드")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "조회 성공"),
+            @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
+    })
+    @PostMapping("/deleteBookmark")
+    public ResponseEntity deleteWebBookmark(@RequestBody HashMap<String,String> request) {
+
+        String userId = request.get("userId");
+        int bookmarkCode = Integer.parseInt(request.get("bookmarkCode"));
+        System.out.println("userId : " + userId);
+        System.out.println("bookmarkCode : " + bookmarkCode);
+
+        int response = bookmarkService.deleteWebBookmark(userId, bookmarkCode);
+
+        if (response == 1) {
+            return ResponseEntity.ok().body("삭제 완료");
+        } else {
+            return ResponseEntity.status(500).body("서버에서 오류 발생");
+        }
     }
 }
