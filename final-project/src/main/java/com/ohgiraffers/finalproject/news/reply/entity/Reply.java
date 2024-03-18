@@ -17,7 +17,7 @@ public class Reply {
     private Integer commentCode;
 
     @Column(name = "user_id")
-    private Integer userId;
+    private String userId;
 
     @Column(name = "user_email")
     private String email;
@@ -37,7 +37,7 @@ public class Reply {
     public Reply() {
     }
 
-    public Reply(Integer replyCode, Integer commentCode, Integer userId, String email, String content, LocalDate date, String status, Integer notify) {
+    public Reply(Integer replyCode, Integer commentCode, String userId, String email, String content, LocalDate date, String status, Integer notify) {
         this.replyCode = replyCode;
         this.commentCode = commentCode;
         this.userId = userId;
@@ -64,11 +64,11 @@ public class Reply {
         this.commentCode = commentCode;
     }
 
-    public Integer getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

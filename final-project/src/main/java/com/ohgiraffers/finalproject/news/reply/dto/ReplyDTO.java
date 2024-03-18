@@ -6,7 +6,7 @@ public class ReplyDTO {
 
     private Integer commentCode;
     private Integer replyCode;
-    private Integer userId;
+    private String userId;
     private String email;
     private String content;
     private LocalDate date;
@@ -16,7 +16,7 @@ public class ReplyDTO {
     public ReplyDTO() {
     }
 
-    public ReplyDTO(Integer commentCode, Integer replyCode, Integer userId, String email, String content, LocalDate date, String status, Integer notify) {
+    public ReplyDTO(Integer commentCode, Integer replyCode, String userId, String email, String content, LocalDate date, String status, Integer notify) {
         this.commentCode = commentCode;
         this.replyCode = replyCode;
         this.userId = userId;
@@ -43,11 +43,11 @@ public class ReplyDTO {
         this.replyCode = replyCode;
     }
 
-    public Integer getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
