@@ -68,7 +68,7 @@ public class ScheduleConfiguration {
 
 
     // 국내 헤드 라인 기사 받아 오는 메소드 - 국내 기사 메인 페이지
-
+    // 테스트테스트
 
    @Scheduled(cron ="0 40 8 * * ?")
    public void headLines(){
