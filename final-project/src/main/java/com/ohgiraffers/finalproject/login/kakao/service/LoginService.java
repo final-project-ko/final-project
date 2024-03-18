@@ -108,10 +108,6 @@ public class LoginService {
             String name = jsonNode.path("kakao_account").path("name").asText();
             String email = jsonNode.path("kakao_account").path("email").asText();
 
-
-
-
-
             UserEntity userEntity = new UserEntity();
             userEntity.setUserId(String.valueOf(id));
             userEntity.setUserName(name);

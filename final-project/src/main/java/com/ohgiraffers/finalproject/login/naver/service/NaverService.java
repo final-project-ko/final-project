@@ -31,7 +31,7 @@ public class NaverService {
     private String NAVER_CLIENT_ID;
     @Value("${naver_client-secret}")
     private String NAVER_CLIENT_PWD;
-    @Value("${redirect-uri}")
+    @Value("${naver_redirect-uri}")
     private String NAVER_REDIRECT_URI;
     @Value("${naver_token_uri}")
     private String NAVER_TOKEN_URI;
