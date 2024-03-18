@@ -36,7 +36,7 @@ class ContentsControllerTest {
     private NewsService newsService;
 
     @Test
-    void selectNews_ReturnsListOfNewsDTO() throws Exception {
+    void TestSelectNews() throws Exception {
         // 뉴스 서비스가 빈 리스트를 반환하도록 설정
         when(newsService.findAllNews()).thenReturn(new ArrayList<>());
 
@@ -47,7 +47,7 @@ class ContentsControllerTest {
     }
 
     @Test
-    void categoryNews_ReturnsArticleDTO() throws Exception {
+    void TestCategoryNews() throws Exception {
         // 뉴스 서비스가 빈 리스트를 반환하도록 설정
         when(newsService.categoryNews(any(String.class), any(LocalDate.class))).thenReturn(new ArrayList<>());
 
@@ -58,7 +58,7 @@ class ContentsControllerTest {
     }
 
     @Test
-    void modifynews_ReturnsModifiedNews() throws Exception {
+    void TestModifynews() throws Exception {
         // 모킹된 데이터 생성
         HashMap<String, String> news = new HashMap<>();
         news.put("title", "Example Title");
@@ -75,7 +75,7 @@ class ContentsControllerTest {
     }
 
     @Test
-    void deleteNews_ReturnsDeletedNews() throws Exception {
+    void TestDeleteNews() throws Exception {
         // 모킹된 데이터 생성
         HashMap<String, String> news = new HashMap<>();
         news.put("title", "Example Title");

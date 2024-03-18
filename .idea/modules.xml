@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.ohgiraffers.final-project.iml" filepath="$PROJECT_DIR$/.idea/modules/com.ohgiraffers.final-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.ohgiraffers.final-project.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.ohgiraffers.final-project.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.ohgiraffers.final-project.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.ohgiraffers.final-project.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/final-project.iml" filepath="$PROJECT_DIR$/.idea/final-project.iml" />
     </modules>
   </component>

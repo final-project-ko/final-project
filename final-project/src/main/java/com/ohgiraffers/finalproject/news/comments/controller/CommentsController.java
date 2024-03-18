@@ -13,10 +13,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Tag(name = "댓글", description = "해당 뉴스의 댓글 정보 api")
 @RestController
@@ -101,6 +99,9 @@ public class CommentsController {
         if (Objects.isNull(commentsList)) {
             return null;
         }
+        commentsList = commentsList.stream().sorted(Comparator.comparing(CommentsDTO::getDate).reversed()).collect(Collectors.toList());
+                                                    // DTO안에 date를 기준으로 내림차순 정렬
+
         return commentsList;
     }
 
@@ -117,16 +118,14 @@ public class CommentsController {
         }
         System.out.println(id);
 
-        List<CommentsDTO> commentsList = commentsService.findAllComments();
+        List<CommentsDTO> commentsList = commentsService.findByUserId(id);
 
-        List<CommentsDTO> userComments = new ArrayList<>();
-
-        for (CommentsDTO comment:commentsList) {
-            if(comment.getEmail().contains(id)){
-                userComments.add(comment);
-            }
+        if (commentsList.isEmpty()){
+            return null;
         }
-        return userComments;
+
+
+        return commentsList;
     }
 
     @Operation(summary = "신고 댓글 삭제", description = "신고 댓글 삭제 메소드")
@@ -135,10 +134,20 @@ public class CommentsController {
             @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
     })
     @PostMapping("/deleteComments")
-    public void deleteComments(@RequestBody Comments comments){
+    public ResponseEntity deleteComments(@RequestBody HashMap<String,String> comments){
+        String code = comments.get("code");
+        System.out.println(code);
 
+        Comments result = commentsService.deleteComments(code);
+
+        if (result == null) {
+           return ResponseEntity.status(404).body("오류 발생");
+        }
+
+        return ResponseEntity.ok(result);
 
     }
+
 
     @Operation(summary = "댓글 삭제", description = "댓글 작성자의 댓글 삭제 메소드")
     @ApiResponses(value = {
@@ -171,4 +180,24 @@ public class CommentsController {
 
         return ResponseEntity.ok(updateComment);
     }
+
+
+    @Operation(summary = "어드민 댓글 신고 처리", description = "어드민 댓글 신고 처리 메소드")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "조회 성공"),
+            @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
+    })
+    @GetMapping("/adminNotify")
+    public List<CommentsDTO> adminNotify(){
+
+        List<CommentsDTO> result = commentsService.findAdminFind();
+        if (result.isEmpty()){
+            return result;
+        }
+
+        return result;
+
+    }
+
+
 }

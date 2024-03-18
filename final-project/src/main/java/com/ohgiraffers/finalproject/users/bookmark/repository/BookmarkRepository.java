@@ -17,4 +17,6 @@ public interface BookmarkRepository extends JpaRepository<Bookmark, Integer> {
 
 
     Bookmark findByUserIdAndBookmarkCode(String userId, Integer bookmarkCode);
+
+    Bookmark findByUserIdAndNewsCode(String userId, int newsCode);
 }

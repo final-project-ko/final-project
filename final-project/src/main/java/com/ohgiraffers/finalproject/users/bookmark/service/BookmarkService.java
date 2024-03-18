@@ -8,6 +8,7 @@ import com.ohgiraffers.finalproject.users.bookmark.repository.BookmarkRepository
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -81,4 +82,28 @@ public class BookmarkService {
         }
     }
 
+    public BookmarkDTO findByUserAndArticle(String userId, int newsCode) {
+
+        Bookmark response = bookmarkRepository.findByUserIdAndNewsCode(userId, newsCode);
+
+        if (response != null) {
+            BookmarkDTO result = new BookmarkDTO();
+            result.setBookmarkCode(response.getBookmarkCode());
+            result.setNewsCode(response.getNewsCode());
+            result.setTitle(response.getTitle());
+            result.setDescription(response.getDescription());
+            result.setUrl(response.getUrl());
+            result.setImage(response.getImage());
+            result.setUserId(response.getUserId());
+
+            return result;
+        } else {
+            return null;
+        }
+    }
+
+    public Bookmark registWebBookmark(HashMap<String, String> request) {
+
+        return null;
+    }
 }

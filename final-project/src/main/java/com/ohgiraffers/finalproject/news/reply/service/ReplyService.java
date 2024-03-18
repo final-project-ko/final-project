@@ -21,7 +21,7 @@ public class ReplyService {
 
         Reply registReply = new Reply();
         registReply.setCommentCode(Integer.parseInt(reply.get("commentCode")));
-        registReply.setUserId(Integer.parseInt(reply.get("userId")));
+        registReply.setUserId(reply.get("userId"));
         registReply.setEmail(reply.get("email"));
         registReply.setContent(reply.get("content"));
         registReply.setDate(LocalDate.now());
