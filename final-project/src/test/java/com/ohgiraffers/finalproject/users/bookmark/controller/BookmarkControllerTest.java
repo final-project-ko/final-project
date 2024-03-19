@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ohgiraffers.finalproject.users.bookmark.dto.BookmarkDTO;
 import com.ohgiraffers.finalproject.users.bookmark.entity.Bookmark;
 import com.ohgiraffers.finalproject.users.bookmark.service.BookmarkService;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -38,7 +38,7 @@ class BookmarkControllerTest { //일반적으로 테스트 클래스는 다른 �
 
     // 해당 뉴스를 북마크 테이블에 등록하는 테스트 메소드
     @Test
-    void registBookmark_SuccessfullyRegistered_ReturnsBookmark() throws Exception {
+    void testRegistBookmark_SuccessfullyRegistered_ReturnsBookmark() throws Exception {
         // 테스트에 사용할 북마크 DTO 생성
         BookmarkDTO bookmarkDTO = new BookmarkDTO();
         bookmarkDTO.setTitle("Sample Title");
@@ -65,7 +65,6 @@ class BookmarkControllerTest { //일반적으로 테스트 클래스는 다른 �
                         .content(objectMapper.writeValueAsString(bookmarkDTO)))
                 .andExpect(status().isOk());  // HTTP 응답 상태 코드가 200(OK)인지 확인합니다.
     }
-
 
 
 
