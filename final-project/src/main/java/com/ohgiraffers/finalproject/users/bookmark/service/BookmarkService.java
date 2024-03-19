@@ -104,6 +104,30 @@ public class BookmarkService {
 
     public Bookmark registWebBookmark(HashMap<String, String> request) {
 
-        return null;
+        Bookmark registBookmark = new Bookmark();
+
+        registBookmark.setNewsCode(Integer.parseInt(request.get("newsCode")));
+        registBookmark.setTitle(request.get("newsTitle"));
+        registBookmark.setDescription(request.get("newsDescription"));
+        registBookmark.setUrl(request.get("newsUrl"));
+        registBookmark.setImage(request.get("newsImage"));
+        registBookmark.setUserId(request.get("userId"));
+
+        Bookmark response = bookmarkRepository.save(registBookmark);
+
+        return response;
+    }
+
+    public int deleteWebBookmark(String userId, int bookmarkCode) {
+
+        Bookmark selectedBookmark = bookmarkRepository.findByUserIdAndBookmarkCode(userId, bookmarkCode);
+        System.out.println("selectedBookmark : " + selectedBookmark.toString());
+
+        if (selectedBookmark != null) {
+            bookmarkRepository.delete(selectedBookmark);
+            return 1;
+        } else {
+            throw new NoSuchElementException("사용자의 북마크를 찾을 수 없음: " + userId + ", " + bookmarkCode);
+        }
     }
 }
