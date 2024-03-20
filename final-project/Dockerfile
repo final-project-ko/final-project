@@ -1,5 +1,5 @@
 FROM eclipse-temurin:17
 RUN mkdir /opt/app
 COPY final-project/build/libs/final-project-0.0.1-SNAPSHOT.jar docker-app.jar
-EXPOSE 8081
+EXPOSE 8085
 CMD ["java","-jar","docker-app.jar"]
