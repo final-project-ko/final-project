@@ -53,6 +53,7 @@ public class NaverController {
             return null;
         }
         String accessToken = token.get("accessToken");
+        System.out.println("adsfs"+accessToken);
 
         KakaoProfileDTO profile = naverService.naverLogin(accessToken);
         return profile;

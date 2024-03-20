@@ -21,15 +21,15 @@ import static org.mockito.Mockito.*;
 class QnaServiceTest {
 
 
-    @Mock
+    @Mock // 모의 객체 생성
     private InquiryRepository inquiryRepository;
 
-    @InjectMocks
+    @InjectMocks  // 의존성 주입을 필요로 하는 모의 객체
     private QnaService qnaService;
 
     @BeforeEach
     public void setUp() {
-        MockitoAnnotations.initMocks(this);
+        MockitoAnnotations.openMocks(this);
     }
 
     @Test

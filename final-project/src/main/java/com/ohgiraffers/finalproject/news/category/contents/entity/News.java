@@ -1,5 +1,6 @@
 package com.ohgiraffers.finalproject.news.category.contents.entity;
 
+import com.ohgiraffers.finalproject.news.category.contents.dto.NewsDTO;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -39,16 +40,16 @@ public class News {
     public News() {
     }
 
-    public News(Integer code, String title, String category, String description, String url, String image, LocalDate date, String aidescription, String transdescription) {
-        this.code = code;
-        this.title = title;
-        this.category = category;
-        this.description = description;
-        this.url = url;
-        this.image = image;
-        this.date = date;
-        this.aidescription = aidescription;
-        this.transdescription = transdescription;
+    public News(NewsDTO newsDTO) {
+        this.code = newsDTO.getCode();
+        this.title = newsDTO.getTitle();
+        this.category = newsDTO.getCategory();
+        this.description = newsDTO.getDescription();
+        this.url = newsDTO.getUrl();
+        this.image = newsDTO.getImage();
+        this.date = newsDTO.getDate();
+        this.aidescription = newsDTO.getAidescription();
+        this.transdescription = newsDTO.getTransdescription();
     }
 
     public Integer getCode() {
