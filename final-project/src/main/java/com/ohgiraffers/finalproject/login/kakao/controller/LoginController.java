@@ -26,7 +26,6 @@ public class LoginController {
     private LoginService loginService;
 
 
-
     @Operation(summary = "카카오 회원 가입 메소드", description = "sns 카카오 회원 가입 메소드 입니다.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = " 로그인 성공"),

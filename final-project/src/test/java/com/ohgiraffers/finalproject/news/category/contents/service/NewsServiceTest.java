@@ -31,6 +31,7 @@ public class NewsServiceTest {
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.initMocks(this);
+        // initMock deprecated -> openMocks 으로 다른건 대체함
     }
 
     @Test
