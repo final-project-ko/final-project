@@ -68,13 +68,8 @@ public class ScheduleConfiguration {
 
 
     // 국내 헤드 라인 기사 받아 오는 메소드 - 국내 기사 메인 페이지
-<<<<<<< HEAD
 
-
-   @Scheduled(cron ="0 53 18 * * ?")
-=======
    @Scheduled(cron ="0 40 8 * * ?")
->>>>>>> 8b3d62f4a1ea6781d693f85552ef290a87877ff1
    public void headLines(){
        String[] apiName = new String[]{kr_total,kr_business,kr_entertainment,kr_general,kr_health,kr_science,kr_sports,kr_technology,us_total,us_business,us_entertainment,us_general,us_health,us_science,us_sports,us_technology,};
        String[] apiNames = new String[]{"kr_total","kr_business","kr_entertainment","kr_general","kr_health","kr_science","kr_sports","kr_technology","us_total","us_business","us_entertainment","us_general","us_health","us_science","us_sports","us_technology"};
