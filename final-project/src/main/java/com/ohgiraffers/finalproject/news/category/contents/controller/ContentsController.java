@@ -22,6 +22,7 @@ import java.util.Objects;
 @Tag(name = "뉴스 정보", description = "DB에 담긴 뉴스 정보 api 입니다.")
 @RestController
 @RequestMapping("/api/news")
+@CrossOrigin(origins = "*")
 public class ContentsController {
 
     @Autowired
@@ -52,8 +53,6 @@ public class ContentsController {
             @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
     })
     @GetMapping("/categoryNews/{category}")
-//    @CrossOrigin(origins = "http://localhost:3000")
-    @CrossOrigin(origins = "*")
     public ArticleDTO categoryNews(@PathVariable String category) {
         LocalDate today = LocalDate.now();
         System.out.println(category);

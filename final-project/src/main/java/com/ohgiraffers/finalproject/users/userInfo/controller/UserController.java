@@ -17,6 +17,7 @@ import java.util.Map;
 @Tag(name = "유저 정보", description = "DB에 담긴 유저 정보 api 입니다.")
 @RestController
 @RequestMapping("/api/user/*")
+@CrossOrigin(origins = "*")
 public class UserController {
 
     @Autowired

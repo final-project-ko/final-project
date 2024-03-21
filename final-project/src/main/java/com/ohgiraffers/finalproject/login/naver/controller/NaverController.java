@@ -18,6 +18,7 @@ import java.util.Objects;
 @Tag(name = "유저 정보", description = "유저 관련 api 입니다.")
 @RestController
 @RequestMapping("/api/naver/*")
+@CrossOrigin(origins = "*")
 public class NaverController {
 
     @Autowired

@@ -17,6 +17,7 @@ import java.util.Objects;
 // DB에서 조회하는 뉴스
 @Tag(name = "AI뉴스 정보", description = "DB에 담긴 AI뉴스 데이터(요약뉴스, 키워드뉴스) api 입니다.")
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/AINews")
 public class AiContentsController {
 

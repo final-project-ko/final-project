@@ -20,7 +20,7 @@ import java.util.Objects;
 @Tag(name = "답글", description = "해당 댓글의 답글 정보 api")
 @RestController
 @RequestMapping("/api/reply")
-@CrossOrigin(origins = {"http://localhost:3000", "exp://192.168.0.63:8081", "exp://172.30.1.26:8081"})
+@CrossOrigin(origins = "*")
 public class ReplyController {
 
     @Autowired

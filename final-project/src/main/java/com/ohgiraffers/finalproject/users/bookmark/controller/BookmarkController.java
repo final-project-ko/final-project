@@ -23,7 +23,7 @@ import java.util.Objects;
 @Tag(name = "북마크", description = "해당 뉴스의 북마크 api")
 @RestController
 @RequestMapping("/api/bookmark")
-@CrossOrigin(origins = {"http://localhost:3000", "exp://192.168.0.63:8081", "exp://172.30.1.26:8081", "exp://192.168.0.63:8080"})
+@CrossOrigin(origins = "*")
 public class BookmarkController {
 
     @Autowired

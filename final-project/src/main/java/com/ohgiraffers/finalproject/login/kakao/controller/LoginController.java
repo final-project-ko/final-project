@@ -20,7 +20,7 @@ import java.util.Objects;
 @Tag(name = "유저 정보", description = "유저 관련 api 입니다.")
 @RestController
 @RequestMapping("/api/login/*")
-@CrossOrigin(origins = "https://www.gurotimes.shop")
+@CrossOrigin(origins = "*")
 public class LoginController {
 
     @Autowired

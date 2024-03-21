@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 @Tag(name = "댓글", description = "해당 뉴스의 댓글 정보 api")
 @RestController
 @RequestMapping("/api/comments")
-@CrossOrigin(origins = {"http://localhost:3000", "exp://192.168.0.63:8081", "exp://172.30.1.26:8081"})
+@CrossOrigin(origins = "*")
 public class CommentsController {
 
     @Autowired

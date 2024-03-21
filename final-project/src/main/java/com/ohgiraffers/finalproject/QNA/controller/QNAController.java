@@ -20,6 +20,7 @@ import java.util.Objects;
 @Tag(name = "Q&A", description = "Q&A api")
 @RestController
 @RequestMapping("/api/qna/*")
+@CrossOrigin(origins = "*")
 public class QNAController {
 
     @Autowired

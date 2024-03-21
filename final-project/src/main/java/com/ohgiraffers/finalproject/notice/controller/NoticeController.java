@@ -18,6 +18,7 @@ import java.util.Objects;
 @Tag(name = "공지사항", description = "공지사항 api")
 @RestController
 @RequestMapping("/api/notice/*")
+@CrossOrigin(origins = "*")
 public class NoticeController {
 
     @Autowired
