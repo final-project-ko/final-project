@@ -2,6 +2,7 @@ package com.ohgiraffers.finalproject.news.comments.service;
 
 import com.ohgiraffers.finalproject.news.comments.repository.CommentsRepository;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -23,4 +24,13 @@ class CommentsServiceTest {
     public void setUp(){
         MockitoAnnotations.openMocks(this);
     }
+
+
+    @Test
+    public void testRegistcomment(){
+
+
+
+    }
+
 }
