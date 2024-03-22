@@ -49,11 +49,11 @@ public class BookmarkController {
     })
     @GetMapping("/find/{userId}")
     public List<BookmarkDTO> findBookmark(@PathVariable String userId){
-        System.out.println(userId);
+        /*System.out.println(userId);*/
         List<BookmarkDTO> result = bookmarkService.findByBookmark(userId);
 
 
-        System.out.println("Whghl"+result);
+        /*System.out.println("Whghl"+result);*/
         return result;
     }
 
@@ -137,8 +137,8 @@ public class BookmarkController {
 
         String userId = request.get("userId");
         int bookmarkCode = Integer.parseInt(request.get("bookmarkCode"));
-        System.out.println("userId : " + userId);
-        System.out.println("bookmarkCode : " + bookmarkCode);
+        /*System.out.println("userId : " + userId);
+        System.out.println("bookmarkCode : " + bookmarkCode);*/
 
         int response = bookmarkService.deleteWebBookmark(userId, bookmarkCode);
 

@@ -75,7 +75,7 @@ public class QNAController {
             return ResponseEntity.status(404).body("내용이 없습니다.");
         }
 
-        System.out.println("userId!@#@!#!@!@#!"+insert.get("id"));
+        /*System.out.println("userId!@#@!#!@!@#!"+insert.get("id"));*/
         Inquiry insertInquiry = qnaService.insertInquiry(insert);
 
         if(Objects.isNull(insertInquiry)){

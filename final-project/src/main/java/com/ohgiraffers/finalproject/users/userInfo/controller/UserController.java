@@ -57,7 +57,7 @@ public class UserController {
     @PostMapping("/deleteUser")
     public ResponseEntity deleteUser(@RequestBody HashMap<String,String> userId){
 
-        System.out.println(userId);
+        /*System.out.println(userId);*/
         if (userId.isEmpty() || userId.get("userId").isEmpty()){
             return ResponseEntity.status(404).body("그런 유저는 없습니다.");
         }

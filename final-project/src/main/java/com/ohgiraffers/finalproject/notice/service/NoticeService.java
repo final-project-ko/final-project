@@ -75,7 +75,7 @@ public class NoticeService {
     public Notice deleteNotice(HashMap<String, String> notice) {
 
         Notice deleteNotice = new Notice();
-        System.out.println(notice.get("num"));
+        /*System.out.println(notice.get("num"));*/
         deleteNotice.setNum(Integer.parseInt(notice.get("num")));
         deleteNotice.setTitle("지워짐");
         deleteNotice.setContent(notice.get("content"));

@@ -33,7 +33,7 @@ public class CommentsController {
     @PostMapping("/regist")
 //    @CrossOrigin(origins = {"http://localhost:3000", "exp://192.168.0.63:8081", "exp://172.30.1.26:8081"})
     public ResponseEntity registComment(@RequestBody HashMap<String,String> comment) {
-        System.out.println(comment);
+/*        System.out.println(comment);*/
         if (Objects.isNull(comment.get("newsCode")) || comment.get("newsCode").isEmpty()) {
             return ResponseEntity.status(405).body("newsCode 정보가 없습니다.");
         } else if (Objects.isNull(comment.get("email")) || comment.get("email").isEmpty()) {
@@ -58,10 +58,10 @@ public class CommentsController {
     })
     @GetMapping("/find/{newsCode}")
     public List<CommentsDTO> findComments(@PathVariable int newsCode){
-        System.out.println(newsCode);
+ /*       System.out.println(newsCode);*/
 
         List<CommentsDTO> commentList = commentsService.findComments(newsCode);
-        System.out.println(commentList);
+/*        System.out.println(commentList);*/
 
         if(Objects.isNull(commentList)){
             return null;
@@ -116,7 +116,7 @@ public class CommentsController {
         if (Objects.isNull(id)) {
             return null;
         }
-        System.out.println(id);
+        /*System.out.println(id);*/
 
         List<CommentsDTO> commentsList = commentsService.findByUserId(id);
 
@@ -136,7 +136,7 @@ public class CommentsController {
     @PostMapping("/deleteComments")
     public ResponseEntity deleteComments(@RequestBody HashMap<String,String> comments){
         String code = comments.get("code");
-        System.out.println(code);
+        /*System.out.println(code);*/
 
         Comments result = commentsService.deleteComments(code);
 

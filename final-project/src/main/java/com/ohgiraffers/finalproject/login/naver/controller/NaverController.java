@@ -33,7 +33,6 @@ public class NaverController {
     public UserEntity naverLogin(HttpServletRequest request) throws JsonProcessingException {
         String code = request.getParameter("code");
         String name = request.getParameter("name");
-         System.out.println(name);
         UserEntity profile = naverService.getAccessToken(code,name);
 
         /*테스트 코드 작성해야 함*/
@@ -54,7 +53,6 @@ public class NaverController {
             return null;
         }
         String accessToken = token.get("accessToken");
-        System.out.println("adsfs"+accessToken);
 
         KakaoProfileDTO profile = naverService.naverLogin(accessToken);
         return profile;

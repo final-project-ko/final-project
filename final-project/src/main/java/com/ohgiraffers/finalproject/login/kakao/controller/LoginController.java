@@ -61,6 +61,16 @@ public class LoginController {
         String accessToken = token.get("accessToken");
 
         KakaoProfileDTO profile = loginService.kakaoLogin(accessToken);
+
+        if (profile.getId().isEmpty()){
+            System.out.println("id 가 없습니다.");
+            return null;
+        }
+        if (profile.getName().isEmpty()){
+            System.out.println("이름이 없습니다.");
+            return null;
+        }
+
         return profile;
     }
 

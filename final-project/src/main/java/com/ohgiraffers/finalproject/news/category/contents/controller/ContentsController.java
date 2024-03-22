@@ -55,7 +55,6 @@ public class ContentsController {
     @GetMapping("/categoryNews/{category}")
     public ArticleDTO categoryNews(@PathVariable String category) {
         LocalDate today = LocalDate.now();
-        System.out.println(category);
         List<NewsDTO> result = newsService.categoryNews(category, today);
         if(Objects.isNull(result)){
 
@@ -72,7 +71,6 @@ public class ContentsController {
             newsList.add(news);
             count++;
         }
-        System.out.println(newsList);
 
         ArticleDTO articles = new ArticleDTO();
         articles.setArticles(newsList);
@@ -92,7 +90,6 @@ public class ContentsController {
             return ResponseEntity.status(404).body("내용이 없습니다.");
         }
 
-        System.out.println(news.get("title"));
         News modifyNews = newsService.modifyNews(news);
 
         if(Objects.isNull(modifyNews)){
@@ -117,7 +114,6 @@ public class ContentsController {
             return ResponseEntity.status(404).body("내용이 없습니다.");
         }
 
-        System.out.println(news.get("title"));
         News deleteNews = newsService.deleteNews(news);
 
         if(Objects.isNull(deleteNews)){
