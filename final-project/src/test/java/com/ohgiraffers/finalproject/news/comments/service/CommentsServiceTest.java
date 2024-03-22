@@ -94,15 +94,6 @@ class CommentsServiceTest {
     }
 
 
-    @Test
-    public void testFindTodayComments(){
 
-        List<Comments> mockList = new ArrayList<>();
-        mockList.add(new Comments());
-        when(commentsRepository.findByDate(LocalDate.now())).thenReturn(mockList);
-
-        // List<CommentsDTO> result = commentsService.
-
-    }
 
 }
