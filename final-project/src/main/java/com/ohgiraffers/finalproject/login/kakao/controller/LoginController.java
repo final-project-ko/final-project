@@ -34,7 +34,7 @@ public class LoginController {
     })
     @GetMapping("/oauth/*")
     public UserEntity kakaoLogin(@RequestParam("code") String code, @RequestParam(value = "name", required = false) String name) throws JsonProcessingException  {
-        
+
         if (code.isEmpty()){
             return null;
         }
@@ -65,10 +65,6 @@ public class LoginController {
 
         if (profile.getId().isEmpty()){
             System.out.println("id 가 없습니다.");
-            return null;
-        }
-        if (profile.getName().isEmpty()){
-            System.out.println("이름이 없습니다.");
             return null;
         }
 
