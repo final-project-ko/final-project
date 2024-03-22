@@ -11,7 +11,6 @@ public class KeywordNews {
 
     @Id
     @Column(name = "keyword_news_code")
-    @GeneratedValue
     private Integer keywordNewsCode;
     @Column(name = "keyword_1")
     private String keyword1;

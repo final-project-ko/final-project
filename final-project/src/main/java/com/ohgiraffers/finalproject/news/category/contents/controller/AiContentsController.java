@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Objects;
 
-// DB에서 조회하는 뉴스
+// DB에서 조회하는 ai 뉴스
 @Tag(name = "AI뉴스 정보", description = "DB에 담긴 AI뉴스 데이터(요약뉴스, 키워드뉴스) api 입니다.")
 @RestController
 @RequestMapping("/api/AINews")
@@ -24,7 +24,7 @@ public class AiContentsController {
     private NewsService newsService;
 
 
-    @Operation(summary = "전체 뉴스 키워드 조회 메소드", description = "전체 뉴스 키워드 데이터를 조회하는 메소드 입니다.")
+    @Operation(summary = "뉴스 키워드 조회 메소드", description = "뉴스 키워드 데이터를 조회하는 메소드 입니다.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "뉴스 키워드 불러 오기 성공"),
             @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
@@ -32,7 +32,7 @@ public class AiContentsController {
     @GetMapping("/keywordNews/{num}")
     public KeywordNewsDTO selectKeywordNews(@PathVariable int num) {
 
-        KeywordNewsDTO result = newsService.findAllKeywordNews(num);
+        KeywordNewsDTO result = newsService.findKeywordNews(num);
         if (Objects.isNull(result)) {
 
             return null;
@@ -42,7 +42,7 @@ public class AiContentsController {
 
     }
 
-    @Operation(summary = "전체 요약 뉴스 조회 메소드", description = "전체 요약 뉴스 데이터를 조회하는 메소드 입니다.")
+    @Operation(summary = "요약 뉴스 조회 메소드", description = "요약 뉴스 데이터를 조회하는 메소드 입니다.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "요약 뉴스 불러 오기 성공"),
             @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
@@ -50,7 +50,7 @@ public class AiContentsController {
     @GetMapping("/summaryNews/{num}")
     public SummaryNewsDTO findAllSummaryNews(@PathVariable int num) {
 
-        SummaryNewsDTO result = newsService.findAllSummaryNews(num);
+        SummaryNewsDTO result = newsService.findSummaryNews(num);
         if (Objects.isNull(result)) {
 
             return null;
