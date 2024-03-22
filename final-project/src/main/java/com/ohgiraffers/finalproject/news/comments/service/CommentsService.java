@@ -18,7 +18,7 @@ public class CommentsService {
     private CommentsRepository commentsRepository;
 
     public Comments registComment(HashMap<String, String> comment) {
-        System.out.println("email은????????????"+comment.get("email"));
+        /*System.out.println("email은????????????"+comment.get("email"));*/
 
         Comments registComment = new Comments();
         registComment.setNewsCode(Integer.parseInt(comment.get("newsCode")));
@@ -163,7 +163,7 @@ public class CommentsService {
     }
 
     public Comments deleteComments(String code) {
-        System.out.println(code);
+       /* System.out.println(code);*/
         Comments delete = commentsRepository.findByCommentCode(Integer.parseInt(code));
 
         if (delete == null) {

@@ -23,7 +23,7 @@ import java.util.Objects;
 @Tag(name = "북마크", description = "해당 뉴스의 북마크 api")
 @RestController
 @RequestMapping("/api/bookmark")
-@CrossOrigin(origins = {"http://localhost:3000", "exp://192.168.0.63:8081", "exp://172.30.1.26:8081", "exp://192.168.0.63:8080"})
+@CrossOrigin(origins = "*")
 public class BookmarkController {
 
     @Autowired
@@ -49,11 +49,11 @@ public class BookmarkController {
     })
     @GetMapping("/find/{userId}")
     public List<BookmarkDTO> findBookmark(@PathVariable String userId){
-        System.out.println(userId);
+        /*System.out.println(userId);*/
         List<BookmarkDTO> result = bookmarkService.findByBookmark(userId);
 
 
-        System.out.println("Whghl"+result);
+        /*System.out.println("Whghl"+result);*/
         return result;
     }
 
@@ -137,8 +137,8 @@ public class BookmarkController {
 
         String userId = request.get("userId");
         int bookmarkCode = Integer.parseInt(request.get("bookmarkCode"));
-        System.out.println("userId : " + userId);
-        System.out.println("bookmarkCode : " + bookmarkCode);
+        /*System.out.println("userId : " + userId);
+        System.out.println("bookmarkCode : " + bookmarkCode);*/
 
         int response = bookmarkService.deleteWebBookmark(userId, bookmarkCode);
 

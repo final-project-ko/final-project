@@ -17,6 +17,7 @@ import java.util.Map;
 @Tag(name = "유저 정보", description = "DB에 담긴 유저 정보 api 입니다.")
 @RestController
 @RequestMapping("/api/user/*")
+@CrossOrigin(origins = "*")
 public class UserController {
 
     @Autowired
@@ -56,7 +57,7 @@ public class UserController {
     @PostMapping("/deleteUser")
     public ResponseEntity deleteUser(@RequestBody HashMap<String,String> userId){
 
-        System.out.println(userId);
+        /*System.out.println(userId);*/
         if (userId.isEmpty() || userId.get("userId").isEmpty()){
             return ResponseEntity.status(404).body("그런 유저는 없습니다.");
         }

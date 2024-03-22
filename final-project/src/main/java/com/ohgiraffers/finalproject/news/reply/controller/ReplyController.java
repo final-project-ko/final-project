@@ -20,7 +20,7 @@ import java.util.Objects;
 @Tag(name = "답글", description = "해당 댓글의 답글 정보 api")
 @RestController
 @RequestMapping("/api/reply")
-@CrossOrigin(origins = {"http://localhost:3000", "exp://192.168.0.63:8081", "exp://172.30.1.26:8081"})
+@CrossOrigin(origins = "*")
 public class ReplyController {
 
     @Autowired
@@ -33,7 +33,7 @@ public class ReplyController {
     })
     @PostMapping("/regist")
     public ResponseEntity registReply(@RequestBody HashMap<String,String> reply) {
-        System.out.println(reply);
+       /* System.out.println(reply);*/
         if (Objects.isNull(reply.get("commentCode"))) {
             return ResponseEntity.status(404).body("댓글 코드가 없습니다.");
         } else if (Objects.isNull(reply.get("userId")) || reply.get("userId").isEmpty()) {
@@ -49,7 +49,7 @@ public class ReplyController {
         if (Objects.isNull(registReply)) {
             return ResponseEntity.status(500).body("서버에서 오류 발생");
         }
-        System.out.println(registReply);
+        /*System.out.println(registReply);*/
 
         return ResponseEntity.ok(registReply);
     }

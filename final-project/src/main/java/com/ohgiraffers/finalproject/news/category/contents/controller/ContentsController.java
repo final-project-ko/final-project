@@ -22,6 +22,7 @@ import java.util.Objects;
 @Tag(name = "뉴스 정보", description = "DB에 담긴 뉴스 정보 api 입니다.")
 @RestController
 @RequestMapping("/api/news")
+@CrossOrigin(origins = "*")
 public class ContentsController {
 
     @Autowired
@@ -52,11 +53,8 @@ public class ContentsController {
             @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
     })
     @GetMapping("/categoryNews/{category}")
-//    @CrossOrigin(origins = "http://localhost:3000")
-    @CrossOrigin(origins = {"http://localhost:3000", "exp://192.168.0.63:8081", "exp://172.30.1.26:8081"})
     public ArticleDTO categoryNews(@PathVariable String category) {
         LocalDate today = LocalDate.now();
-        System.out.println(category);
         List<NewsDTO> result = newsService.categoryNews(category, today);
 //        System.out.println("adf"+result.get(1));
         System.out.println("sdfsdf");
@@ -75,7 +73,6 @@ public class ContentsController {
             newsList.add(news);
             count++;
         }
-        System.out.println(newsList);
 
         ArticleDTO articles = new ArticleDTO();
         articles.setArticles(newsList);
@@ -95,7 +92,6 @@ public class ContentsController {
             return ResponseEntity.status(404).body("내용이 없습니다.");
         }
 
-        System.out.println(news.get("title"));
         News modifyNews = newsService.modifyNews(news);
 
         if(Objects.isNull(modifyNews)){
@@ -120,7 +116,6 @@ public class ContentsController {
             return ResponseEntity.status(404).body("내용이 없습니다.");
         }
 
-        System.out.println(news.get("title"));
         News deleteNews = newsService.deleteNews(news);
 
         if(Objects.isNull(deleteNews)){

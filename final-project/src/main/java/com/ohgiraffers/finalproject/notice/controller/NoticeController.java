@@ -18,6 +18,7 @@ import java.util.Objects;
 @Tag(name = "공지사항", description = "공지사항 api")
 @RestController
 @RequestMapping("/api/notice/*")
+@CrossOrigin(origins = "*")
 public class NoticeController {
 
     @Autowired
@@ -44,6 +45,9 @@ public class NoticeController {
     @GetMapping("/searchNotice/{inputText}")
     public List<NoticeDTO> searchNotice(@PathVariable String inputText){
 
+        if (Objects.isNull(inputText)){
+            return null;
+        }
         List<NoticeDTO> result = noticeService.findInputNotice(inputText);
 
         return result;

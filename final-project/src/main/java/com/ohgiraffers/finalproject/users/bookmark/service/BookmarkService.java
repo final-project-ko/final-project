@@ -21,7 +21,7 @@ public class BookmarkService {
 
 
     public Bookmark registBookmark(BookmarkDTO bookmarkDTO) {
-        System.out.println("북마크="+bookmarkDTO.getUserId());
+       /* System.out.println("북마크="+bookmarkDTO.getUserId());*/
 
         List<Bookmark> existingBookmark = bookmarkRepository.findByNewsCode(bookmarkDTO.getNewsCode());
 
@@ -121,7 +121,7 @@ public class BookmarkService {
     public int deleteWebBookmark(String userId, int bookmarkCode) {
 
         Bookmark selectedBookmark = bookmarkRepository.findByUserIdAndBookmarkCode(userId, bookmarkCode);
-        System.out.println("selectedBookmark : " + selectedBookmark.toString());
+        /*System.out.println("selectedBookmark : " + selectedBookmark.toString());*/
 
         if (selectedBookmark != null) {
             bookmarkRepository.delete(selectedBookmark);

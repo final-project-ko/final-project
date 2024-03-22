@@ -63,7 +63,7 @@ public class NewsService {
                     newsDTO.setCode(news.getCode() != null ? news.getCode() : 0); // getCode()가 null이면 0으로 설정
                     newsDTO.setTitle(news.getTitle());
                     newsDTO.setCategory(news.getCategory());
-                    newsDTO.setDescription(news.getDescription());
+                    newsDTO.setDescription(news.getAidescription());
                     newsDTO.setUrl(news.getUrl());
                     newsDTO.setImage(news.getImage());
                     newsDTO.setAidescription(news.getAidescription()); // 03.12 ai컬럼 추가
@@ -81,7 +81,7 @@ public class NewsService {
         News modifyNews = new News();
         modifyNews.setCode(Integer.parseInt(news.get("code")));
         modifyNews.setTitle(news.get("title"));
-        modifyNews.setDescription(news.get("description"));
+        modifyNews.setAidescription(news.get("description"));
         modifyNews.setUrl(news.get("url"));
         modifyNews.setImage(news.get("image"));
         modifyNews.setCategory(news.get("category"));
