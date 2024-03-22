@@ -101,7 +101,6 @@ public class ConnectionPythonApi {
         for (int attempt = 0; attempt < 2; attempt++) {
             try {
                 String response = restTemplate.postForObject(apiUrl, news, String.class);
-                System.out.println("Response from Python Server: " + response);
                 isSuccessful = true;
                 break;
             } catch (RestClientException e) {
@@ -163,8 +162,6 @@ public class ConnectionPythonApi {
                 HttpEntity<String> entity = new HttpEntity<>(jsonPayload, headers);
 
                 String response = restTemplate.postForObject(apiUrl, entity, String.class);
-
-                System.out.println("Response from Python Server: " + response);
 
                 isSuccessful = true;
 
@@ -236,7 +233,6 @@ public class ConnectionPythonApi {
         for (int attempt = 0; attempt < 2; attempt++) {
             try {
                 String response = restTemplate.postForObject(apiUrl, entity, String.class);
-                System.out.println("Response from Python Server: " + response);
                 isSuccessful = true;
                 break;
             } catch (RestClientException e) {

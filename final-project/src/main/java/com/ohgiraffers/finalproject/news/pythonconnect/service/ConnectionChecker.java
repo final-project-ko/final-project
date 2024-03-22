@@ -42,7 +42,6 @@ public class ConnectionChecker {
         try {
             // REST API 호출을 통해 Python 서버와의 연결 상태 확인
             String response = restTemplate.getForObject(apiUrl, String.class);
-            System.out.println("Response from Python Server: " + response);
             if (!isConnectedPreviously) {
                 connectionPythonApi.AIdescriptionNews();
                 connectionPythonApi.AIdescriptionNews();
