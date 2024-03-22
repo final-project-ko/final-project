@@ -122,10 +122,6 @@ public class LoginService {
                  System.out.println("id가 없습니다.");
                  return null;
              }
-             if (name.isEmpty()){
-                 System.out.println("이름이 빈값입니다.");
-                 return null;
-             }
              if (email.isEmpty()){
                  System.out.println("email이 없습니다.");
                  return null;
