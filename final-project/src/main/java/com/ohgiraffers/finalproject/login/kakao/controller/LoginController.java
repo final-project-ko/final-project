@@ -34,6 +34,7 @@ public class LoginController {
     })
     @GetMapping("/oauth/*")
     public UserEntity kakaoLogin(@RequestParam("code") String code, @RequestParam(value = "name", required = false) String name) throws JsonProcessingException  {
+        System.out.println(code);
         if (code.isEmpty()){
             return null;
         }

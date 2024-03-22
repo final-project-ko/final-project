@@ -5,7 +5,7 @@ server:
     key-store: classpath:kojssl.p12
     key-store-type: PKCS12
     key-store-password: 1q2w3e4r!
-    
+
 spring:
   jpa:
     show-sql: true

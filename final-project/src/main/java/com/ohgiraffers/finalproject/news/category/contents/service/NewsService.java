@@ -150,7 +150,7 @@ public class NewsService {
 //    ======= Summary 뉴스 DB정보 작성 (SummaryNewsCode int형태로 호출)
     public SummaryNewsDTO findSummaryNews(int num) {
         SummaryNews summaryNews = summaryNewsRepository.findBySummaryNewsCode(num);
-        System.out.println(summaryNews);
+       // System.out.println(summaryNews);
         SummaryNewsDTO summaryNewsDTO = new SummaryNewsDTO();
         summaryNewsDTO.setSummaryNewsCode(summaryNews.getSummaryNewsCode());
         summaryNewsDTO.setSummary1(summaryNews.getSummary1());
