@@ -58,6 +58,8 @@ public class ContentsController {
         LocalDate today = LocalDate.now();
 
         List<NewsDTO> result = newsService.categoryNews(category, today);
+//        System.out.println("adf"+result.get(1));
+        System.out.println("sdfsdf");
         if(Objects.isNull(result)){
 
             return null;

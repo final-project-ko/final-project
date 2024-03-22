@@ -29,10 +29,10 @@ public class AiContentsController {
             @ApiResponse(responseCode = "200", description = "뉴스 키워드 불러 오기 성공"),
             @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
     })
-    @GetMapping("/keywordNews")
-    public List<KeywordNewsDTO> selectKeywordNews() {
+    @GetMapping("/keywordNews/{num}")
+    public KeywordNewsDTO selectKeywordNews(@PathVariable int num) {
 
-        List<KeywordNewsDTO> result = newsService.findAllKeywordNews();
+        KeywordNewsDTO result = newsService.findAllKeywordNews(num);
         if (Objects.isNull(result)) {
 
             return null;
@@ -47,10 +47,10 @@ public class AiContentsController {
             @ApiResponse(responseCode = "200", description = "요약 뉴스 불러 오기 성공"),
             @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
     })
-    @GetMapping("/summaryNews")
-    public List<SummaryNewsDTO> findAllSummaryNews() {
+    @GetMapping("/summaryNews/{num}")
+    public SummaryNewsDTO findAllSummaryNews(@PathVariable int num) {
 
-        List<SummaryNewsDTO> result = newsService.findAllSummaryNews();
+        SummaryNewsDTO result = newsService.findAllSummaryNews(num);
         if (Objects.isNull(result)) {
 
             return null;

@@ -3,7 +3,9 @@ package com.ohgiraffers.finalproject.news.category.contents.service;
 import com.ohgiraffers.finalproject.news.category.contents.dto.KeywordNewsDTO;
 import com.ohgiraffers.finalproject.news.category.contents.dto.NewsDTO;
 import com.ohgiraffers.finalproject.news.category.contents.dto.SummaryNewsDTO;
+import com.ohgiraffers.finalproject.news.category.contents.entity.KeywordNews;
 import com.ohgiraffers.finalproject.news.category.contents.entity.News;
+import com.ohgiraffers.finalproject.news.category.contents.entity.SummaryNews;
 import com.ohgiraffers.finalproject.news.category.contents.repository.KeywordNewsRepository;
 import com.ohgiraffers.finalproject.news.category.contents.repository.NewsRepository;
 import com.ohgiraffers.finalproject.news.category.contents.repository.SummaryNewsRepository;
@@ -11,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
 import java.util.HashMap;
 import java.util.List;
@@ -42,8 +45,8 @@ public class NewsService {
                     newsDTO.setDescription(news.getDescription());
                     newsDTO.setUrl(news.getUrl());
                     newsDTO.setImage(news.getImage());
-                    newsDTO.setAidescription(newsDTO.getAidescription()); // 03.12 ai컬럼 추가
-                    newsDTO.setTransdescription(newsDTO.getTransdescription()); // 03.15 ai한글번역 컬럼 추가
+                    newsDTO.setAidescription(news.getAidescription()); // 03.12 ai컬럼 추가
+                    newsDTO.setTransdescription(news.getTransdescription()); // 03.15 ai한글번역 컬럼 추가
                     newsDTO.setDate(news.getDate());
 
                     return newsDTO; // newsDTO 반환
@@ -63,9 +66,10 @@ public class NewsService {
                     newsDTO.setDescription(news.getDescription());
                     newsDTO.setUrl(news.getUrl());
                     newsDTO.setImage(news.getImage());
-                    newsDTO.setAidescription(newsDTO.getAidescription()); // 03.12 ai컬럼 추가
-                    newsDTO.setTransdescription(newsDTO.getTransdescription()); // 03.15 ai한글번역 컬럼 추가
+                    newsDTO.setAidescription(news.getAidescription()); // 03.12 ai컬럼 추가
+                    newsDTO.setTransdescription(news.getTransdescription()); // 03.15 ai한글번역 컬럼 추가
                     newsDTO.setDate(news.getDate());
+                    System.out.println(newsDTO);
 
                     return newsDTO;
                 })
@@ -73,11 +77,10 @@ public class NewsService {
     }
 
     // Keyword 뉴스 DB정보 리스트로 작성
-    public List<KeywordNewsDTO> findAllKeywordNews() {
+    public KeywordNewsDTO findAllKeywordNews(int num) {
 
-        return keywordNewsRepository.findAll()
-                .stream()
-                .map(keywordNews -> {
+        KeywordNews keywordNews = keywordNewsRepository.findByKeywordNewsCode(num);
+
                     KeywordNewsDTO keywordNewsDTO = new KeywordNewsDTO(); // keywordNewsDTO 생성 후 keywordNews의 내용을 keywordNewsDTO에 저장
                     keywordNewsDTO.setKeywordNewsCode(keywordNews.getKeywordNewsCode());
                     keywordNewsDTO.setKeyword1(keywordNews.getKeyword1());
@@ -98,15 +101,12 @@ public class NewsService {
                     keywordNewsDTO.setDate(keywordNews.getDate());
 
                     return keywordNewsDTO; // keywordNewsDTO 반환
-                })
-                .toList(); // keywordNewsRepository를 통해 모든 keywordNews를 찾아서 반환
+
     }
 
-    public List<SummaryNewsDTO> findAllSummaryNews() {
-
-        return summaryNewsRepository.findAll()
-                .stream()
-                .map(summaryNews -> {
+    public SummaryNewsDTO findAllSummaryNews(int num) {
+        SummaryNews summaryNews = summaryNewsRepository.findBySummaryNewsCode(num);
+        System.out.println(summaryNews);
                     SummaryNewsDTO summaryNewsDTO = new SummaryNewsDTO(); // summaryNewsDTO 생성 후 summaryNews의 내용을 summaryNewsDTO에 저장
                     summaryNewsDTO.setSummaryNewsCode(summaryNews.getSummaryNewsCode());
                     summaryNewsDTO.setSummaryNews1(summaryNews.getSummaryNews1());
@@ -117,8 +117,8 @@ public class NewsService {
                     summaryNewsDTO.setDate(summaryNews.getDate());
 
                     return summaryNewsDTO; // summaryNewsDTO 반환
-                })
-                .toList(); // summaryNewsRepository를 통해 모든 summaryNews를 찾아서 반환
+
+
     }
 
 
