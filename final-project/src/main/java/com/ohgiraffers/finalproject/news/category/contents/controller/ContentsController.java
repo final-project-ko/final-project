@@ -56,7 +56,7 @@ public class ContentsController {
     @CrossOrigin(origins = {"http://localhost:3000", "exp://192.168.0.63:8081", "exp://172.30.1.26:8081"})
     public ArticleDTO categoryNews(@PathVariable String category) {
         LocalDate today = LocalDate.now();
-
+        System.out.println(category);
         List<NewsDTO> result = newsService.categoryNews(category, today);
 //        System.out.println("adf"+result.get(1));
         System.out.println("sdfsdf");

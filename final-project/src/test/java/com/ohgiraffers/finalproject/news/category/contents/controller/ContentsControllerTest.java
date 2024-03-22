@@ -32,7 +32,7 @@ class ContentsControllerTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @MockBean
+    @MockBean  // 실제 빈의 껍데기를 구현한 가짜 빈
     private NewsService newsService;
 
     @Test

@@ -148,4 +148,24 @@ public class BookmarkController {
             return ResponseEntity.status(500).body("서버에서 오류 발생");
         }
     }
+
+
+    @Operation(summary = "유저 북마크 조회", description = "유저 북마크 조회 메소드")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "조회 성공"),
+            @ApiResponse(responseCode = "400", description = "잘못된 요청 정보")
+    })
+    @GetMapping("/userBookMark/{userId}")
+    public List<HashMap<String,String>> userBookMark(@PathVariable String userId){
+        if(userId.isEmpty()){
+            return null;
+        }
+        List<HashMap<String,String>> bookmarkList = bookmarkService.findByWebBookmark(userId);
+
+        if (bookmarkList.isEmpty()){
+            return null;
+        }
+        return bookmarkList;
+    }
+
 }

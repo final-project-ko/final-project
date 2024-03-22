@@ -130,4 +130,25 @@ public class BookmarkService {
             throw new NoSuchElementException("사용자의 북마크를 찾을 수 없음: " + userId + ", " + bookmarkCode);
         }
     }
+
+    public List<HashMap<String,String>> findByWebBookmark(String userId) {
+
+        return bookmarkRepository.findByUserId(userId)
+                .stream()
+                .map(bookmark -> {
+                    HashMap<String,String> bookmarkDTO = new HashMap<>(); // newsDTO 생성 후 news의 내용을 newDTO에 저장
+                    bookmarkDTO.put("code",String.valueOf(bookmark.getNewsCode()));
+                    bookmarkDTO.put("userid",bookmark.getUserId());
+                    bookmarkDTO.put("bookMarkCode",String.valueOf(bookmark.getBookmarkCode()));
+                    bookmarkDTO.put("title",bookmark.getTitle());
+                    bookmarkDTO.put("description",bookmark.getDescription());
+                    bookmarkDTO.put("image",bookmark.getImage());
+                    bookmarkDTO.put("url",bookmark.getUrl());
+
+
+                    return bookmarkDTO; // newsDTO 반환
+                })
+                .toList(); // bookmarkRepository를 통해 모든 book 찾아서 반환
+    }
+
 }
