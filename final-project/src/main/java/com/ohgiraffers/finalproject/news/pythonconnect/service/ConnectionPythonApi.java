@@ -74,7 +74,7 @@ public class ConnectionPythonApi {
 
 //    ======= ai 뉴스 번역 api 요청 전송하는 코드
     @Async("taskExecutor") // 비동기 작업으로 진행
-    @Scheduled(cron ="0 18 9 * * ?") // 1시간(-5분) 한번씩 재요청
+    @Scheduled(cron ="0 37 10 * * ?") // 1시간(-5분) 한번씩 재요청
     public void TranslationNews() {
         if (!connectionStatusManager.isConnectedToPythonServer()) {
             return;
@@ -122,7 +122,7 @@ public class ConnectionPythonApi {
 
 //    ======= 키워드 뉴스 제작 전 가공
     @Async("taskExecutor")
-    @Scheduled(cron = "0 5 1 * * ?") //(매일 5분 1시)
+    @Scheduled(cron = "0 38 10 * * ?") //(매일 5분 1시)
     public void resetAndSendKeywordNews() {
         newsService.deleteKeywordNews();
         newsService.CodeNumberKeywordNews();
@@ -187,7 +187,7 @@ public class ConnectionPythonApi {
 
 //    ======= 요약 뉴스 제작 전 가공
     @Async("taskExecutor")
-    @Scheduled(cron = "0 10 1 * * ?") //(매일 10분 1시)
+    @Scheduled(cron = "0 39 10 * * ?") //(매일 10분 1시)
     public void resetAndSendSummaryNews() {
         newsService.deleteSummaryNews();
         newsService.CodeNumberSummaryNews();
