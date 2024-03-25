@@ -51,7 +51,7 @@ public class ConnectionPythonApi {
 
 //    ======= ai 뉴스 설명 api 요청 전송하는 코드
     @Async("taskExecutor") // 비동기 작업으로 진행
-    @Scheduled(fixedRate = 3600000) // 1시간에 한번씩 재요청
+    @Scheduled(cron ="0 17 9 * * ?") // 1시간에 한번씩 재요청
     public void AIdescriptionNews() {
         if (!connectionStatusManager.isConnectedToPythonServer()) {
             return;
@@ -74,7 +74,7 @@ public class ConnectionPythonApi {
 
 //    ======= ai 뉴스 번역 api 요청 전송하는 코드
     @Async("taskExecutor") // 비동기 작업으로 진행
-    @Scheduled(fixedRate = 3300000) // 1시간(-5분) 한번씩 재요청
+    @Scheduled(cron ="0 18 9 * * ?") // 1시간(-5분) 한번씩 재요청
     public void TranslationNews() {
         if (!connectionStatusManager.isConnectedToPythonServer()) {
             return;
