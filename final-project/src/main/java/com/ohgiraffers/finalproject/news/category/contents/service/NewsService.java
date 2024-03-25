@@ -69,7 +69,6 @@ public class NewsService {
                     newsDTO.setAidescription(news.getAidescription()); // 03.12 ai컬럼 추가
                     newsDTO.setTransdescription(news.getTransdescription()); // 03.15 ai한글번역 컬럼 추가
                     newsDTO.setDate(news.getDate());
-                    System.out.println(newsDTO);
 
                     return newsDTO;
                 })
