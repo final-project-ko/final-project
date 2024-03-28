@@ -80,7 +80,7 @@ class CommentsServiceTest {
 
 
     @Test
-    public void testFindComments(){
+    public void testFindCommentsNewsCode(){
 
         List<Comments> mockList = new ArrayList<>();
         mockList.add(new Comments());
@@ -105,6 +105,16 @@ class CommentsServiceTest {
         verify(commentsRepository, times(1)).findByDate(LocalDate.now());
     }
 
+    @Test
+    public void testFindAllComments(){
+        List<Comments> mockList = new ArrayList<>();
+        mockList.add(new Comments());
+
+        when(commentsRepository.findAll()).thenReturn(mockList);
+
+        List<CommentsDTO> result = commentsService.findAllComments();
+
+    }
 
 
 
